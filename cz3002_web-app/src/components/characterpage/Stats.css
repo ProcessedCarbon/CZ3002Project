@@ -1,0 +1,6 @@
+.stat{
+    display: flex;
+    flex-direction: row;
+    column-gap: .5rem;
+    text-align: center;
+}

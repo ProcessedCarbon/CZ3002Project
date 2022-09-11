@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
-
-*{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
     margin: 0;
     padding: 0;
     border: 0;
@@ -11,19 +11,36 @@
 }
 
 /* ------ Global Variables used by ALL classes ------*/
-:root{
-    --color-bg: #01161e;
-    --color-bg-variant: #124559;
-    --color-primary: #aec3b0;
-    --color-primary-variant: #598392;
-    --color-primary-variant-light: #eff6e0;
-    --color-white: #f1f2f6;
+:root {
+    /* --color-darkish-blue: #01161e;
+    --color-darkish-blue-variant: #124559;
+    --color-btn-bg: #aec3b0;
+    --color-white: #598392;
+    --color-light-yellow: #eff6e0;*/
     --color-light: rgba(255, 255, 255, 0.6);
+
+    --color-btn-bg: #5F6F94;
+    --color-darkish-blue: #25316D;
+    --color-light-blue: #97D2EC;
+    --color-light-yellow: #FEF5AC;
+
+    --color-dark-purple: #645CAA;
+    --color-light-purple: #A084CA;
+    --color-lighter-purple: #BFACE0;
+    --color-pink: #EBC7E8;
+
+    --color-darkish-yellow: #F3E0B5;
+    --color-orange: #FFAE6D;
+    --color-yellow-orange: #FFAE6D;
+    --color-darker-yellow: #E3C770;
+    --color-white: #f1f2f6;
+
+
 
     --transition: all 400ms ease;
     --transition-bars: 1s ease 0.3s;
     --transition-cubicbezier: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    
+
     --container-width-lg: 75%;
     --containder-width-md: 86%;
     --container-wdith-sm: 90%;
@@ -32,96 +49,104 @@
     --animation-fade_in-left: fade_in_left;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
-    font-family: 'Poppins', sans-serif;
-    background: var(--color-bg);
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--color-darkish-blue);
     color: var(--color-white);
     line-height: 1.5;
     overflow-x: hidden;
 }
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
     display: none;
 }
 
 /* ---------------- General Styles -------------------- */
-.container{
+.container {
     width: var(--container-width-lg);
     margin: 0 auto;
 }
 
-h1,h2,h3,h4,h5{
+h1,
+h2,
+h3,
+h4,
+h5 {
     font-size: 500;
     transition: var(--transition);
 }
 
-h1{
+h1 {
     font-size: 2.5rem;
 }
 
-section{
+section {
     margin-top: 8rem;
 }
 
-section > h2{
+section>h2 {
     text-align: center;
-    color: var(--color-primary-variant-light);
+    color: var(--color-light-yellow);
     font-size: 2rem;
 }
 
-section > h5{
+section>h5 {
     text-align: center;
     color: var(--color-light);
     font-weight: 300;
 }
 
-section > h2{
-    color: var(--color-primary);
+section>h2 {
+    color: var(--color-btn-bg);
     margin-bottom: 3rem;
 }
 
-.text-light{
+.text-light {
     color: var(--color-light);
 }
 
-a{
-    color: var(--color-primary);
+a {
+    color: var(--color-btn-bg);
     transition: var(--transition);
 }
 
 /* ================= Button ============== */
-.btn{
+.btn {
     width: max-content;
     display: inline-block;
-    color: var(--color-primary);
-    padding: 0.75rem 1.2rem;
+    color: var(--color-btn-bg);
+    padding: .2rem;
     border-radius: 0.4rem;
     cursor: pointer;
-    border: 1px solid var(--color-primary);
+    border: 3px;
+    border-style: outset;
     transition: var(--transition);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
+    background: var(--color-btn-bg);
+    box-shadow: 4px 4px 6px 5px rgba(0, 0, 0, 0.3),
+        -4px -4px 8px 1px rgba(50, 50, 50, 0.2);
 }
 
-.btn:hover{
+.btn:hover {
     background: var(--color-white);
-    color: var(--color-bg);
+    color: var(--color-darkish-blue);
     border-color: transparent;
     transform: scale(1.2);
-    text-shadow: 0px 0px 8px 5px var(--color-primary-variant);
-    box-shadow: 0px 0px 8px 5px var(--color-primary-variant);
+    text-shadow: 0px 0px 8px 5px var(--color-white);
+    box-shadow: 0px 0px 8px 5px var(--color-white);
     transition: var(--transition-cubicbezier);
 }
 
-.btn-primary{
-    background: var(--color-primary);
-    color: var(--color-bg);
+.btn-primary {
+    background: var(--color-btn-bg);
+    color: var(--color-darkish-blue);
 }
 
-img{
+img {
     display: block;
     width: 100%;
     object-fit: cover;

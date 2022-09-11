@@ -1,10 +1,20 @@
 import React from 'react'
+import CharacterPage from './components/characterpage/CharacterPage'
 
 const App = () => {
+  const renderContent = () => (
+    <>
+      <CharacterPage />
+    </>
+  );
+
   return (
-    <div>
+    <section>
         <h1>CZ3002 Web Application</h1>
-    </div>
+        <div>
+          {renderContent()}
+        </div>
+    </section>
   )
 }
 
