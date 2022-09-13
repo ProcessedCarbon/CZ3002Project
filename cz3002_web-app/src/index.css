@@ -35,8 +35,6 @@
     --color-darker-yellow: #E3C770;
     --color-white: #f1f2f6;
 
-
-
     --transition: all 400ms ease;
     --transition-bars: 1s ease 0.3s;
     --transition-cubicbezier: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -118,11 +116,10 @@ a {
 .btn {
     width: max-content;
     display: inline-block;
-    color: var(--color-btn-bg);
     padding: .2rem;
     border-radius: 0.4rem;
     cursor: pointer;
-    border: 3px;
+    border: 3px solid var(--color-btn-bg);
     border-style: outset;
     transition: var(--transition);
     font-family: 'Barlow Condensed', sans-serif;
