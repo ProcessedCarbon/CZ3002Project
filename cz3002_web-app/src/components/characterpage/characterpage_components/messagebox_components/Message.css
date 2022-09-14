@@ -1,11 +1,10 @@
-.messages{
+.messages-layout{
     display: flex;
     flex-direction: row;
-    column-gap: 1rem;
 }
 .messages-container{
     height: 100px;
-    width: 70%;
+    width: 80%;
     background: var(--color-white);
     border: 3px;
     border-radius: 10px;
@@ -16,11 +15,19 @@
     scroll-behavior: smooth;
 }
 .messages-container > p{
+    width: 100%;
     margin: 0.5rem;
     color: var(--color-darkish-blue);
 }
 
-.message > .btn{
-    height:50px;
-    width: 50px;
+.messages-layout > .btn{
+    position: relative;
+    height:100px;
+    width: 70px;
+    margin-left: 0.5rem;
+}
+.messages-layout > .btn > img{
+    width: 60px;
+    height: 90px;
+    margin-right: 1rem;
 }

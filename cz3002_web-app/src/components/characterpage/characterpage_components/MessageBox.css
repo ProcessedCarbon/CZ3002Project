@@ -10,17 +10,23 @@
     right: 20%;
     top: 45%;
     border-radius: 10px;
+    overflow: hidden;
 }
 .box > h2{
     color: var(--color-darkish-blue);
     font-weight: 500;
     margin-top: 1rem;
 }
-
-.box > div{
-    display: block;
-    justify-content: center;
-    place-items: center;
+.box > .messages-section{
+    margin-left: 7rem;
+}
+.messages-section{
     margin-top: 1rem;
-    margin-left: 5rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    width: 700px;
+    height: 400px;
 }

@@ -7,7 +7,12 @@ const MessageBox = () => {
     <div className='section messagebox-section'>
         <div className='box'>
           <h2>Your Messages</h2>
-          <Messages/>
+          <div className='messages-section'>
+            <Messages/>
+            <Messages/>
+            <Messages/>
+            <Messages/>
+          </div>
         </div>
     </div>
   )

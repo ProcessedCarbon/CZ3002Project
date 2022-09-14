@@ -101,6 +101,7 @@
     margin-top: 50%;
     left: -100%;
     column-gap: 23rem;
+    transition: var(--transition-cubicbezier);
 }
 
 .bottom_btn > .battle-btn{
