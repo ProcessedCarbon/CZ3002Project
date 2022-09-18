@@ -17,7 +17,6 @@ import protectionicon from '../../assets/icons/Protection.png'
 import chestbtn from '../../assets/Chest.png'
 import tridot from '../../assets/icons/Kebab_Menu_Horizontal.png'
 
-
 const CharacterPage = () => {
   const [isShown_msg, setIsShown_msg] = useState(false);
   const [isShown_gift, setIsShown_gift] = useState(false);
@@ -39,12 +38,21 @@ const CharacterPage = () => {
     setIsShown_msg(false);
   };
 
+  let screenToShow;
+  if(isShown_msg){
+    screenToShow = <MessageBox/>;
+  }
+  else if(isShown_gift){
+    screenToShow = <GiftBox/>;
+  }
+  else if(isShown_fav){
+    screenToShow = <FavoriteBox/>;
+  }
 
   return (
     <characterpage>
-      <div className='container characterpage_container'>
+      <div className='characterpage_container'>
         <div className='background'>
-
           <div className='character_profile'>
             <div className='profile-picture'>
               <img src={char_profile_img} alt="" />
@@ -68,17 +76,15 @@ const CharacterPage = () => {
             </div>
             <div className='gift'>
             <button onClick={handleGiftBox} className="btn gifts-btn"><img src={giftsicon} /></button>
-              {/* <a href="" className='btn gifts-btn'><img src={giftsicon} /></a> */}
             </div>
             <div className='favorites'>
               <button onClick={handleFavoriteBox} className="btn gifts-btn"><img src={favouritesicon} /></button>
-              {/* <a href="" className='btn favourites-btn'><img src={favouritesicon} /></a> */}
             </div>
           </div>
 
           <div className='avatar-scene'>
             <div className='character-avatar'>
-              <img src={char_avatar} alt="" />
+              <img src={char_avatar} />
             </div>
           </div>
 
@@ -86,14 +92,14 @@ const CharacterPage = () => {
             <a href="" className='btn inventory-btn'><img src={chestbtn} /></a>
             <a href="" className='btn battle-btn'><img src={protectionicon} /></a>
             <div className='sidebar-container'>
-              <a href="" className='btn sidebar-btn'><img src={tridot} alt="" /></a>
+              <button onClick={handleFavoriteBox} className='btn sidebar-btn'><img src={tridot} /></button>
             </div>
           </div>
 
           {/* These should always be rendered at the top most layer above all else in this page*/}
-          {isShown_msg && <MessageBox/>}
-          {isShown_gift && <GiftBox/>}
-          {isShown_fav && <FavoriteBox/>}
+          <div>
+            {screenToShow}
+          </div>
 
         </div>
       </div>
@@ -102,4 +108,4 @@ const CharacterPage = () => {
   )
 }
 
-export default CharacterPage
+export default React.memo(CharacterPage)

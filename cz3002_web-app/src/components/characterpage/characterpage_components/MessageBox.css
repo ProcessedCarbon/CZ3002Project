@@ -1,24 +1,9 @@
 .messagebox-section{
     display: block;
 }
-.box{
-    position: absolute;
-    text-align: center;
-    background: var(--color-light-yellow);
-    height: 70%;
-    width: 60%;
-    right: 20%;
-    top: 45%;
-    border-radius: 10px;
-    overflow: hidden;
-}
-.box > h2{
-    color: var(--color-darkish-blue);
-    font-weight: 500;
-    margin-top: 1rem;
-}
+
 .box > .messages-section{
-    margin-left: 7rem;
+    margin-left: 6rem;
 }
 .messages-section{
     margin-top: 1rem;
@@ -28,5 +13,5 @@
     overflow: scroll;
     scroll-behavior: smooth;
     width: 700px;
-    height: 400px;
+    height: 325px;
 }

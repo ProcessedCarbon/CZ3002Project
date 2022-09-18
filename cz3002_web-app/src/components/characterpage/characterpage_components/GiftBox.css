@@ -1,0 +1,14 @@
+.gift-layout{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 750px;
+    height: 350px;
+    place-content: start;
+    margin-left: 3.5rem;
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
+
+.gift-layout > div{
+    padding-bottom: 4rem;
+}
