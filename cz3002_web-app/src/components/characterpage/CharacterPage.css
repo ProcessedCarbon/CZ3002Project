@@ -130,13 +130,31 @@
     background: none;
     box-shadow: none;
 }
+.bottom_btn > .sidebar-container > .sidebar-btn{
+    display: flex;
+    flex-direction: column;
+}
+.bottom_btn > .sidebar-container > .sidebar-btn > .inner-btns{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    margin-top: 1.5rem;
+}
+.bottom_btn > .sidebar-container > .sidebar-btn > .inner-btns > .btn{
+    border: 0px;
+    box-shadow: none;
+    background-color: transparent;
+}
+.bottom_btn > .sidebar-container > .sidebar-btn > .inner-btns > .btn:hover{
+    background-color: transparent;
+}
 
 .bottom_btn > .sidebar-container > .sidebar-btn{
     position: absolute;
     display: flex;
     text-align: center;
-    bottom: -6rem;
-    height: 200px;
+    bottom: -20.5rem;
+    height: 400px;
     width: fit-content;
     place-items: start;
 }
@@ -144,3 +162,4 @@
     height: 50px;
     width: 50px;
 }
+

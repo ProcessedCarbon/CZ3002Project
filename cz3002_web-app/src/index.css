@@ -12,11 +12,6 @@
 
 /* ------ Global Variables used by ALL classes ------*/
 :root {
-    /* --color-darkish-blue: #01161e;
-    --color-darkish-blue-variant: #124559;
-    --color-btn-bg: #aec3b0;
-    --color-white: #598392;
-    --color-light-yellow: #eff6e0;*/
     --color-light: rgba(255, 255, 255, 0.6);
 
     --color-btn-bg: #5F6F94;
@@ -128,7 +123,7 @@ a {
         -4px -4px 8px 1px rgba(50, 50, 50, 0.2);
 }
 
-.btn:hover {
+.btn:not(.no-hover):hover {
     background: var(--color-white);
     color: var(--color-darkish-blue);
     border-color: transparent;

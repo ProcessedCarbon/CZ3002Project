@@ -23,6 +23,7 @@ const GiftBox = () => {
     setList(list);
   }
 
+  // Used to read from data base for list of gifts later
   const ReadGiftsDataBase=()=>{
 
   }
@@ -36,7 +37,7 @@ const GiftBox = () => {
         </button>
         <div className='gift-layout'>
           {
-            giftList.map((singleGift, index) => <Gift name={singleGift} removeFromList={i_DeleteGift(index)} />)
+            giftList.map((singleGift, index) => <Gift key={index} name={singleGift} removeFromList={i_DeleteGift(index)} />)
           }
         </div>
       </div>
