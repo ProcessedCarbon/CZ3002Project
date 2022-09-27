@@ -31,7 +31,7 @@ const MessageBox = () => {
       <div className='box'>
         <h2>Your Messages</h2>
         <button onClick={i_AddMessage("test message")} className='btn'>test</button>
-        <div className='messages-section'>
+        <div className='layout-scroll messages-section'>
           {
             messageList.map((singleMessage, index) => <Message content={singleMessage} removeFromList={i_DeleteMessage(index)} />)
           }

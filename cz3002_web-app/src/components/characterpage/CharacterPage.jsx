@@ -2,13 +2,13 @@ import React from 'react'
 import { useState } from 'react'
 import './CharacterPage.css'
 
-
 // REACT COMPONENTS //
 import Stats from './Stats'
 import UserName from './UserName'
 import MessageBox from './characterpage_components/MessageBox'
-import GiftBox from './characterpage_components/GiftBox'
-import FavoriteBox from './characterpage_components/FavoriteBox'
+import GiftBox, { GiftBoxFunction } from './characterpage_components/GiftBox'
+import Shop from './characterpage_components/Shop'
+import InventoryBox from './characterpage_components/InventoryBox'
 
 // ICONS OR IMAGES//
 import char_profile_img from '../../assets/char_profile_image_1.png'
@@ -27,34 +27,48 @@ import homeicon from '../../assets/icons/Home.png'
 
 const CharacterPage = () => {
 
-  {/* HOOKS */}
+  /* HOOKS */
   const [isShown_msg, setIsShown_msg] = useState(false);
   const [isShown_gift, setIsShown_gift] = useState(false);
   const [isShown_fav, setIsShown_fav] = useState(false);
   const [showSideBar, setShowSideBar] = useState(false);
+  const [showInventory, setShowInventory] = useState(false);
+  const [hideLowerBtn, setHideLowerBtn] = useState(false);
 
-  {/* ON CLICK METHODS */}
+  /* ON CLICK METHODS */
   const handleMessageBox = event => {
     setIsShown_msg(current => !current);
     setIsShown_gift(false);
     setIsShown_fav(false);
+    setShowInventory(false)
+    collapseLowerBtn(!isShown_msg);
   };
   const handleGiftBox = event => {
     setIsShown_gift(current => !current);
     setIsShown_msg(false);
     setIsShown_fav(false);
+    collapseLowerBtn(!isShown_gift);
   };
   const handleFavoriteBox = event => {
     setIsShown_fav(current => !current);
     setIsShown_gift(false);
     setIsShown_msg(false);
+    collapseLowerBtn(!isShown_fav);
   };
-
   const handleSideBar = event => {
     setShowSideBar(current => !current);
   }
+  const handleInventory = event =>{
+    setShowInventory(current=>!current);
+  }
 
-  {/* SELECT BUTTON SCREENS TO SHOW */}
+  const collapseLowerBtn = (status) =>{
+    setHideLowerBtn(status);
+    setShowSideBar(false);
+    setShowInventory(false);
+  }
+
+  /* SELECT BUTTON SCREENS TO SHOW */
   let screenToShow;
   if (isShown_msg) {
     screenToShow = <MessageBox />;
@@ -63,10 +77,13 @@ const CharacterPage = () => {
     screenToShow = <GiftBox />;
   }
   else if (isShown_fav) {
-    screenToShow = <FavoriteBox />;
+    screenToShow = <Shop />;
+  }
+  else if(showInventory){
+    screenToShow = <InventoryBox/>;
   }
 
-  {/* ================ RENDER ==================== */}
+  /* ================ RENDER ==================== */
   return (
     <characterpage>
       <div className='characterpage_container'>
@@ -100,20 +117,20 @@ const CharacterPage = () => {
           */}
           <div className='btn_group'>
             <div className='message'>
-              <button onClick={handleMessageBox} className="btn message-btn"><img src={messageicon} /></button>
+              <button onClick={handleMessageBox} className="btn message-btn"><img src={messageicon} alt=""/></button>
             </div>
             <div className='gift'>
-              <button onClick={handleGiftBox} className="btn gifts-btn"><img src={giftsicon} /></button>
+              <button onClick={handleGiftBox} className="btn gifts-btn"><img src={giftsicon} alt=""/></button>
             </div>
             <div className='favorites'>
-              <button onClick={handleFavoriteBox} className="btn gifts-btn"><img src={favouritesicon} /></button>
+              <button onClick={handleFavoriteBox} className="btn gifts-btn"><img src={favouritesicon} alt=""/></button>
             </div>
           </div>
 
          {/* PLAYER AVATAR */}
           <div className='avatar-scene'>
             <div className='character-avatar'>
-              <img src={char_avatar} />
+              <img src={char_avatar} alt=""/>
             </div>
           </div>
 
@@ -122,28 +139,28 @@ const CharacterPage = () => {
               2. battle
               3. sidebar
           */}
-          <div className='bottom_btn' style={{ scale: isShown_msg || isShown_gift || isShown_fav ? '0' : '1' }}>
-            <a href="" className='btn inventory-btn'><img src={chestbtn} /></a>
-            <a href="" className='btn battle-btn'><img src={protectionicon} /></a>
+          <div className='bottom_btn' style={{ scale: hideLowerBtn ? '0' : '1' }}>
+            <button onClick ={handleInventory} className='btn inventory-btn'><img src={chestbtn} alt=""/></button>
+            <a href ="battle" className='btn battle-btn'><img src={protectionicon} alt=""/></a>
             <div className='sidebar-container'>
               <button onClick={handleSideBar}
                 className={showSideBar ? 'btn sidebar-btn no-hover' : 'btn sidebar-btn'}
                 disabled ={showSideBar}
                 style={{bottom: showSideBar ?  '0rem' : ' -19rem'}}
               >
-                <img src={tridot} />
+                <img src={tridot} style={{display: showSideBar ? 'none' : 'block' }} alt=""/>
                 {/* Inner buttons inside the side bar */}
                 <div className='inner-btns'>
-                  <button className='btn'><img src={homeicon} /></button>
-                  <button className='btn'><img src={personicon} /></button>
-                  <button className='btn'><img src={soundonicon} /></button>
-                  <img src={minusicon} />
-                  <button className='btn' onClick={handleSideBar}><img src={pointerdownicon} /></button>
+                  <a href="login" className='btn'><img src={homeicon} alt=""/></a>
+                  <button className='btn'><img src={personicon} alt=""/></button>
+                  <button className='btn'><img src={soundonicon} alt=""/></button>
+                  <img src={minusicon} style={{marginTop:'3rem'}} alt=""/>
+                  <button className='btn' onClick={handleSideBar}><img src={pointerdownicon} alt=""/></button>
                 </div>
               </button>
             </div>
           </div>
-
+          
           {/* VARIOUS BUTTON SCREENS */}
           <div>
             {screenToShow}
