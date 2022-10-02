@@ -1,7 +1,5 @@
 .tasklist-container{
     height: 70%;
     width: 100%;
-    overflow: scroll;
-    scroll-behavior: smooth;
     margin: 1rem;
 }

@@ -1,5 +1,27 @@
-.gift-container > .btn{
-    height: 75px;
-    width: 75px;
+.gift-container{
+    height: fit-content;
+    width: 110px;
+    margin-top: 1rem;
+}
+
+.gift-container >h4 {
+    color: red;
+    word-wrap: break-word;
+}
+
+.gift-container > .giftbtn{
+    height: 100px;
+    width: 110px;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
     background: var(--color-white);
+    overflow: hidden;
+}
+
+.gift-container > .giftbtn > img{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: red;
 }

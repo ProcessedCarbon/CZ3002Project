@@ -6,6 +6,11 @@ import Register from './components/auth/Register'
 import BattlePage from './components/battle_page/BattlePage';
 
 const App = () => {
+  
+  function ClearLocalStorage(){
+    localStorage.clear();
+  }
+
   const renderContent = () => (
     <>
       <BrowserRouter>

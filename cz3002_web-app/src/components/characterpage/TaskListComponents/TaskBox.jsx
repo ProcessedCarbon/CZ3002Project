@@ -3,7 +3,7 @@ import './TaskBox.css'
 import TaskForm from './TaskForm'
 import TaskList from './TaskList'
 
-const LOCAL_STORAGE_KEY = "tasklist_taskbox"
+const LOCAL_STORAGE_KEY = "TASKBOX"
 
 const TaskBox = () => {
     const [tasks, setTasks] = useState([]);

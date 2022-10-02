@@ -1,18 +1,27 @@
 import React from 'react'
 import './Gift.css'
+import completeicon from '../../../assets/icons/Complete.png'
+import minusicon from '../../../assets/icons/Minus.png'
 
-const Gift = ({name, removeFromList}) => {
+function Gift({ gift, toggleClaimed }) {
 
-const handleOnClickGift = event =>{
+  function handleOnClickGift() {
     // Collect gift logic
-    removeFromList();
-}
+    toggleClaimed(gift.id);
+  }
 
   return (
     <div className='gift-container'>
-        <button id = 'gift' onClick={handleOnClickGift} className='btn gift'>
-          <h4>{name}</h4>
-        </button>
+      <button 
+        className={gift.claimed ? 'btn giftbtn no-hover' : 'btn giftbtn'}
+        onClick={handleOnClickGift}
+      >
+        <img src={gift.claimed ? completeicon : minusicon} 
+            alt="" 
+            style={{backgroundColor: gift.claimed ? "gray" : "red"}}
+          />
+      </button>
+      <h4>{gift.name}</h4>
     </div>
   )
 }

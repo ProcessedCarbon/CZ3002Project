@@ -1,51 +1,61 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './GiftBox.css'
-import Gift from './Gift'
-import { useState } from 'react'
-import AxiosInterface from '../../Misc/AxiosInterface'
-export class GiftBoxFunction {
-  AddGift = ({ giftname }) => {
-    GiftBox.i_AddGift(giftname);
-  }
-}
+import GiftList from './GiftList'
+import GiftInterface from './GiftInterface'
 
-// Reference to Axios Interface
-const a_interface = new AxiosInterface(true);
+const LOCAL_STORAGE_KEY = "GIFTBOX"
 
 const GiftBox = () => {
-  const [giftList, setList] = useState([]);
-  const tmpGiftName = "Tmp_Gift"
+  const [gifts, setList] = useState([]);
+  /**
+ * Store data on local storage
+ */
+  useEffect(() => {
+    const storageGifts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if (storageGifts) {
+      setList(storageGifts);
+    }
+  }, [])
 
-  const i_AddGift = (giftName) => (event) => {
-    setList([...giftList, giftName]);
-    //a_interface.getData("/todos");
-    //a_interface.postData("/todos", {title: "WOOP", completed: false});
-    //a_interface.updateTodo()
-    //a_interface.getSimData();
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(gifts))
+  }, [gifts]);
+
+  /**
+   * Method to adda gift 
+   * @param {*} gift 
+   */
+  function addGift(gift) {
+    setList([...gifts, gift]);
   }
-  const i_DeleteGift = (index) => (event) => {
-    const list = [...giftList];
-    list.splice(index, 1);
-    setList(list);
+
+  function toggleClaimed(id) {
+    console.log("ran");
+    setList(
+      gifts.map(gift => {
+        if (gift.id === id) {
+          console.log("found");
+          return {
+            ...gift,
+            claimed: true
+          };
+        }
+        return gift;
+      })
+    );
   }
 
-  // Used to read from data base for list of gifts later
-  const ReadGiftsDataBase = () => {
-
+  function clearGifts() {
+    setList(gifts.filter(gifts => gifts.claimed !== true))
   }
 
   return (
     <div className='giftbox-container'>
       <div className='box'>
-        <h2>GiftBox</h2>
-        <button className='btn' onClick={(e) => i_AddGift(tmpGiftName)(e)}>
-          <h4>test</h4>
-        </button>
-        <div className='layout-scroll gift-layout'>
-          {
-            giftList.map((singleGift, index) => <Gift key={index} name={singleGift} removeFromList={i_DeleteGift(index)} />)
-          }
-        </div>
+        <h2>Gift Box</h2>
+        <button className='btn clearClaimedGifts' onClick={clearGifts}><h4>Clear Claimed</h4></button>
+        <GiftInterface addGift={addGift} />
+        <GiftList gifts={gifts} toggleClaimed={toggleClaimed} />
       </div>
     </div>
   )

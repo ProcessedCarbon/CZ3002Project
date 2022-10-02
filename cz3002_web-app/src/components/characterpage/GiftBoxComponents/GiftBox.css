@@ -1,12 +1,16 @@
-.gift-layout{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    width: 750px;
-    height: 350px;
-    place-content: start;
-    margin-left: 3.5rem;
+.giftbox-container > .box{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
 }
 
-.gift-layout > div{
-    padding-bottom: 4rem;
+.giftbox-container >.box >div{
+    margin-bottom: 1rem;
+}
+
+.giftbox-container >.box >.clearClaimedGifts{
+    position: inherit;
+    right: 1rem;
+    top: 1rem;
+    height: 35px;
 }

@@ -1,0 +1,9 @@
+.gift-layout{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 750px;
+    height: 350px;
+    place-content: start;
+    margin-left: 2rem;
+    padding: 1rem;
+}
