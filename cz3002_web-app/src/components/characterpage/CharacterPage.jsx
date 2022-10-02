@@ -5,10 +5,10 @@ import './CharacterPage.css'
 // REACT COMPONENTS //
 import Stats from './Stats'
 import UserName from './UserName'
-import MessageBox from './characterpage_components/MessageBox'
-import GiftBox, { GiftBoxFunction } from './characterpage_components/GiftBox'
-import Shop from './characterpage_components/Shop'
-import InventoryBox from './characterpage_components/InventoryBox'
+import GiftBox, { GiftBoxFunction } from './GiftBoxComponents/GiftBox'
+import Shop from './ShopComponents/Shop'
+import InventoryBox from './InventoryComponents/InventoryBox'
+import TaskBox from './TaskListComponents/TaskBox'
 
 // ICONS OR IMAGES//
 import char_profile_img from '../../assets/char_profile_image_1.png'
@@ -28,31 +28,30 @@ import homeicon from '../../assets/icons/Home.png'
 const CharacterPage = () => {
 
   /* HOOKS */
-  const [isShown_msg, setIsShown_msg] = useState(false);
   const [isShown_gift, setIsShown_gift] = useState(false);
   const [isShown_fav, setIsShown_fav] = useState(false);
   const [showSideBar, setShowSideBar] = useState(false);
   const [showInventory, setShowInventory] = useState(false);
   const [hideLowerBtn, setHideLowerBtn] = useState(false);
+  const [isShown_tasklist, setIsShown_tasklist] = useState(false);
 
   /* ON CLICK METHODS */
-  const handleMessageBox = event => {
-    setIsShown_msg(current => !current);
-    setIsShown_gift(false);
+  const handleTaskList = event => {
+    setIsShown_tasklist(current => !current);
     setIsShown_fav(false);
-    setShowInventory(false)
-    collapseLowerBtn(!isShown_msg);
+    setIsShown_gift(false);
+    collapseLowerBtn(!isShown_tasklist);
   };
   const handleGiftBox = event => {
     setIsShown_gift(current => !current);
-    setIsShown_msg(false);
     setIsShown_fav(false);
+    setIsShown_tasklist(false);
     collapseLowerBtn(!isShown_gift);
   };
   const handleFavoriteBox = event => {
     setIsShown_fav(current => !current);
     setIsShown_gift(false);
-    setIsShown_msg(false);
+    setIsShown_tasklist(false);
     collapseLowerBtn(!isShown_fav);
   };
   const handleSideBar = event => {
@@ -70,10 +69,7 @@ const CharacterPage = () => {
 
   /* SELECT BUTTON SCREENS TO SHOW */
   let screenToShow;
-  if (isShown_msg) {
-    screenToShow = <MessageBox />;
-  }
-  else if (isShown_gift) {
+  if (isShown_gift) {
     screenToShow = <GiftBox />;
   }
   else if (isShown_fav) {
@@ -81,6 +77,9 @@ const CharacterPage = () => {
   }
   else if(showInventory){
     screenToShow = <InventoryBox/>;
+  }
+  else if(isShown_tasklist){
+    screenToShow = <TaskBox/>
   }
 
   /* ================ RENDER ==================== */
@@ -117,7 +116,7 @@ const CharacterPage = () => {
           */}
           <div className='btn_group'>
             <div className='message'>
-              <button onClick={handleMessageBox} className="btn message-btn"><img src={messageicon} alt=""/></button>
+              <button onClick={handleTaskList} className="btn message-btn"><img src={messageicon} alt=""/></button>
             </div>
             <div className='gift'>
               <button onClick={handleGiftBox} className="btn gifts-btn"><img src={giftsicon} alt=""/></button>

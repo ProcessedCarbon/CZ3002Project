@@ -1,10 +1,14 @@
 import axios from "axios";
 import React from "react";
 
+/** Base path to database */
 const axiosInstance = axios.create({ baseURL: 'https://jsonplaceholder.typicode.com' });
 
-axiosInstance.defaults.headers.common['X-Auth-Token'] =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+/**
+ * Token for database if needed
+ */
+// axiosInstance.defaults.headers.common['X-Auth-Token'] =
+//     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
 
 class AxiosInterface extends React.Component {
     constructor(props) {

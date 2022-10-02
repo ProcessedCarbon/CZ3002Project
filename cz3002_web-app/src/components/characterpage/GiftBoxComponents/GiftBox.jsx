@@ -1,7 +1,6 @@
 import React from 'react'
 import './GiftBox.css'
-import './characterpage_components.css'
-import Gift from './giftbox_components/Gift'
+import Gift from './Gift'
 import { useState } from 'react'
 import AxiosInterface from '../../Misc/AxiosInterface'
 export class GiftBoxFunction {

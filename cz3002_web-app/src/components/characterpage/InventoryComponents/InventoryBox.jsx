@@ -1,7 +1,7 @@
 import React from 'react'
 import './InventoryBox.css'
 import { useState } from 'react';
-import Item from './inventory_components/Item'
+import Item from './Item'
 const InventoryBox = () => {
     const [itemList, setList] = useState([]);
     const tmpItemName = "Tmp_Item"

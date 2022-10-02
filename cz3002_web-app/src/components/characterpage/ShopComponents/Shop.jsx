@@ -1,8 +1,7 @@
 import React from 'react'
 import './Shop.css'
-import './characterpage_components.css'
 import { useState } from 'react'
-import ShopItem from './shop_components/ShopItem'
+import ShopItem from './ShopItem'
 
 const FavoriteBox = () => {
   const tmpShopItemName = "Shop_Tmp_Item"
