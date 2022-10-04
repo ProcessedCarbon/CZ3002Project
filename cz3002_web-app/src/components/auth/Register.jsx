@@ -1,6 +1,9 @@
 import React from 'react'
 import './Register.css'
 import avatar from '../../assets/char_avatar.png'
+import AxiosInterface from '../Misc/AxiosInterface'
+
+const axios = new AxiosInterface();
 
 var state = {
   inputs: {},
@@ -61,6 +64,14 @@ function validateInputs(){
 function onBtnClick(){
   var valid = validateInputs()
   //TODO: backend logic
+  var postInput = {
+    name: state.inputs["name"],
+    email: state.inputs["email"],
+    region: state.inputs["region"],
+    password: state.inputs["password"]
+  }
+  axios.postData('/user/register',postInput,"")
+  console.log(postInput);
   if(valid){
     window.location.href='profile'
   }

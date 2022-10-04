@@ -1,6 +1,9 @@
 import React from 'react'
 import './Login.css'
 import avatar from '../../assets/char_avatar.png'
+import AxiosInterface from '../Misc/AxiosInterface';
+
+const axios = new AxiosInterface();
 
 var state = {
   inputs: {},
@@ -31,6 +34,11 @@ function registerBtnClick(){
 }
 
 function loginBtnClick(){
+  var getInput = {
+    email: state.inputs['username'],
+    password: state.inputs['password']
+  }
+  axios.getData('/user/login',getInput,"");
   if(validateInputs()){
     //TODO: backend logic
     window.location.href='profile'
