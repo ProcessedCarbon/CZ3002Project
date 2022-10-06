@@ -1,0 +1,50 @@
+.battlepage-container > .battlepage-screen{
+    background-color: #2F283A;
+    background-image: url(../../assets/battle_background.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 30px;
+    display: flex;
+    height: 650px;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.battlepage-screen > .btn_group{
+    position: absolute;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    column-gap: 1.5rem;
+    justify-content: space-around;
+    right: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.battlepage-screen > .btn_group > div > .btn{
+    border-radius: 10px;
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
+}
+.battlepage-screen > .btn_group > div > .btn > img{
+    height: 55px;
+    width: 55px;
+}
+
+/* BATTLE SCENE */
+.battlepage-screen > .entity-space{
+    display: flex;
+    flex-direction: row;
+    column-gap: 50rem;
+    margin-top: 10rem;
+    /* background: red; */
+    height: fit-content;
+    overflow: hidden;
+
+}
+
+.battlepage-screen > .entity-space > div {
+    position: relative;
+}

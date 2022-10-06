@@ -2,10 +2,13 @@
     height: fit-content;
     width: 110px;
     margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
 }
 
-.gift-container >h4 {
-    color: red;
+.gift-container > h4 {
+    color: var(--color-darkish-blue);
     word-wrap: break-word;
 }
 
@@ -23,5 +26,5 @@
     position: relative;
     height: 100%;
     width: 100%;
-    background-color: red;
+    background-color: var(--color-dark-purple);
 }

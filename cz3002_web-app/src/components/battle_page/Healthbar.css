@@ -1,0 +1,39 @@
+.healthbar-container{
+	width: 100%;
+	height: fit-content;
+}
+.healthbar-container > .healthbar-parent {
+	background-color: gray;
+	border-radius: 20px;
+	position: relative;
+	margin: 10px 0;
+	height: 20px;
+	width: 100%;
+	transition: var(--transition-cubicbezier);
+	border: 2.5px var(--color-light);
+	border-style: inset;
+	box-shadow: inset 0px 0px 5px 3px rgba(0,0,0,0.2);
+}
+
+.healthbar-container > h5 {
+	font-size: 1.2rem;
+}
+
+.healthbar-container > .healthbar-parent > .health-bar {
+	/* Local variables to switch between */
+	--red-statbar-bg: linear-gradient(to left, #eb5858, #ec3636);
+	--yellow-statbar-bg: linear-gradient(to left, #F4E06D, #faeb20);
+	--green-statbar-bg: linear-gradient(to left, #38E54D, #38E54D);
+
+    background: red;
+	border-radius: 20px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 0;
+	opacity: 0;
+	overflow: hidden;
+	transition: var(--transition-bars);
+}

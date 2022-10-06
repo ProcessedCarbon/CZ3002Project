@@ -159,9 +159,11 @@ img {
     border-radius: 10px;
 }
 .box > h2{
+    font-family: var(--alt-font);
     color: var(--color-darkish-blue);
     font-weight: 500;
     margin-top: 1rem;
+    font-size: xx-large;
 }
 
 .layout-scroll{

@@ -5,7 +5,7 @@ import './CharacterPage.css'
 // REACT COMPONENTS //
 import Stats from './Stats'
 import UserName from './UserName'
-import GiftBox, { GiftBoxFunction } from './GiftBoxComponents/GiftBox'
+import GiftBox from './GiftBoxComponents/GiftBox'
 import Shop from './ShopComponents/Shop'
 import InventoryBox from './InventoryComponents/InventoryBox'
 import TaskBox from './TaskListComponents/TaskBox'
@@ -166,6 +166,7 @@ const CharacterPage = () => {
           </div>
 
         </div>
+
       </div>
     </characterpage>
 

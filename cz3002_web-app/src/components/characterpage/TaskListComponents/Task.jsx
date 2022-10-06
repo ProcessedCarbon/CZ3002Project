@@ -12,7 +12,7 @@ function Task ({todo, toggleComplete, removeTask}){
 
   return (
     <div className='task-container'>
-        <input type="checkbox" onClick={handleCheckBoxClick} />
+        <input type="checkbox" onClick={handleCheckBoxClick} checked={todo.completed ? true : false}/>
         <h5
             style={{
                     textDecoration: todo.completed ? "line-through" : null

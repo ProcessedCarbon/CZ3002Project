@@ -25,7 +25,7 @@ class AxiosInterface extends React.Component {
             headers: custom_headers
         }
         axiosInstance.get(route, { params: paras }, config)
-            .then(res => console.log(res.data))
+            .then(res => console.log(res))
             .catch(err => {
                 if (err.response) {
                     // Server responded with a status other than 200 range

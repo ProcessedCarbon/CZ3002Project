@@ -1,0 +1,11 @@
+.inventory-layout{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 750px;
+    height: 350px;
+    place-content: start;
+    padding: 1rem;
+    border: 8px var(--color-darker-yellow);
+    border-style: inset;
+    box-shadow: inset 6px 6px 8px 6px rgba(0,0,0,0.4);
+}

@@ -30,11 +30,9 @@ const GiftBox = () => {
   }
 
   function toggleClaimed(id) {
-    console.log("ran");
     setList(
       gifts.map(gift => {
         if (gift.id === id) {
-          console.log("found");
           return {
             ...gift,
             claimed: true

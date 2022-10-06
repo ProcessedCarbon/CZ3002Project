@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: column;
     place-items: center;
+    background: var(--color-orange);
 }
+
 
 .giftbox-container >.box >div{
     margin-bottom: 1rem;

@@ -1,31 +1,55 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './InventoryBox.css'
-import { useState } from 'react';
-import Item from './Item'
-const InventoryBox = () => {
-    const [itemList, setList] = useState([]);
-    const tmpItemName = "Tmp_Item"
+import InventoryList from './InventoryList'
+import InventoryInterface from './InventoryInterface'
 
-    const i_AddItem = (giftName) => (event) => {
-        setList([...itemList, giftName]);
+const LOCAL_STORAGE_KEY = "GIFTBOX"
+
+const InventoryBox = () => {
+    const [items, setList] = useState([]);
+    /**
+   * Store data on local storage
+   */
+    useEffect(() => {
+        const storageItems = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+        if (storageItems) {
+            setList(storageItems);
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(items))
+    }, [items]);
+
+    function toggleEquipped(id) {
+        console.log("ran");
+        setList(
+            items.map(item => {
+            if (item.id === id) {
+              return {
+                ...item,
+                equipped: !item.equipped
+              };
+            }
+            return item;
+          })
+        );
+      }
+
+    /**
+ * Method to adda gift 
+ * @param {*} item 
+ */
+    function addItem(item) {
+        setList([...items, item]);
     }
-    const i_DeleteItem = (index) => (event) => {
-        const list = [...itemList];
-        list.splice(index, 1);
-        setList(list);
-    }
+
     return (
         <div className='inventorybox-container'>
             <div className='box'>
                 <h2>Inventory</h2>
-                <button className='btn' onClick={(e) => i_AddItem(tmpItemName)(e)}>
-                    <h4>test</h4>
-                </button>
-                <div className='item-layout'>
-                    {
-                        itemList.map((singleGift, index) => <Item key={index} name={singleGift} removeFromList={i_DeleteItem(index)} />)
-                    }
-                </div>
+                <InventoryInterface addItem={addItem} />
+                <InventoryList items={items} toggleEquipped={toggleEquipped} />
             </div>
         </div>
     )

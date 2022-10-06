@@ -1,15 +1,9 @@
-.item-layout{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    width: 750px;
-    height: 350px;
-    place-content: start;
-    margin-left: 3.5rem;
-    overflow: scroll;
-    scroll-behavior: smooth;
-    overscroll-behavior: contain;
+.inventorybox-container > .box{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
 }
 
-.item-layout > div{
-    padding-bottom: 4rem;
+.inventorybox-container >.box >div{
+    margin-bottom: 1rem;
 }

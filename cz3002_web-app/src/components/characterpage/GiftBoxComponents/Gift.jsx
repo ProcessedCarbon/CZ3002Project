@@ -18,7 +18,7 @@ function Gift({ gift, toggleClaimed }) {
       >
         <img src={gift.claimed ? completeicon : minusicon} 
             alt="" 
-            style={{backgroundColor: gift.claimed ? "gray" : "red"}}
+            style={{backgroundColor: gift.claimed ? "gray" : "var(--color-dark-purple)"}}
           />
       </button>
       <h4>{gift.name}</h4>

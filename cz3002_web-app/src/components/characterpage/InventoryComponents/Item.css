@@ -1,0 +1,42 @@
+.item-container{
+    width: 100px;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    row-gap: .5rem;
+}
+.item-container > .item-body{
+    background: var(--color-light-purple);
+    border-radius: 5px;
+    width: 100%;
+}
+.item-container > .item-body:is(.equipped){
+    background: gray;
+    border: 8px var(--color-btn-bg);
+    border-style: inset;
+}
+
+.item-container > h4{
+    color: var(--color-darkish-blue);
+    word-wrap: break-word;
+}
+
+.item-container > .equipbtn{
+    height: 30px;
+    width: 100px;
+    place-items: center;
+    overflow: hidden;
+}
+
+.item-container > .equipbtn:is(.no-hover){
+    background: var(--color-darkish-blue);
+    border: 0;
+}
+
+.item-container > .equipbtn > img{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: red;
+}

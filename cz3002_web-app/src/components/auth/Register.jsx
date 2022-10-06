@@ -1,12 +1,12 @@
 import React from 'react'
 import './Register.css'
 import avatar from '../../assets/char_avatar.png'
-
+import AxiosInterface from '../Misc/AxiosInterface'
 var state = {
   inputs: {},
   errors: {},
 };
-
+const a_interface = new AxiosInterface();
 function validateInputs(){
   let inputs = state.inputs
   let errors = {}
