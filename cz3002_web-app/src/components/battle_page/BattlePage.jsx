@@ -9,37 +9,56 @@ import BattleTaskBox from './BattleTaskListComponents/BattleTaskBox'
 import Player from './Player'
 import Enemy from './Enemy'
 
-// ICONS OR IMAGES//
-import messageicon from '../../assets/icons/Messages.png'
-
 let enemyHP = 100;
+const LOCAL_STORAGE_KEY = "BATTLEPAGE"
 
 const BattlePage = () => {
   /* HOOKS */
-  const [isShown_tasklist, setIsShown_tasklist] = useState(false);
   const [taskComplete, setTaskStatus] = useState(false);
+  const [enemyState, setEnemyState] = useState({
+    name:"",
+    hp:0,
+    img:""
+  });
+  // useEffect(() => {
+  //   const storageTask = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+  //   if (storageTask) {
+  //     setTasks(storageTask);
+  //   }
+  // }, [])
 
-  const handleTaskList = event => {
-    setIsShown_tasklist(current => !current);
-  };
+  // useEffect(() => {
+  //   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tasks))
+  // }, [tasks]);
 
-  /* SELECT BUTTON SCREENS TO SHOW */
-  let screenToShow;
-  if (isShown_tasklist) {
-    screenToShow = <BattleTaskBox setTaskComplete={setTaskComplete}/>
+  function selectEnemyToBattle() {
+    // Do not spawn enemy if current enemy has not been defeated
+    // picks enemy to spawn for player
+    // Enemy is picked based on a random 
+    // returns reward based on enemy spawned
   }
 
-  function setTaskComplete(completed){
+
+  function setTaskComplete(completed) {
     setTaskStatus(completed)
   }
 
   useEffect(() => {
-    if(taskComplete){
+    if (taskComplete) {
       // damage enemy
       //alert("damage enemy");
-      enemyHP -= 10;
+      if (enemyHP > 0) {
+        enemyHP -= 10;
+      }
       // reset taskcomplete
       setTaskStatus(false);
+
+
+      if (enemyHP < 0) {
+        // player win
+        // Show victory box
+        // Show reward
+      }
     }
   }, [taskComplete])
 
@@ -47,11 +66,6 @@ const BattlePage = () => {
   return (
     <div className='battlepage-container'>
       <div className='battlepage-screen'>
-        <div className='btn_group'>
-          <div className='tasks'>
-            <button onClick={handleTaskList} className="btn tasks-btn"><img src={messageicon} alt="" /></button>
-          </div>
-        </div>
         {/* ENTITY COMPONENTS */}
         <div className='entity-space'>
           <Player health={100} name="Gregory123" />
@@ -59,7 +73,7 @@ const BattlePage = () => {
         </div>
         {/* VARIOUS BUTTON SCREENS */}
         <div>
-          {screenToShow}
+          <BattleTaskBox setTaskComplete={setTaskComplete} />
         </div>
       </div>
     </div>

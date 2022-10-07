@@ -1,0 +1,15 @@
+.battletask-container{
+    min-height: 75px;
+    min-width: 20%;
+    background: var(--color-orange);
+}
+
+.battletask-container > h5{
+    max-width: 50%;
+    overflow: scroll;
+}
+
+.battletask-container > .btn{
+    width: 10%;
+    height: 40px;
+}

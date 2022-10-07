@@ -1,7 +1,7 @@
 import React from 'react'
-import './Task.css'
+import './BattleTask.css'
 import plusicon from '../../../assets/icons/Plus.png'
-function Task ({todo, toggleComplete, removeTask}){
+function BattleTask ({todo, toggleComplete, removeTask}){
   function handleCheckBoxClick(){
     toggleComplete(todo.id);
   }
@@ -11,8 +11,12 @@ function Task ({todo, toggleComplete, removeTask}){
   }
 
   return (
-    <div className='task-container'>
-        {/* <input type="checkbox" onClick={handleCheckBoxClick} defaultChecked={todo.completed ? true : false}/> */}
+    <div className='task-container battletask-container'>
+        <input type="checkbox" 
+              onClick={handleCheckBoxClick} 
+              defaultChecked={todo.completed ? true : false} 
+              disabled={todo.completed ? true : false}
+        />
         <h5
             style={{
                     textDecoration: todo.completed ? "line-through" : null
@@ -25,4 +29,4 @@ function Task ({todo, toggleComplete, removeTask}){
   )
 }
 
-export default Task
+export default BattleTask

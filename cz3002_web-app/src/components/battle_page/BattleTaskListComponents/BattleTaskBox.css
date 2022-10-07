@@ -1,5 +1,7 @@
-.taskbox-container > .box{
-    display: flex;
-    flex-direction: column;
-    place-items: center;
+.battletaskbox-container > .box{
+    height: 20%;
+    width: 90%;
+    top: 43rem;
+    left: 4.5rem;
+    background: var(--color-darkish-blue);
 }

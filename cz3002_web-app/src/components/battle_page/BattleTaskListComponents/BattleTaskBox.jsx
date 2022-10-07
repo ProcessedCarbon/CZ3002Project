@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './BattleTaskBox.css'
-import TaskList from '../../characterpage/TaskListComponents/TaskList'
+import BattleTaskList from './BattleTaskList'
 
 const LOCAL_STORAGE_KEY = "TASKBOX" // Needs to be the same as taskbox to retrive the same task
 
@@ -33,20 +33,17 @@ const BattleTaskBox = ({ setTaskComplete }) => {
         );
     }
 
-    // function clearAllTask(){
-    //     setTasks([])
-    // }
-
     function removeTask(id) {
         setTasks(tasks.filter(task => task.id !== id))
     }
 
     return (
-        <div className='taskbox-container'>
+        <div className='taskbox-container battletaskbox-container'>
             <div className='box'>
-                <h2>Task List</h2>
-                {/* <button className='btn clearall' onClick={clearAllTask}><h4>Clear All</h4></button> */}
-                <TaskList todos={tasks} toggleComplete={toggleComplete} removeTask={removeTask} />
+                <BattleTaskList className="battle-tasklist" 
+                                todos={tasks} 
+                                toggleComplete={toggleComplete} 
+                                removeTask={removeTask} />
             </div>
         </div>
     )

@@ -1,15 +1,20 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import './Enemy.css'
 import Healthbar from './Healthbar'
 import sentinel from '../../assets/Sentinel.png'
 
-let hp = 100;
-
 function Enemy({ health, atk, reward, name }) {
-  const [hp, setHP] = useState(health);
+  //const [hp, setHP] = useState(health);
+  const [damaged, setDamaged] = useState(false);
 
-  function hpSetter(value){
-      setHP(value);
+  function hpSetter(value) {
+    // damage taken
+    setDamaged(true);
+    setTimeout(() => {
+      setDamaged(false);
+    }, 200);
+
+    health = value;
   }
 
   useEffect(() => {
@@ -20,8 +25,8 @@ function Enemy({ health, atk, reward, name }) {
     <div className='enemy-container'>
       <div className='enemy-avatar'>
         <h5>{name}</h5>
-        <Healthbar currHealth={health} hpSetter={hpSetter}/>
-        <img src={sentinel} alt="" />
+        <Healthbar currHealth={health} hpSetter={hpSetter} />
+        <img className={(damaged) ? "damaged" : ""} src={sentinel} alt="" />
       </div>
     </div>
   )
