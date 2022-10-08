@@ -3,7 +3,7 @@ import './Player.css'
 import Healthbar from './Healthbar'
 import char_avatar from '../../assets/char_avatar.png'
 
-function Player({health, name}) {
+function Player({health, maxhealth,name}) {
     const [hp, setHP] = useState(health);
 
     function hpSetter(value){
@@ -14,7 +14,7 @@ function Player({health, name}) {
         <div className='player-container'>
             <div className='character-avatar'>
                 <h5>{name}</h5>
-                <Healthbar currHealth={hp} hpSetter={hpSetter}/>
+                <Healthbar currHealth={hp} health={maxhealth} hpSetter={hpSetter}/>
                 <img src={char_avatar} alt="" />
             </div>
         </div>

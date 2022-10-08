@@ -1,7 +1,10 @@
 .battletaskbox-container > .box{
     height: 20%;
     width: 90%;
-    top: 43rem;
+    top: 90%;
     left: 4.5rem;
-    background: var(--color-darkish-blue);
+    /* background: var(--color-darkish-blue) ; */
+    background: #5f6f944a;
+    backdrop-filter: blur(3px);
+    border: 5px solid var(--color-reddish);
 }

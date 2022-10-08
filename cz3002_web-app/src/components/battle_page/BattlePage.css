@@ -38,11 +38,11 @@
     display: flex;
     flex-direction: row;
     column-gap: 50rem;
-    margin-top: 10rem;
-    /* background: red; */
+    margin: auto 10rem;
     height: fit-content;
     overflow: hidden;
     min-height: 350px;
+    overflow: visible;
 }
 
 .battlepage-screen > .entity-space > div {

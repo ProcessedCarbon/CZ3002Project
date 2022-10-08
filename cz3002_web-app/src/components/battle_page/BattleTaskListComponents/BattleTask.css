@@ -2,6 +2,7 @@
     min-height: 75px;
     min-width: 20%;
     /* background: var(--color-orange); */
+    filter: drop-shadow(8px 8px 8px #000);
 }
 
 .battletask-container > h5{

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import Select from 'react-select' // might want to look into this for future ref
 import './TaskForm.css';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -33,6 +34,7 @@ function TaskForm({ addTask }) {
     return (
         <div className='taskform-container'>
             <form action="" onSubmit={handleSubmit} className="taskform-format">
+                
                 <input
                     name="task"
                     type="text"
@@ -40,13 +42,16 @@ function TaskForm({ addTask }) {
                     value={todo.task}
                 />
                 <select id='taskpriority-select'
-                    className="taskpriority-select-name"
-                    onChange={handleTaskPriorityChange}
-                >
-                    <option value="High"><h5>High</h5></option>
-                    <option value="Med"><h5>Med</h5></option>
-                    <option value="Low"><h5>Low</h5></option>
+                    onChange={handleTaskPriorityChange}>
+
+                    <option value="High">High</option>
+
+                    <option value="Med">Med</option>
+
+                    <option value="Low">Low</option>
+
                 </select>
+
                 <button className='btn' type='submit'><h5>+</h5></button>
             </form>
         </div>

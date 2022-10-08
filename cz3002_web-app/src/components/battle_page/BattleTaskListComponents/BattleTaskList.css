@@ -1,6 +1,9 @@
 .battletasklist-container{
-    overflow: scroll;
+    overflow-x: scroll;
     display: flex;
     flex-direction: row;
     scroll-behavior: smooth;
+}
+.battletasklist-container::-webkit-scrollbar{
+    display: none;
 }

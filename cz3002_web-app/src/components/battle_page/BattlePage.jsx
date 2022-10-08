@@ -70,7 +70,7 @@ const BattlePage = () => {
 
 
   function createEnemy() {
-    let enemyIndex = getRandomValue(0, (enemies.length - 1))
+    let enemyIndex = getRandomValue(0, (enemies.length))
     setEnemyState({
       name: enemies[enemyIndex].name,
       currhp: enemies[enemyIndex].health,
@@ -117,16 +117,16 @@ const BattlePage = () => {
       <div className='battlepage-screen'>
         {/* <button className='btn' onClick={ClearLocalStorage}>Clear Storage</button> */}
         {/* ENTITY COMPONENTS */}
+        {!battlecomplete &&
         <div className='entity-space'>
-          <Player health={100} name="Gregory123" />
-          {!battlecomplete && 
+          <Player health={100} maxhealth={100} name="Gregory123" />
           <Enemy
             currHealth={enemyState.currhp}
             health={enemyState.hp}
             name={enemyState.name}
             type={enemyState.type}
-          />}
-        </div>
+          />
+        </div>}
         {/* VARIOUS BUTTON SCREENS */}
         <div>
           <BattleTaskBox setTaskComplete={setTaskComplete} damageToDeal={getDamageToDeal}/>

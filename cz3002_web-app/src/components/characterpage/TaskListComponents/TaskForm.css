@@ -27,3 +27,9 @@
     top: 1rem;
     position: inherit;
 }
+
+.taskform-container > .taskform-format > select > option > div{
+    font-family: var(--main-font);
+    font-size: 1rem;
+    background-color: red;
+}

@@ -2,7 +2,7 @@
     margin-left: auto;
     margin-right: auto;
     transition: (var(--transition-cubicbezier));
-    filter:drop-shadow(-15px -5px 5px #000);
+    filter:drop-shadow(-15px -5px 3px #000);
 }
 
 #Sentinel{
@@ -13,7 +13,7 @@
     width: 150px;
     margin-top: 7rem;
     animation: animation-observer;
-    animation-duration: 4s;
+    animation-duration: 2.5s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 }
@@ -26,40 +26,53 @@
 
 #steel-eagle{
     width: 200px;
-    margin-top: 4rem;
+    margin-top: 3.5rem;
 
     animation: animation-steeleagle;
-    animation-duration: 2s;
-    animation-timing-function: ease;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 }
 
 #Drone{
+    width: 250px;
+    margin-top: 3.5rem;
 
+    animation: animation-drone;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
 }
 
 .enemyavatar-container >  img:is(.damaged){
     filter: invert(100%);
     transform: scale(0.9);
     animation: animation-damaged;
-    animation-duration: 0.3s;
+    animation-duration: 0.5s;
     animation-timing-function: var(--transition-cubicbezier);
     animation-iteration-count: 1;
 }
 
+/* Animations for different enemy types */
 @keyframes animation-observer{
     0%   {transform: translateY(0);}
-    50%  {transform: translateY(-10px);}
+    50%  {transform: translateY(-10px); filter:drop-shadow(-10px 10px 10px #000);}
     100%  {transform: translateY(0);}
 }
 @keyframes animation-steeleagle{
-    0%   {transform: translateY(0);}
-    50%  {transform: translateY(-20px);}
-    100%  {transform: translateY(0);}
+    0%   {transform: translateY(0); }
+    50%  {transform: translateY(-30px); filter:drop-shadow(-10px 10px 10px #000);}
+    100%  {transform: translateY(0); }
 }
 
 @keyframes animation-damaged{
     0%   {transform: translateX(0) ;}
-    50%  {transform: translateX(10px);}
+    50%  {transform: translateX(10px); filter:drop-shadow(-10px 10px 10px #000);}
     100%  {transform: translateX(0);}
+}
+
+@keyframes animation-drone{
+    0%   {transform: translateY(0); }
+    50%  {transform: translateY(-60px); filter:drop-shadow(-10px 10px 15px #000) hue-rotate(90deg); }
+    100%  {transform: translateY(0); }
 }

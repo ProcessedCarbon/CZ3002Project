@@ -5,7 +5,7 @@ import EnemyAvatar from './EnemyAvatar';
 
 function Enemy({ currHealth, health, name, type }) {
   const [damaged, setDamaged] = useState(false);
-
+  
   function hpSetter(value) {
     // damage taken
     setDamaged(true);
