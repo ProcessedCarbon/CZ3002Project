@@ -7,15 +7,4 @@
     width: 300px;
     height: fit-content;
 }
-.enemy-container > .enemy-avatar > img{
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    transition: (var(--transition-cubicbezier));
-    filter:drop-shadow(-15px -5px 5px #000);
-}
 
-.enemy-container > .enemy-avatar > img:is(.damaged){
-    filter: invert(100%);
-    transform: scale(0.9);
-}

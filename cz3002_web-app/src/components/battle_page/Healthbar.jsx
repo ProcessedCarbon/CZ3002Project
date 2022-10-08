@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import './Healthbar.css'
 
-function Healthbar({ currHealth, hpSetter }) {
+function Healthbar({ currHealth, hpSetter, health }) {
     const [style, setStyle] = useState({});
-    
     function getHealthStatus(){
-        if (currHealth <= 30) {
+        if (getPercent() <= 30) {
             // danger color
              return 'var(--red-statbar-bg)';
         }
-        else if (currHealth > 30 && currHealth <= 50) {
+        else if (getPercent() > 30 && getPercent() <= 50) {
             // warning color    
             return 'var(--yellow-statbar-bg)';
         }
-        else if (currHealth > 50) {
+        else if (getPercent() > 50) {
             // Safe color
             return 'var(--green-statbar-bg)';
         }
@@ -28,11 +27,13 @@ function Healthbar({ currHealth, hpSetter }) {
         currHealth -= value;
         hpSetter(currHealth);
     }
-
+    function getPercent(){
+        return (currHealth/health) * 100;
+    }
     // ========== Styles ============= //
     const newStyle = {
         opacity: 1,
-        width: `${currHealth}%`,
+        width: `${getPercent()}%`,
         background: getHealthStatus()
     };
 

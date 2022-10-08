@@ -1,7 +1,7 @@
 .battletask-container{
     min-height: 75px;
     min-width: 20%;
-    background: var(--color-orange);
+    /* background: var(--color-orange); */
 }
 
 .battletask-container > h5{

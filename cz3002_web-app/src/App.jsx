@@ -25,10 +25,10 @@ const App = () => {
       </BrowserRouter>
     </>
   );
-
+  // Testing
+  //ClearLocalStorage();
   return (
     <section>
-        <h1>CZ3002 Web Application</h1>
         <div>
           {renderContent()}
         </div>

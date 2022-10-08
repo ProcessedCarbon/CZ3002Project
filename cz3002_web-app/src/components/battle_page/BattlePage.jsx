@@ -4,40 +4,84 @@ import './BattlePage.css'
 
 // REACT COMPONENTS //
 import BattleTaskBox from './BattleTaskListComponents/BattleTaskBox'
+import VictoryBox from './VictoryBox'
 
 // ENTITIES //
 import Player from './Player'
 import Enemy from './Enemy'
 
-let enemyHP = 100;
 const LOCAL_STORAGE_KEY = "BATTLEPAGE"
+
+const enemies = [
+  {
+    type: "Sentinel",
+    name: "Sentinel",
+    health: 120
+  },
+  {
+    type: "observer",
+    name: "Observer",
+    health: 50
+  },
+  {
+    type: "Metal-Slug",
+    name: "Metal Slug",
+    health: 100
+  },
+  {
+    type: "steel-eagle",
+    name: "Steel Eagle",
+    health: 80
+  },
+  {
+    type: "Drone",
+    name: "Drone",
+    health: 150
+  }
+]
+let damageToDeal = 0;
 
 const BattlePage = () => {
   /* HOOKS */
+  const [battlecomplete, setBattleComplete] = useState(false);
   const [taskComplete, setTaskStatus] = useState(false);
   const [enemyState, setEnemyState] = useState({
-    name:"",
-    hp:0,
-    img:""
+    name: "",
+    currhp: 120,
+    hp: 120,
+    type: "Sentinel"
   });
-  // useEffect(() => {
-  //   const storageTask = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-  //   if (storageTask) {
-  //     setTasks(storageTask);
-  //   }
-  // }, [])
 
-  // useEffect(() => {
-  //   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tasks))
-  // }, [tasks]);
+  useEffect(() => {
+    const storeEnemy = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if (storeEnemy) {
+      if(storeEnemy.name == ""){
+        createEnemy();
+      }
+      else{
+        setEnemyState(storeEnemy);
+      }
+    }
+  }, [])
 
-  function selectEnemyToBattle() {
-    // Do not spawn enemy if current enemy has not been defeated
-    // picks enemy to spawn for player
-    // Enemy is picked based on a random 
-    // returns reward based on enemy spawned
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(enemyState))
+  }, [enemyState]);
+
+
+  function createEnemy() {
+    let enemyIndex = getRandomValue(0, (enemies.length - 1))
+    setEnemyState({
+      name: enemies[enemyIndex].name,
+      currhp: enemies[enemyIndex].health,
+      hp: enemies[enemyIndex].health,
+      type: enemies[enemyIndex].type
+    });
   }
 
+  function getRandomValue(from, to) {
+    return Math.floor(Math.random() * to) + from;
+  }
 
   function setTaskComplete(completed) {
     setTaskStatus(completed)
@@ -46,34 +90,47 @@ const BattlePage = () => {
   useEffect(() => {
     if (taskComplete) {
       // damage enemy
-      //alert("damage enemy");
-      if (enemyHP > 0) {
-        enemyHP -= 10;
+      if (enemyState.currhp > 0) {
+        let hp = enemyState.currhp;
+        hp = hp - damageToDeal;
+        setEnemyState({ ...enemyState, currhp: hp });
       }
       // reset taskcomplete
       setTaskStatus(false);
-
-
-      if (enemyHP < 0) {
-        // player win
-        // Show victory box
-        // Show reward
-      }
     }
   }, [taskComplete])
 
+  function getDamageToDeal(value){
+    damageToDeal = value;
+  }
+
+  if (enemyState.currhp <= 0) {
+    // player win
+    // Show victory box
+    // Show reward
+    setBattleComplete(true);
+    createEnemy();
+  }
 
   return (
     <div className='battlepage-container'>
       <div className='battlepage-screen'>
+        {/* <button className='btn' onClick={ClearLocalStorage}>Clear Storage</button> */}
         {/* ENTITY COMPONENTS */}
         <div className='entity-space'>
           <Player health={100} name="Gregory123" />
-          <Enemy health={enemyHP} name="Sentinel" />
+          {!battlecomplete && 
+          <Enemy
+            currHealth={enemyState.currhp}
+            health={enemyState.hp}
+            name={enemyState.name}
+            type={enemyState.type}
+          />}
         </div>
         {/* VARIOUS BUTTON SCREENS */}
         <div>
-          <BattleTaskBox setTaskComplete={setTaskComplete} />
+          <BattleTaskBox setTaskComplete={setTaskComplete} damageToDeal={getDamageToDeal}/>
+          {battlecomplete && <VictoryBox xp={45} money={400} />}
         </div>
       </div>
     </div>

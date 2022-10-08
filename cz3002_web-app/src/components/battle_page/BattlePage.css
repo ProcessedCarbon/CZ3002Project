@@ -42,7 +42,7 @@
     /* background: red; */
     height: fit-content;
     overflow: hidden;
-
+    min-height: 350px;
 }
 
 .battlepage-screen > .entity-space > div {

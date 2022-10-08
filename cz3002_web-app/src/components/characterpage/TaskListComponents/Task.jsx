@@ -2,16 +2,33 @@ import React from 'react'
 import './Task.css'
 import plusicon from '../../../assets/icons/Plus.png'
 function Task ({todo, toggleComplete, removeTask}){
-  function handleCheckBoxClick(){
-    toggleComplete(todo.id);
-  }
+  // function handleCheckBoxClick(){
+  //   toggleComplete(todo.id);
+  // }
 
   function handleRemoveClick(){
     removeTask(todo.id);
   }
 
+  function chooseColorBasedOnPriority(){
+    if(todo.priority === "High"){
+      // high color
+      return "var(--color-reddish)"
+    }
+    else if(todo.priority === "Med"){
+      // medium color
+      return "var(--color-darkish-yellow)"
+    }
+    else {
+      // low color
+      return "var(--color-light-blue)"
+    }
+  }
+
   return (
-    <div className='task-container'>
+    <div className='task-container'
+         style={{backgroundColor:chooseColorBasedOnPriority()}}
+    >
         {/* <input type="checkbox" onClick={handleCheckBoxClick} defaultChecked={todo.completed ? true : false}/> */}
         <h5
             style={{
