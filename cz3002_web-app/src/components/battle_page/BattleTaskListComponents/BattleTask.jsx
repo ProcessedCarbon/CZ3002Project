@@ -32,7 +32,7 @@ function BattleTask({ todo, toggleComplete, removeTask }) {
                backgroundColor: todo.completed ? "gray" : "",
                filter: todo.completed ? "none" : "",
                border: todo.completed ? "5px solid gray" : "",
-               borderStyle: todo.completed ? "inset" : ""
+               borderStyle: todo.completed ? "ridge" : ""
             }}
     >
       <input type="checkbox"

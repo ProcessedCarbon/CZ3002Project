@@ -16,11 +16,13 @@
 
 @keyframes battletaskbox-intro{
     from{
+        filter: blur(10px);
         transform: translateY(100%);
         opacity: 0;
     }
 
     to{
+        filter: blur(0px);
         transform: translateY(0);
         opacity: 1;
     }

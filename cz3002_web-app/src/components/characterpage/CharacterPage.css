@@ -25,10 +25,13 @@
     column-gap: 1rem;
     background-color: var(--color-reddish);
     border-radius: 10px;
+    border: 8px solid var(--color-reddish);
+    border-style: ridge;
     width: 35%;
     height: fit-content;
     padding: 0.5rem;
     top: 1rem;
+    filter: drop-shadow(0px 0px 15px #000);
 
     animation: char-profile-intro;
     animation-duration: 1.5s;
@@ -98,11 +101,13 @@
 
 @keyframes profile-pic-intro{
     from{
-        transform: translateX(-100%);
+        filter: blur(10px);
+        transform: scale(0);
         opacity: 0;
     }
     to{
-        transform: translateX(0);
+        filter: blur(0px);
+        transform: scale(1);
         opacity: 1;
     }
 }
@@ -151,11 +156,13 @@
 
 @keyframes topright-btn-intro {
     0% {
+        filter: blur(10px);
         transform: translateY(-100%);
         opacity: 0;
     }
 
     100% {
+        filter: blur(0px);
         transform: translateY(0);
         opacity: 1;
     }
@@ -283,11 +290,13 @@
 
 @keyframes bottom-btn-intro {
     0% {
+        filter: blur(10px);
         transform: translateY(100%);
         opacity: 0;
     }
 
     100% {
+        filter: blur(0px);
         transform: translateY(0);
         opacity: 1;
     }

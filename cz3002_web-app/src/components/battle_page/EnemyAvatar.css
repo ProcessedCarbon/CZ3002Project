@@ -12,10 +12,7 @@
 #observer{
     width: 150px;
     margin-top: 7rem;
-    animation: animation-observer;
-    animation-duration: 2.5s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
+    animation: animation-observer 2.5s ease-in-out infinite;
 }
 
 #Metal-Slug{
@@ -56,12 +53,12 @@
 /* Animations for different enemy types */
 @keyframes animation-observer{
     0%   {transform: translateY(0);}
-    50%  {transform: translateY(-10px); filter:drop-shadow(-10px 10px 10px #000);}
-    100%  {transform: translateY(0);}
+    50%  {transform: translateY(-10px) scale(1.05); filter:drop-shadow(-10px 10px 10px #000) contrast(130%);}
+    100%  {transform: translateY(0) ;}
 }
 @keyframes animation-steeleagle{
     0%   {transform: translateY(0); }
-    50%  {transform: translateY(-30px); filter:drop-shadow(-10px 10px 10px #000);}
+    50%  {transform: translateY(-30px) scale(1.05); filter:drop-shadow(-10px 10px 10px #000);}
     100%  {transform: translateY(0); }
 }
 
@@ -73,6 +70,6 @@
 
 @keyframes animation-drone{
     0%   {transform: translateY(0); }
-    50%  {transform: translateY(-60px); filter:drop-shadow(-40px 40px 30px #000) hue-rotate(90deg); }
+    50%  {transform: translateY(-60px) scale(1.05); filter:drop-shadow(-40px 40px 30px #000) hue-rotate(90deg); }
     100%  {transform: translateY(0); }
 }
