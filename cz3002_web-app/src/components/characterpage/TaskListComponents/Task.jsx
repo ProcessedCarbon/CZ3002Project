@@ -2,9 +2,9 @@ import React from 'react'
 import './Task.css'
 import plusicon from '../../../assets/icons/Plus.png'
 function Task ({todo, toggleComplete, removeTask}){
-  // function handleCheckBoxClick(){
-  //   toggleComplete(todo.id);
-  // }
+  function handleCheckBoxClick(){
+    toggleComplete(todo.id);
+  }
 
   function handleRemoveClick(){
     removeTask(todo.id);
@@ -29,7 +29,7 @@ function Task ({todo, toggleComplete, removeTask}){
     <div className='task-container'
          style={{backgroundColor:chooseColorBasedOnPriority()}}
     >
-        <h5>
+        <h5 style={{textDecoration:todo.completed ? "line-through" : ""}}>
         {todo.task}
         </h5>
         <button className='btn' onClick={handleRemoveClick}><img src={plusicon} alt="" /></button>

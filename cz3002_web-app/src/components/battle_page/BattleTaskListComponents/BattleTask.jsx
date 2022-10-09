@@ -27,9 +27,8 @@ function BattleTask({ todo, toggleComplete, removeTask }) {
 
   return (
     <div className='task-container battletask-container'
-      style={{ backgroundColor: chooseColorBasedOnPriority(),
-               scale: todo.completed ? "0.9" : "" ,
-               backgroundColor: todo.completed ? "gray" : "",
+      style={{ scale: todo.completed ? "0.9" : "" ,
+               backgroundColor: todo.completed ? "gray" : chooseColorBasedOnPriority(),
                filter: todo.completed ? "none" : "",
                border: todo.completed ? "5px solid gray" : "",
                borderStyle: todo.completed ? "ridge" : ""
