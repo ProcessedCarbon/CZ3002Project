@@ -46,7 +46,7 @@
     height: 110px;
     background: var(--color-light);
     transform: translateX(-100%);
-    
+
     animation: profile-pic-intro;
     animation-duration: 1.5s;
     animation-timing-function: var(--transition-cubicbezier);
@@ -99,24 +99,26 @@
     }
 }
 
-@keyframes profile-pic-intro{
-    from{
+@keyframes profile-pic-intro {
+    from {
         filter: blur(10px);
         transform: scale(0);
         opacity: 0;
     }
-    to{
+
+    to {
         filter: blur(0px);
         transform: scale(1);
         opacity: 1;
     }
 }
 
-@keyframes profile-pic-line-intro{
-    from{
+@keyframes profile-pic-line-intro {
+    from {
         width: 0%;
     }
-    to{
+
+    to {
         width: 220%;
     }
 }
@@ -226,15 +228,17 @@
 }
 
 @keyframes battle-btn-hover-effect {
-    0%{
+    0% {
         transform: translateY(-15px) scale(1.1);
         box-shadow: 0px 0px 8px 5px var(--color-darkish-yellow);
     }
-    50%{
+
+    50% {
         transform: translateY(-15px) scale(1.2);
         box-shadow: 0px 0px 20px 15px var(--color-darkish-yellow);
     }
-    100%{
+
+    100% {
         transform: translateY(-15px) scale(1.1);
         box-shadow: 0px 0px 8px 5px var(--color-darkish-yellow);
     }

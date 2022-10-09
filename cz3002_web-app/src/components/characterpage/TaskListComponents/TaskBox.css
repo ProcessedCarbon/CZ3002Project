@@ -1,5 +1,18 @@
+
 .taskbox-container > .box{
     display: flex;
     flex-direction: column;
     place-items: center;
+}
+.taskbox-container::backdrop{
+    background: black;
+}
+.taskbox-container > .box >.clearall{
+    right: 1rem;
+    top: 1rem;
+    position: inherit;
+}
+.taskbox-container > .box >.clearall > h4{
+    margin: 0.25rem;
+    font-size: 1.2rem;
 }

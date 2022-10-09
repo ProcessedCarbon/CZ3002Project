@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import Select from 'react-select'
 
 // import Select from 'react-select' // might want to look into this for future ref
@@ -8,7 +8,7 @@ const options = [
     { value: 'High', label: 'High' },
     { value: 'Med', label: 'Med' },
     { value: 'Low', label: 'Low' }
-  ]
+]
 function TaskForm({ addTask }) {
     const [todo, setTask] = useState({
         id: "",
@@ -23,9 +23,8 @@ function TaskForm({ addTask }) {
         setTask({ ...todo, task: e.target.value });
     }
 
-    function handleTaskPriorityChange() {
-        var select = document.getElementById('taskpriority-select')
-        setTask({ ...todo, priority: select.value });
+    function handleTaskPriorityChange(selectedOption) {
+        setTask({ ...todo, priority: selectedOption.value })
     }
     function handleSubmit(e) {
         e.preventDefault(); // prevents browser refresh
@@ -37,28 +36,52 @@ function TaskForm({ addTask }) {
         }
     }
 
+    const customStyles = {
+        option: (provided, state) => ({
+            ...provided,
+            borderBottom: '1px solid var(--color-darkish-blue)',
+            color: state.isSelected ? 'var(--color-reddish)' : 'var(--color-darkish-blue)',
+            backgroundColor: state.isFocused  ? 'rgba(0,0,0,0.1)' : "",
+            fontFamily: "var(--alt-font)",
+        }),
+        valueContainer: (provided, state) => ({
+            ...provided,
+            fontFamily: "var(--alt-font)"
+        }),
+        dropdownIndicator: (provided, state) => ({
+            ...provided,
+            color: "var(--color-btn-bg)",
+            backgroundColor: state.isFocused  ? 'rgba(0,0,0,0.1)' : "",
+        }),
+        container: (provided, state) => ({
+            ...provided,
+            border: "1px solid var(--color-btn-bg)",
+            borderRadius: "5px",
+        }),
+        singleValue: (provided, state) => {
+            const opacity = state.isDisabled ? 0.5 : 1;
+            const transition = 'opacity 300ms';
+
+            return { ...provided, opacity, transition };
+        }
+    }
+
+
     return (
         <div className='taskform-container'>
             <form action="" onSubmit={handleSubmit} className="taskform-format">
-                
+
                 <input
                     name="task"
                     type="text"
                     onChange={handleTaskInputChange}
                     value={todo.task}
                 />
-                <Select options={options}/>
-                {/* <select id='taskprioritnpmy-select'
-                    onChange={handleTaskPriorityChange}>
-
-                    <option value="High">High</option>
-
-                    <option value="Med">Med</option>
-
-                    <option value="Low">Low</option>
-
-                </select> */}
-
+                <Select className='taskprioritnpmy-select'
+                    options={options}
+                    onChange={handleTaskPriorityChange}
+                    styles={customStyles}
+                />
                 <button className='btn' type='submit'><h5>+</h5></button>
             </form>
         </div>
