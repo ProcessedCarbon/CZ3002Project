@@ -16,27 +16,37 @@ const enemies = [
   {
     type: "Sentinel",
     name: "Sentinel",
-    health: 120
+    health: 120,
+    xp: 150,
+    money: 200
   },
   {
     type: "observer",
     name: "Observer",
-    health: 50
+    health: 50,
+    xp: 30,
+    money: 50
   },
   {
     type: "Metal-Slug",
     name: "Metal Slug",
-    health: 100
+    health: 100,
+    xp: 80,
+    money: 100
   },
   {
     type: "steel-eagle",
     name: "Steel Eagle",
-    health: 80
+    health: 80,
+    xp: 50,
+    money: 80
   },
   {
     type: "Drone",
     name: "Drone",
-    health: 150
+    health: 150,
+    xp: 250,
+    money: 250
   }
 ]
 let damageToDeal = 0;
@@ -49,7 +59,9 @@ const BattlePage = () => {
     name: "",
     currhp: 120,
     hp: 120,
-    type: "Sentinel"
+    type: "Sentinel",
+    xp: 0,
+    money: 0
   });
 
   useEffect(() => {
@@ -75,7 +87,9 @@ const BattlePage = () => {
       name: enemies[enemyIndex].name,
       currhp: enemies[enemyIndex].health,
       hp: enemies[enemyIndex].health,
-      type: enemies[enemyIndex].type
+      type: enemies[enemyIndex].type,
+      xp:enemies[enemyIndex].xp,
+      money:enemies[enemyIndex].money
     });
   }
 
@@ -133,7 +147,7 @@ const BattlePage = () => {
         {/* VARIOUS BUTTON SCREENS */}
         <div>
           <BattleTaskBox setTaskComplete={setTaskComplete} damageToDeal={getDamageToDeal}/>
-          {battlecomplete && <VictoryBox xp={45} money={400} />}
+          {battlecomplete && <VictoryBox xp={enemyState.xp} money={enemyState.money} />}
         </div>
       </div>
     </div>

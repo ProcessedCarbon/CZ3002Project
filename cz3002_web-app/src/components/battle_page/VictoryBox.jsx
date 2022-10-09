@@ -15,7 +15,7 @@ function VictoryBox({ xp, money }) {
                     </div>
                 </div>
 
-                <h3>items</h3>
+                {/* <h3>items</h3> */}
                 <a className='btn' href="profile" >BACK</a>
             </div>
         </div>
