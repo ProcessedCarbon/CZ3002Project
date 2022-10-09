@@ -1,4 +1,4 @@
-.characterpage_container > .background{
+.characterpage_container>.background {
     background-color: #2F283A;
     background-image: url(../../assets/characterpage_scene.png);
     background-repeat: no-repeat;
@@ -6,9 +6,9 @@
     border-radius: 30px;
     display: grid;
     grid-template-columns: 1.5rem 1fr 1.5rem;
-    grid-template-areas: 
-        "char-profile . top-btn" 
-        ". middle ." 
+    grid-template-areas:
+        "char-profile . top-btn"
+        ". middle ."
         ". bottom .";
     margin: 1rem;
     padding: 1rem;
@@ -18,7 +18,7 @@
 }
 
 /*================= CHARACTER PROFILE ========================*/
-.characterpage_container > .background > .character_profile{
+.characterpage_container>.background>.character_profile {
     grid-area: 'char-profile';
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -29,41 +29,95 @@
     height: fit-content;
     padding: 0.5rem;
     top: 1rem;
+
+    animation: char-profile-intro;
+    animation-duration: 1.5s;
+    animation-timing-function: var(--transition-cubicbezier);
+    animation-iteration-count: 1;
 }
 
-.characterpage_container > .background >  .character_profile > .profile-picture > img{
+.characterpage_container>.background>.character_profile>.profile-picture>img {
     border-radius: 50%;
     border: 5px solid var(--color-darkish-blue);
     width: 110px;
     height: 110px;
     background: var(--color-light);
+    transform: translateX(-100%);
+    
+    animation: profile-pic-intro;
+    animation-duration: 1.5s;
+    animation-timing-function: var(--transition-cubicbezier);
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
 }
-.characterpage_container > .background > .character_profile > .profile-picture >.line{
+
+.characterpage_container>.background>.character_profile>.profile-picture>.line {
     position: relative;
     display: flex;
-    top:-4.5rem;
+    top: -4.5rem;
     left: 6.45rem;
     content: "";
     height: 5px;
-    width: 220%;
+    width: 0%;
+    text-align: right;
     background: var(--color-darkish-blue);
+
+    animation: profile-pic-line-intro;
+    animation-duration: 1.5s;
+    animation-timing-function: var(--transition-cubicbezier);
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
 }
 
-.characterpage_container > .background >  .character_profile > .char-details{
+.characterpage_container>.background>.character_profile>.char-details {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
 }
 
-.characterpage_container > .background >  .character_profile > .char-details > .stats-grp{
+.characterpage_container>.background>.character_profile>.char-details>.stats-grp {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 1.5rem;
     padding: .25rem;
 }
 
+@keyframes char-profile-intro {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes profile-pic-intro{
+    from{
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes profile-pic-line-intro{
+    from{
+        width: 0%;
+    }
+    to{
+        width: 220%;
+    }
+}
+
 /*================= TOP RIGHT BUTTONS ========================*/
-.characterpage_container > .background >  .btn_group{
+.characterpage_container>.background>.btn_group {
     grid-area: 'top-btn';
     position: relative;
     margin-top: 1rem;
@@ -72,34 +126,59 @@
     flex-direction: row;
     column-gap: 1.5rem;
     width: fit-content;
+
+    animation: topright-btn-intro;
+    animation-timing-function: var(--transition-cubicbezier);
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
 }
 
-.characterpage_container > .background >  .btn_group > div > .btn{
+.characterpage_container>.background>.btn_group>div>.btn {
     border-radius: 10px;
     text-align: center;
     width: fit-content;
     height: fit-content;
 }
-.characterpage_container > .background >  .btn_group > div > .btn > img{
+
+.characterpage_container>.background>.btn_group>div>.btn:not(.no-hover):hover {
+    transform: scale(1.2) rotate(-5deg) translate(-5px, 5px);
+}
+
+.characterpage_container>.background>.btn_group>div>.btn>img {
     height: 55px;
     width: 55px;
 }
 
+@keyframes topright-btn-intro {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 /*================= MIDDLE CHARACTER ========================*/
-.characterpage_container > .background >  .avatar-scene{
+.characterpage_container>.background>.avatar-scene {
     grid-area: 'middle';
 }
-.characterpage_container > .background >  .avatar-scene > .character-avatar{
+
+.characterpage_container>.background>.avatar-scene>.character-avatar {
     position: absolute;
     bottom: 2rem;
     margin: 0 auto;
 }
-.characterpage_container > .background >  .avatar-scene > .character-avatar > img{
+
+.characterpage_container>.background>.avatar-scene>.character-avatar>img {
     height: fit-content;
     width: 25%;
 }
+
 /*================= BOTTOM BUTTON GROUP ========================*/
-.characterpage_container > .background >  .bottom_btn{
+.characterpage_container>.background>.bottom_btn {
     grid-area: 'bottom';
     width: 100%;
     display: flex;
@@ -110,48 +189,84 @@
     transition: var(--transition-cubicbezier);
     justify-content: space-evenly;
     align-items: center;
+
+    animation: bottom-btn-intro;
+    animation-timing-function: var(--transition-cubicbezier);
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
 }
 
-.characterpage_container > .background >  .bottom_btn > .battle-btn{
+.characterpage_container>.background>.bottom_btn>.battle-btn {
     display: flex;
     height: 110px;
     width: 110px;
     border-radius: 50%;
     border: 5px #F4A716;
     border-style: outset;
-    background: radial-gradient(#F4A716 35%, #FCEFD3);
+    background: radial-gradient(#F4A716 55%, #FCEFD3);
 }
 
-.characterpage_container > .background >  .bottom_btn > .inventory-btn{
+.characterpage_container>.background>.bottom_btn>.battle-btn.btn:not(.no-hover):hover {
+    box-shadow: 0px 0px 8px 5px var(--color-darkish-yellow);
+    color: var(--color-darkish-yellow);
+    transform: translateY(-15px) scale(1.1);
+
+    animation: battle-btn-hover-effect;
+    animation-timing-function: var(--transition-cubicbezier);
+    animation-duration: 3.5s;
+    animation-delay: 0.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes battle-btn-hover-effect {
+    0%{
+        transform: translateY(-15px) scale(1.1);
+        box-shadow: 0px 0px 8px 5px var(--color-darkish-yellow);
+    }
+    50%{
+        transform: translateY(-15px) scale(1.2);
+        box-shadow: 0px 0px 20px 15px var(--color-darkish-yellow);
+    }
+    100%{
+        transform: translateY(-15px) scale(1.1);
+        box-shadow: 0px 0px 8px 5px var(--color-darkish-yellow);
+    }
+}
+
+.characterpage_container>.background>.bottom_btn>.inventory-btn {
     background: transparent;
     border: 0px;
     box-shadow: none;
 }
-.characterpage_container > .background >  .bottom_btn > .inventory-btn:hover{
+
+.characterpage_container>.background>.bottom_btn>.inventory-btn:hover {
     background: none;
     box-shadow: none;
 }
-.characterpage_container > .background >  .bottom_btn > .sidebar-container > .sidebar-btn{
+
+.characterpage_container>.background>.bottom_btn>.sidebar-container>.sidebar-btn {
     display: flex;
     flex-direction: column;
 }
-.characterpage_container > .background >  .bottom_btn > .sidebar-container > .sidebar-btn > .inner-btns{
+
+.characterpage_container>.background>.bottom_btn>.sidebar-container>.sidebar-btn>.inner-btns {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
     margin-top: 1.5rem;
 }
-.characterpage_container > .background >  .bottom_btn > .sidebar-container > .sidebar-btn > .inner-btns > .btn{
+
+.characterpage_container>.background>.bottom_btn>.sidebar-container>.sidebar-btn>.inner-btns>.btn {
     border: 0px;
     box-shadow: none;
     background-color: transparent;
 }
 
-.characterpage_container > .background >  .bottom_btn > .sidebar-container > .sidebar-btn > .inner-btns > .btn:hover{
+.characterpage_container>.background>.bottom_btn>.sidebar-container>.sidebar-btn>.inner-btns>.btn:hover {
     background-color: transparent;
 }
 
-.characterpage_container > .background > .bottom_btn > .sidebar-container > .sidebar-btn{
+.characterpage_container>.background>.bottom_btn>.sidebar-container>.sidebar-btn {
     position: absolute;
     display: flex;
     text-align: center;
@@ -160,8 +275,20 @@
     width: fit-content;
     place-items: start;
 }
-.characterpage_container > .background >  .bottom_btn > .sidebar-container > .sidebar-btn > img{
+
+.characterpage_container>.background>.bottom_btn>.sidebar-container>.sidebar-btn>img {
     height: 50px;
     width: 50px;
 }
 
+@keyframes bottom-btn-intro {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

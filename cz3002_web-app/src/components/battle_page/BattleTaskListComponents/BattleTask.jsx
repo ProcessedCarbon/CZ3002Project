@@ -27,7 +27,13 @@ function BattleTask({ todo, toggleComplete, removeTask }) {
 
   return (
     <div className='task-container battletask-container'
-      style={{ backgroundColor: chooseColorBasedOnPriority() }}
+      style={{ backgroundColor: chooseColorBasedOnPriority(),
+               scale: todo.completed ? "0.9" : "" ,
+               backgroundColor: todo.completed ? "gray" : "",
+               filter: todo.completed ? "none" : "",
+               border: todo.completed ? "5px solid gray" : "",
+               borderStyle: todo.completed ? "inset" : ""
+            }}
     >
       <input type="checkbox"
         onClick={handleCheckBoxClick}
@@ -36,12 +42,16 @@ function BattleTask({ todo, toggleComplete, removeTask }) {
       />
       <h5
         style={{
-          textDecoration: todo.completed ? "line-through" : null
+          textDecoration: todo.completed ? "line-through" : null,
         }}
       >
         {todo.task}
       </h5>
-      <button className='btn' onClick={handleRemoveClick}><img src={plusicon} alt="" /></button>
+      <button className='btn' onClick={handleRemoveClick}
+              style={{scale: todo.completed ? "1.5" : ""}}
+      >
+        <img src={plusicon} alt="" />
+      </button>
     </div>
   )
 }

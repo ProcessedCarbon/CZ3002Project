@@ -29,12 +29,7 @@ function Task ({todo, toggleComplete, removeTask}){
     <div className='task-container'
          style={{backgroundColor:chooseColorBasedOnPriority()}}
     >
-        {/* <input type="checkbox" onClick={handleCheckBoxClick} defaultChecked={todo.completed ? true : false}/> */}
-        <h5
-            style={{
-                    textDecoration: todo.completed ? "line-through" : null
-                  }} 
-        >
+        <h5>
         {todo.task}
         </h5>
         <button className='btn' onClick={handleRemoveClick}><img src={plusicon} alt="" /></button>

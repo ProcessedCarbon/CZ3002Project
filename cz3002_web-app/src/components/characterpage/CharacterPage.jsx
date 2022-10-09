@@ -57,11 +57,11 @@ const CharacterPage = () => {
   const handleSideBar = event => {
     setShowSideBar(current => !current);
   }
-  const handleInventory = event =>{
-    setShowInventory(current=>!current);
+  const handleInventory = event => {
+    setShowInventory(current => !current);
   }
 
-  const collapseLowerBtn = (status) =>{
+  const collapseLowerBtn = (status) => {
     setHideLowerBtn(status);
     setShowSideBar(false);
     setShowInventory(false);
@@ -75,11 +75,11 @@ const CharacterPage = () => {
   else if (isShown_fav) {
     screenToShow = <Shop />;
   }
-  else if(showInventory){
-    screenToShow = <InventoryBox/>;
+  else if (showInventory) {
+    screenToShow = <InventoryBox />;
   }
-  else if(isShown_tasklist){
-    screenToShow = <TaskBox/>
+  else if (isShown_tasklist) {
+    screenToShow = <TaskBox />
   }
 
   /* ================ RENDER ==================== */
@@ -116,20 +116,20 @@ const CharacterPage = () => {
           */}
           <div className='btn_group'>
             <div className='message'>
-              <button onClick={handleTaskList} className="btn message-btn"><img src={messageicon} alt=""/></button>
+              <button onClick={handleTaskList} className="btn message-btn"><img src={messageicon} alt="" /></button>
             </div>
             <div className='gift'>
-              <button onClick={handleGiftBox} className="btn gifts-btn"><img src={giftsicon} alt=""/></button>
+              <button onClick={handleGiftBox} className="btn gifts-btn"><img src={giftsicon} alt="" /></button>
             </div>
             <div className='favorites'>
-              <button onClick={handleFavoriteBox} className="btn gifts-btn"><img src={favouritesicon} alt=""/></button>
+              <button onClick={handleFavoriteBox} className="btn gifts-btn"><img src={favouritesicon} alt="" /></button>
             </div>
           </div>
 
-         {/* PLAYER AVATAR */}
+          {/* PLAYER AVATAR */}
           <div className='avatar-scene'>
             <div className='character-avatar'>
-              <img src={char_avatar} alt=""/>
+              <img src={char_avatar} alt="" />
             </div>
           </div>
 
@@ -139,27 +139,30 @@ const CharacterPage = () => {
               3. sidebar
           */}
           <div className='bottom_btn' style={{ scale: hideLowerBtn ? '0' : '1' }}>
-            <button onClick ={handleInventory} className='btn inventory-btn'><img src={chestbtn} alt=""/></button>
-            <a href ="battle" className='btn battle-btn'><img src={protectionicon} alt=""/></a>
+            <button onClick={handleInventory} className='btn inventory-btn'><img src={chestbtn} alt="" /></button>
+            <a href="battle" className='btn battle-btn'><img src={protectionicon} alt="" /></a>
             <div className='sidebar-container'>
               <button onClick={handleSideBar}
                 className={showSideBar ? 'btn sidebar-btn no-hover' : 'btn sidebar-btn'}
-                disabled ={showSideBar}
-                style={{bottom: showSideBar ?  '0rem' : ' -19rem'}}
+                disabled={showSideBar}
+                style={{ bottom: showSideBar ? '0rem' : ' -19rem', 
+                         backgroundColor:showSideBar ? "var(--color-darkish-blue)" : "",
+                         border: showSideBar ? "0 transparent" : ""
+                      }}
               >
-                <img src={tridot} style={{display: showSideBar ? 'none' : 'block' }} alt=""/>
+                <img src={tridot} style={{ display: showSideBar ? 'none' : 'block' }} alt="" />
                 {/* Inner buttons inside the side bar */}
                 <div className='inner-btns'>
-                  <a href="login" className='btn'><img src={homeicon} alt=""/></a>
-                  <button className='btn'><img src={personicon} alt=""/></button>
-                  <button className='btn'><img src={soundonicon} alt=""/></button>
-                  <img src={minusicon} style={{marginTop:'3rem'}} alt=""/>
-                  <button className='btn' onClick={handleSideBar}><img src={pointerdownicon} alt=""/></button>
+                  <a href="login" className='btn'><img src={homeicon} alt="" /></a>
+                  <button className='btn'><img src={personicon} alt="" /></button>
+                  <button className='btn'><img src={soundonicon} alt="" /></button>
+                  <img src={minusicon} style={{ marginTop: '3rem' }} alt="" />
+                  <button className='btn' onClick={handleSideBar}><img src={pointerdownicon} alt="" /></button>
                 </div>
               </button>
             </div>
           </div>
-          
+
           {/* VARIOUS BUTTON SCREENS */}
           <div>
             {screenToShow}

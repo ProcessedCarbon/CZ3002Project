@@ -115,6 +115,9 @@ const BattlePage = () => {
   return (
     <div className='battlepage-container'>
       <div className='battlepage-screen'>
+        <a href="profile" className='btn return-home-btn'>
+          <h5>Return Home</h5>
+        </a>
         {/* <button className='btn' onClick={ClearLocalStorage}>Clear Storage</button> */}
         {/* ENTITY COMPONENTS */}
         {!battlecomplete &&

@@ -3,11 +3,13 @@
     min-width: 20%;
     /* background: var(--color-orange); */
     filter: drop-shadow(8px 8px 8px #000);
+    transition: var(--transition-cubicbezier);
 }
 
 .battletask-container > h5{
     max-width: 50%;
     overflow: scroll;
+    text-decoration-color: var(--color-reddish);
 }
 
 .battletask-container > .btn{

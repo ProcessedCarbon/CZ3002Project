@@ -5,9 +5,21 @@
     background-size: 100% 100%;
     border-radius: 30px;
     display: flex;
+    flex-direction: column;
     height: 650px;
     overflow: hidden;
     justify-content: center;
+}
+
+.battlepage-screen > .return-home-btn{
+    position: absolute;
+    right: 3rem;
+    top: 10rem;
+    width: fit-content;
+    font-size: 1.5rem;
+}
+.battlepage-screen > .return-home-btn > h5{
+    margin: .25rem;
 }
 
 .battlepage-screen > .btn_group{
