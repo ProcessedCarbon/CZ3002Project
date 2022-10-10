@@ -11,11 +11,11 @@ import InventoryBox from './InventoryComponents/InventoryBox'
 import TaskBox from './TaskListComponents/TaskBox'
 
 // ICONS OR IMAGES//
-import char_profile_img from '../../assets/char_profile_image_1.png'
+import player_profile_pic from '../../assets/player_profile_pic.png'
 import messageicon from '../../assets/icons/Messages.png'
 import giftsicon from '../../assets/icons/Gift.png'
 import favouritesicon from '../../assets/icons/Favorites.png'
-import char_avatar from '../../assets/char_avatar.png'
+// import char_avatar from '../../assets/char_avatar.png'
 import protectionicon from '../../assets/icons/Protection.png'
 import chestbtn from '../../assets/Chest.png'
 import tridot from '../../assets/icons/Kebab_Menu_Horizontal.png'
@@ -24,6 +24,7 @@ import pointerdownicon from '../../assets/icons/Pointer_Down.png'
 import personicon from '../../assets/icons/Person.png'
 import minusicon from '../../assets/icons/Minus.png'
 import homeicon from '../../assets/icons/Home.png'
+import char_sprites from '../../assets/player_idle_sprite_sheet.png'
 
 const CharacterPage = () => {
 
@@ -93,7 +94,9 @@ const CharacterPage = () => {
 
             {/* Profile picture*/}
             <div className='profile-picture'>
-              <img src={char_profile_img} alt="" />
+              <div className='profile-pic-border'>
+                <img src={player_profile_pic} alt="" />
+              </div>
               <div className='line'></div>
             </div>
 
@@ -129,7 +132,10 @@ const CharacterPage = () => {
           {/* PLAYER AVATAR */}
           <div className='avatar-scene'>
             <div className='character-avatar'>
-              <img src={char_avatar} alt="" />
+              {/* <img src={char_avatar} alt="" /> */}
+              <div className='player'>
+                <img className="player_spritesheet" src={char_sprites} alt="" />
+              </div>
             </div>
           </div>
 
@@ -145,10 +151,11 @@ const CharacterPage = () => {
               <button onClick={handleSideBar}
                 className={showSideBar ? 'btn sidebar-btn no-hover' : 'btn sidebar-btn'}
                 disabled={showSideBar}
-                style={{ bottom: showSideBar ? '0rem' : ' -19rem', 
-                         backgroundColor:showSideBar ? "var(--color-darkish-blue)" : "",
-                         border: showSideBar ? "0 transparent" : ""
-                      }}
+                style={{
+                  bottom: showSideBar ? '0rem' : ' -19rem',
+                  backgroundColor: showSideBar ? "var(--color-darkish-blue)" : "",
+                  border: showSideBar ? "0 transparent" : ""
+                }}
               >
                 <img src={tridot} style={{ display: showSideBar ? 'none' : 'block' }} alt="" />
                 {/* Inner buttons inside the side bar */}

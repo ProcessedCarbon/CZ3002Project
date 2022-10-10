@@ -48,6 +48,10 @@ function TaskForm({ addTask }) {
             ...provided,
             fontFamily: "var(--alt-font)"
         }),
+        placeholder: (provided, state) => ({
+            ...provided,
+            fontFamily: "var(--alt-font)"
+        }),
         dropdownIndicator: (provided, state) => ({
             ...provided,
             color: "var(--color-btn-bg)",

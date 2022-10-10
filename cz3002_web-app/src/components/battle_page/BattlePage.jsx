@@ -14,36 +14,36 @@ const LOCAL_STORAGE_KEY = "BATTLEPAGE"
 
 const enemies = [
   {
-    type: "Sentinel",
-    name: "Sentinel",
+    type: "tree_man",
+    name: "Tree Man",
     health: 120,
     xp: 150,
     money: 200
   },
   {
-    type: "observer",
-    name: "Observer",
+    type: "lesser_devil",
+    name: "Lesser Devil",
     health: 50,
     xp: 30,
     money: 50
   },
   {
-    type: "Metal-Slug",
-    name: "Metal Slug",
+    type: "dark_mage",
+    name: "Dark Mage",
     health: 100,
     xp: 80,
     money: 100
   },
   {
-    type: "steel-eagle",
-    name: "Steel Eagle",
+    type: "green_slime",
+    name: "Green Slime",
     health: 80,
     xp: 50,
     money: 80
   },
   {
-    type: "Drone",
-    name: "Drone",
+    type: "terror_monster",
+    name: "Terror",
     health: 150,
     xp: 250,
     money: 250
@@ -59,7 +59,7 @@ const BattlePage = () => {
     name: "",
     currhp: 120,
     hp: 120,
-    type: "Sentinel",
+    type: "dark_mage",
     xp: 0,
     money: 0
   });
@@ -119,11 +119,11 @@ const BattlePage = () => {
   }
 
   if (enemyState.currhp <= 0) {
-    // player win
-    // Show victory box
-    // Show reward
     setBattleComplete(true);
     createEnemy();
+  }
+  function ClearLocalStorage(){
+    localStorage.clear();
   }
 
   return (

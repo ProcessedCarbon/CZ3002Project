@@ -6,7 +6,9 @@ function EnemyAvatar({ type, damaged }) {
 
     return (
         <div className='enemyavatar-container'>
-            <img id={type} className={(damaged) ? "damaged" : ""} src={image} alt="" />
+            <div id={type} className="enemy">
+                <img className={(damaged) ? "damaged" : ""} src={image} alt="" />
+            </div>
         </div>
     )
 }
