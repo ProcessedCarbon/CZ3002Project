@@ -48,10 +48,6 @@ function TaskForm({ addTask }) {
             ...provided,
             fontFamily: "var(--alt-font)"
         }),
-        placeholder: (provided, state) => ({
-            ...provided,
-            fontFamily: "var(--alt-font)"
-        }),
         dropdownIndicator: (provided, state) => ({
             ...provided,
             color: "var(--color-btn-bg)",
@@ -85,6 +81,7 @@ function TaskForm({ addTask }) {
                     options={options}
                     onChange={handleTaskPriorityChange}
                     styles={customStyles}
+                    placeholder={"Select your priority..."}
                 />
                 <button className='btn' type='submit'><h5>+</h5></button>
             </form>

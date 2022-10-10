@@ -1,10 +1,8 @@
-import React from 'react'
-import { useState } from 'react'
+import React,{useState } from 'react'
 import './CharacterPage.css'
 
 // REACT COMPONENTS //
-import Stats from './Stats'
-import UserName from './UserName'
+import UserProfile from './UserProfile'
 import GiftBox from './GiftBoxComponents/GiftBox'
 import Shop from './ShopComponents/Shop'
 import InventoryBox from './InventoryComponents/InventoryBox'
@@ -15,7 +13,6 @@ import player_profile_pic from '../../assets/player_profile_pic.png'
 import messageicon from '../../assets/icons/Messages.png'
 import giftsicon from '../../assets/icons/Gift.png'
 import favouritesicon from '../../assets/icons/Favorites.png'
-// import char_avatar from '../../assets/char_avatar.png'
 import protectionicon from '../../assets/icons/Protection.png'
 import chestbtn from '../../assets/Chest.png'
 import tridot from '../../assets/icons/Kebab_Menu_Horizontal.png'
@@ -27,7 +24,6 @@ import homeicon from '../../assets/icons/Home.png'
 import char_sprites from '../../assets/player_idle_sprite_sheet.png'
 
 const CharacterPage = () => {
-
   /* HOOKS */
   const [isShown_gift, setIsShown_gift] = useState(false);
   const [isShown_fav, setIsShown_fav] = useState(false);
@@ -102,13 +98,7 @@ const CharacterPage = () => {
 
             {/* Profile details*/}
             <div className='char-details'>
-              <UserName username='Gregory123'></UserName>
-              <div className='stats-grp'>
-                <Stats statname='Lvl:' value='100'></Stats>
-                <Stats statname='Pwr:' value={'250'}></Stats>
-                <Stats statname='Gold:' value={'$' + '100'}></Stats>
-                <Stats statname='SP:' value='30'></Stats>
-              </div>
+              <UserProfile/>
             </div>
           </div>
 

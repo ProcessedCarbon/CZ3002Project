@@ -18,35 +18,35 @@ const enemies = [
     name: "Tree Man",
     health: 120,
     xp: 150,
-    money: 200
+    gold: 200,
   },
   {
     type: "lesser_devil",
     name: "Lesser Devil",
     health: 50,
     xp: 30,
-    money: 50
+    gold: 50
   },
   {
     type: "dark_mage",
     name: "Dark Mage",
     health: 100,
     xp: 80,
-    money: 100
+    gold: 100
   },
   {
     type: "green_slime",
     name: "Green Slime",
     health: 80,
     xp: 50,
-    money: 80
+    gold: 80
   },
   {
     type: "terror_monster",
     name: "Terror",
     health: 150,
     xp: 250,
-    money: 250
+    gold: 250
   }
 ]
 let damageToDeal = 0;
@@ -61,16 +61,17 @@ const BattlePage = () => {
     hp: 120,
     type: "dark_mage",
     xp: 0,
-    money: 0
+    gold: 0
   });
+
 
   useEffect(() => {
     const storeEnemy = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if (storeEnemy) {
-      if(storeEnemy.name == ""){
+      if (storeEnemy.name == "") {
         createEnemy();
       }
-      else{
+      else {
         setEnemyState(storeEnemy);
       }
     }
@@ -80,7 +81,6 @@ const BattlePage = () => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(enemyState))
   }, [enemyState]);
 
-
   function createEnemy() {
     let enemyIndex = getRandomValue(0, (enemies.length))
     setEnemyState({
@@ -88,8 +88,8 @@ const BattlePage = () => {
       currhp: enemies[enemyIndex].health,
       hp: enemies[enemyIndex].health,
       type: enemies[enemyIndex].type,
-      xp:enemies[enemyIndex].xp,
-      money:enemies[enemyIndex].money
+      xp: enemies[enemyIndex].xp,
+      gold: enemies[enemyIndex].gold
     });
   }
 
@@ -114,7 +114,7 @@ const BattlePage = () => {
     }
   }, [taskComplete])
 
-  function getDamageToDeal(value){
+  function getDamageToDeal(value) {
     damageToDeal = value;
   }
 
@@ -122,7 +122,7 @@ const BattlePage = () => {
     setBattleComplete(true);
     createEnemy();
   }
-  function ClearLocalStorage(){
+  function ClearLocalStorage() {
     localStorage.clear();
   }
 
@@ -132,22 +132,22 @@ const BattlePage = () => {
         <a href="profile" className='btn return-home-btn'>
           <h5>Return Home</h5>
         </a>
-        {/* <button className='btn' onClick={ClearLocalStorage}>Clear Storage</button> */}
+        <button className='btn' onClick={ClearLocalStorage}>Clear Storage</button>
         {/* ENTITY COMPONENTS */}
         {!battlecomplete &&
-        <div className='entity-space'>
-          <Player health={100} maxhealth={100} name="Gregory123" />
-          <Enemy
-            currHealth={enemyState.currhp}
-            health={enemyState.hp}
-            name={enemyState.name}
-            type={enemyState.type}
-          />
-        </div>}
+          <div className='entity-space'>
+            <Player health={100} maxhealth={100} name="Gregory123" />
+            <Enemy
+              currHealth={enemyState.currhp}
+              health={enemyState.hp}
+              name={enemyState.name}
+              type={enemyState.type}
+            />
+          </div>}
         {/* VARIOUS BUTTON SCREENS */}
         <div>
-          <BattleTaskBox setTaskComplete={setTaskComplete} damageToDeal={getDamageToDeal}/>
-          {battlecomplete && <VictoryBox xp={enemyState.xp} money={enemyState.money} />}
+          <BattleTaskBox setTaskComplete={setTaskComplete} damageToDeal={getDamageToDeal} />
+          {battlecomplete && <VictoryBox xp={enemyState.xp} gold={enemyState.gold} />}
         </div>
       </div>
     </div>

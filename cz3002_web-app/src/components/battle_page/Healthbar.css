@@ -24,7 +24,6 @@
 	--yellow-statbar-bg: linear-gradient(to left, #F4E06D, #faeb20);
 	--green-statbar-bg: linear-gradient(to left, #38E54D, #38E54D);
 
-    /* background: red; */
 	border-radius: 20px;
 	color: #fff;
 	display: flex;

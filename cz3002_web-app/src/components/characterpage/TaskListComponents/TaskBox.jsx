@@ -41,6 +41,10 @@ const TaskBox = () => {
         setTasks([])
     }
 
+    function clearCompletedTask(){
+        setTasks(tasks.filter(task => task.completed === false))
+    }
+
     function removeTask(id) {
         setTasks(tasks.filter(task => task.id !== id))
     }
@@ -49,7 +53,10 @@ const TaskBox = () => {
         <div className='taskbox-container'>
             <div className='box'>
                 <h2>Task List</h2>
-                <button className='btn clearall' onClick={clearAllTask}><h4>Clear All</h4></button>
+                <div className="taskbox-btns">
+                    <button className='btn clearall' onClick={clearAllTask}><h4>Clear All</h4></button>
+                    <button className='btn clearcompleted' onClick={clearCompletedTask}><h4>Clear Completed</h4></button>
+                </div>
                 <TaskForm addTask={addTask} />
                 <TaskList todos={tasks} toggleComplete={toggleComplete} removeTask={removeTask} />
             </div>

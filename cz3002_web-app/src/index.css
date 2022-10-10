@@ -129,8 +129,8 @@ a {
 
 .btn:not(.no-hover):hover {
     background: var(--color-btn-bg);
-    transform: scale(1.2);
-    box-shadow: 0px 0px 8px 5px var(--color-light-blue);
+    transform: scale(1.1);
+    box-shadow: 0px 0px 5px 3px var(--color-light-blue);
 }
 
 .btn-primary {

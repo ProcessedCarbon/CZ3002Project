@@ -3,16 +3,19 @@
     display: flex;
     flex-direction: column;
     place-items: center;
+    row-gap: 1.5rem;
 }
-.taskbox-container::backdrop{
-    background: black;
-}
-.taskbox-container > .box >.clearall{
+
+.taskbox-btns{
+    position: inherit;
+    display: flex;
+    flex-direction: row;
+    column-gap: 1.5rem;
     right: 1rem;
     top: 1rem;
-    position: inherit;
 }
-.taskbox-container > .box >.clearall > h4{
+
+.taskbox-btns >.btn > h4{
     margin: 0.25rem;
     font-size: 1.2rem;
 }

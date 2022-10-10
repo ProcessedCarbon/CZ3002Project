@@ -78,19 +78,6 @@
     animation-iteration-count: 1;
 }
 
-.characterpage_container>.background>.character_profile>.char-details {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-}
-
-.characterpage_container>.background>.character_profile>.char-details>.stats-grp {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1.5rem;
-    padding: .25rem;
-}
-
 @keyframes char-profile-intro {
     0% {
         transform: translateX(-100%);
