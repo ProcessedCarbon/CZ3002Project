@@ -136,7 +136,7 @@ const BattlePage = () => {
         {/* ENTITY COMPONENTS */}
         {!battlecomplete &&
           <div className='entity-space'>
-            <Player health={100} maxhealth={100} name="Gregory123" />
+            <Player className="char" health={100} maxhealth={100} name="Gregory123" />
             <Enemy
               currHealth={enemyState.currhp}
               health={enemyState.hp}

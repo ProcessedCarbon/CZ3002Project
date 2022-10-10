@@ -35,9 +35,9 @@
     --transition-bars: 0.8s ease 0.3s;
     --transition-cubicbezier: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --container-width-lg: 75%;
+    /* --container-width-lg: 75%;
     --containder-width-md: 86%;
-    --container-wdith-sm: 90%;
+    --container-wdith-sm: 90%; */
 
     --animation-fade_in-right: fade_in_right;
     --animation-fade_in-left: fade_in_left;
@@ -63,10 +63,10 @@ body::-webkit-scrollbar {
 }
 
 /* ---------------- General Styles -------------------- */
-.container {
+/* .container {
     width: var(--container-width-lg);
     margin: 0 auto;
-}
+} */
 
 h1,
 h2,
@@ -181,13 +181,13 @@ img {
 .player{
     height: fit-content;
     width: 75px;
+    bottom: -6rem;    
     overflow: hidden;
+    position: relative;
 }  
 
 .player > img{
-    position: inherit;
     min-width: 150px;
-    bottom: 10rem;
     animation: sprite-animation 1s steps(2) infinite;
 }
 

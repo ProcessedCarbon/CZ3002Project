@@ -28,11 +28,11 @@ const App = () => {
   // Testing
   //ClearLocalStorage();
   return (
-    <section>
+    <div>
         <div>
           {renderContent()}
         </div>
-    </section>
+    </div>
   )
 }
 

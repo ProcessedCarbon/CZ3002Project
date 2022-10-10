@@ -1,5 +1,4 @@
 .enemy-container > .enemy-avatar{
-    /* bottom: -5rem;*/
     display: flex;
     flex-direction: column;
     text-align: center;

@@ -3,7 +3,6 @@ import './VictoryBox.css'
 import useIntersecion from '../Misc/useIntersecion'
 
 const PLAYER_LOCAL_KEY = "PLAYER_LOCAL_KEY"
-
 function VictoryBox({ xp, gold }) {
     const ref = useRef();
     const inViewport = useIntersecion(ref, "0px");
@@ -11,10 +10,10 @@ function VictoryBox({ xp, gold }) {
     const [playerStored, updatePlayerStored] = useState({
         name: "",
         xp: 0,
-        pwr: 0,
+        // pwr: 0,
         gold: 0,
-        lvl: 0,
-        sp: 0
+        // lvl: 0,
+        // sp: 0
     })
     useEffect(() => {
         const player_storage = JSON.parse(localStorage.getItem(PLAYER_LOCAL_KEY));
