@@ -10,7 +10,6 @@ const Login = () => {
   }
   
   function loginBtnClick(values){
-    console.log(values)
     //TODO: backend logic
     window.location.href='profile'
   }
@@ -31,7 +30,7 @@ const Login = () => {
                   {({ input, meta }) => (
                     <div>
                       <label>Username</label>
-                      <input {...input} type="text" placeholder='Username' />
+                      <input {...input} type="text" />
                       {meta.error && meta.touched && <span style={{ color: "red" }}>{meta.error}</span>}
                     </div>
                   )}
@@ -40,17 +39,17 @@ const Login = () => {
                   {({ input, meta }) => (
                     <div>
                       <label>Password</label>
-                      <input {...input} type="text" placeholder='Password' />
+                      <input {...input} type="text" />
                       {meta.error && meta.touched && <span style={{ color: "red" }}>{meta.error}</span>}
                     </div>
                   )}
                 </Field>
               </div>
-              <button className='btn' onClick={registerBtnClick}>New Account</button>
-              <button type="submit" className='btn'>Login</button>
+              <button type="submit" className='btn' disabled={submitting}>Login</button>
             </form>
           )}
         />
+        <button className='btn' onClick={registerBtnClick}>New Account</button>
       </div>
     </div>
   );
