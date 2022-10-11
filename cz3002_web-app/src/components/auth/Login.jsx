@@ -1,63 +1,59 @@
 import React from 'react'
 import './Login.css'
 import avatar from '../../assets/char_avatar.png'
+import { Form, Field } from "react-final-form";
 
-var state = {
-  inputs: {},
-  errors: {},
-};
+const Login = () => {
 
-function validateInputs(){
-  let inputs = state.inputs
-  let errors = {}
+  function registerBtnClick(e){
+    window.location.href = 'register'
+  }
   
-  if(typeof inputs['username'] == 'undefined'){
-    errors['username'] = 'Required'
-  }
-
-  if(typeof inputs['password'] == 'undefined'){
-    errors['password'] = 'Required'
-  }
-
-  state.errors = errors;
-
-  console.log(errors)
-  for(var i in errors) return false;//return false if not empty
-  return true
-}
-
-function registerBtnClick(){
-  window.location.href = 'register'
-}
-
-function loginBtnClick(){
-  if(validateInputs()){
+  function loginBtnClick(values){
+    console.log(values)
     //TODO: backend logic
     window.location.href='profile'
   }
-}
 
-function onInputChange(e){
-  let inputs = state.inputs
-  inputs[e.target.name] = e.target.value
-  state = {inputs}
-}
-
-const Login = () => {
   return (
     <div>
-        <h3>Hello Adventurer</h3>
-        <div className='character-avatar'>
-            <img alt='' src={avatar}/>
-        </div>
-        User: <input name='username' type="text" placeholder='Username' onChange={onInputChange} required />
-        <br/>
-        Pass: <input name='password' type='password' placeholder='Password' onChange={onInputChange} required/>
-        <br/><br/>
-        <button className='btn' onClick={registerBtnClick}>New Account</button>
-        <button className='btn' onClick={loginBtnClick}>Login</button>
+      <h3>Hello Adventurer</h3>
+      <div className='character-avatar'>
+          <img alt='' src={avatar}/>
+      </div>
+      <div>
+        <Form
+          onSubmit={loginBtnClick}
+          render={({ handleSubmit, form, submitting, pristine, values }) => (
+            <form onSubmit={handleSubmit}>
+              <div>
+                <Field name="username" validate={value => value ? undefined : "Required"}>
+                  {({ input, meta }) => (
+                    <div>
+                      <label>Username</label>
+                      <input {...input} type="text" placeholder='Username' />
+                      {meta.error && meta.touched && <span style={{ color: "red" }}>{meta.error}</span>}
+                    </div>
+                  )}
+                </Field>
+                <Field name="password" validate={value => value ? undefined : "Required"}>
+                  {({ input, meta }) => (
+                    <div>
+                      <label>Password</label>
+                      <input {...input} type="text" placeholder='Password' />
+                      {meta.error && meta.touched && <span style={{ color: "red" }}>{meta.error}</span>}
+                    </div>
+                  )}
+                </Field>
+              </div>
+              <button className='btn' onClick={registerBtnClick}>New Account</button>
+              <button type="submit" className='btn'>Login</button>
+            </form>
+          )}
+        />
+      </div>
     </div>
-  )
+  );
 }
 
 export default Login
