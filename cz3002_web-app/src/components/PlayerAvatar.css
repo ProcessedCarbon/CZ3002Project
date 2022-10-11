@@ -1,3 +1,8 @@
+.player{
+    /* animation: player-attack 0.5s linear;
+    animation-play-state: paused; */
+    /* transform: translateX(650px); */
+}
 .player > .player-avatar{
     height: fit-content;
     width: 75px;
@@ -36,6 +41,6 @@
 
 @keyframes player-attack{
     to{
-        transform: translate(100%);
+        transform: translateX(650px);
     }
 }
