@@ -68,13 +68,12 @@ const BattlePage = () => {
   useEffect(() => {
     const storeEnemy = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if (storeEnemy) {
-      if (storeEnemy.name == "") {
-        createEnemy();
-      }
-      else {
-        setEnemyState(storeEnemy);
-      }
+      setEnemyState(storeEnemy);
     }
+    else {
+      createEnemy();
+    }
+
   }, [])
 
   useEffect(() => {
@@ -82,7 +81,7 @@ const BattlePage = () => {
   }, [enemyState]);
 
   function createEnemy() {
-    let enemyIndex = getRandomValue(0, (enemies.length))
+    let enemyIndex = getRandomValue(0, (enemies.length - 1))
     setEnemyState({
       name: enemies[enemyIndex].name,
       currhp: enemies[enemyIndex].health,
@@ -112,15 +111,15 @@ const BattlePage = () => {
       // reset taskcomplete
       setTaskStatus(false);
     }
+
+    if (enemyState.currhp <= 0) {
+      setBattleComplete(true);
+      createEnemy();
+    }
   }, [taskComplete])
 
   function getDamageToDeal(value) {
     damageToDeal = value;
-  }
-
-  if (enemyState.currhp <= 0) {
-    setBattleComplete(true);
-    createEnemy();
   }
   function ClearLocalStorage() {
     localStorage.clear();
