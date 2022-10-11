@@ -2,31 +2,82 @@ import React from 'react'
 import './Register.css'
 import avatar from '../../assets/char_avatar.png'
 import AxiosInterface from '../Misc/AxiosInterface'
-var state = {
-  inputs: {},
-  errors: {},
-};
+import { Form, Field } from "react-final-form";
+
 const a_interface = new AxiosInterface();
-function validateInputs(){
-  let inputs = state.inputs
-  let errors = {}
-  
-  if(typeof inputs['name'] == 'undefined'){
-    errors['name'] = 'Required'
-  }else if(!inputs['name'].match(/^[a-zA-Z]+$/)){
-    errors['name'] = 'Only letters allowed'
-  }
 
-  if(typeof inputs['age'] == 'undefined'){
-    errors['age'] = 'Required'
-  }else if(inputs['age'] < 0 || inputs['age'] > 200){
-    errors['age'] = 'Invalid age'
-  }
+function onBtnClick(){
+  //TODO: backend logic
+  window.location.href='profile'
+}
 
-  if(typeof inputs['email'] == 'undefined'){
-    errors['email'] = 'Required'
-  }else{
-    let lastAtPos = inputs['email'].lastIndexOf('@')
+const Register = () => {
+  return (
+    <div>
+      <h3>Character Sheet</h3>
+        <div className='character-avatar'>
+            <img alt='' src={avatar}/>
+        </div>
+      <Form
+        onSubmit={onBtnClick}
+        render={({ handleSubmit, form, submitting, pristine, values }) => (
+          <form onSubmit={handleSubmit}>
+            <div>
+              <Field name="username" validate={value => value ? (value.match(/^[a-zA-Z]+$/) ? undefined : 'Only letters allowed') : "Required"}>
+                {({ input, meta }) => (
+                  <div>
+                    <label>Username</label>
+                    <input {...input} type="text" placeholder='Username' />
+                    {meta.error && meta.touched && <span style={{ color: "red" }}>{meta.error}</span>}
+                  </div>
+                )}
+              </Field>
+              <Field name="age" validate={value => value ? (value < 0 || value > 200 ? 'Invalid' : undefined) : "Required"}>
+                {({ input, meta }) => (
+                  <div>
+                    <label>Age</label>
+                    <input {...input} type="number" placeholder='Age' />
+                    {meta.error && meta.touched && <span style={{ color: "red" }}>{meta.error}</span>}
+                  </div>
+                )}
+              </Field>
+              <Field name="email" validate={value => value ? undefined : "Required"}>
+                {({ input, meta }) => (
+                  <div>
+                    <label>Email</label>
+                    <input {...input} type="text" placeholder='Email' />
+                    {meta.error && meta.touched && <span style={{ color: "red" }}>{meta.error}</span>}
+                  </div>
+                )}
+              </Field>
+              <Field name="region" validate={value => value ? undefined : "Required"}>
+                {({ input, meta }) => (
+                  <div>
+                    <label>Region</label>
+                    <input {...input} type="text" placeholder='Region' />
+                    {meta.error && meta.touched && <span style={{ color: "red" }}>{meta.error}</span>}
+                  </div>
+                )}
+              </Field>
+              <Field name="password" validate={value => value ? (value.length < 8 ? 'Must be at least 8 characters long' : undefined) : "Required"}>
+                {({ input, meta }) => (
+                  <div>
+                    <label>Password</label>
+                    <input {...input} type="password" placeholder='Password' />
+                    {meta.error && meta.touched && <span style={{ color: "red" }}>{meta.error}</span>}
+                  </div>
+                )}
+              </Field>
+            </div>
+            <button type="submit" className='btn'>Done</button>
+          </form>
+        )}
+      />
+    </div>
+  )
+}
+/*
+let lastAtPos = inputs['email'].lastIndexOf('@')
     let lastDotPos = inputs['email'].lastIndexOf('.')
 
     if(!(
@@ -37,67 +88,5 @@ function validateInputs(){
     )){
       errors['email'] = 'Invalid email'
     }
-  }
-
-  if(typeof inputs['region'] == 'undefined'){
-    errors['region'] = 'Required'
-    //TODO
-  }
-
-  if(typeof inputs['password'] == 'undefined'){
-    errors['password'] = 'Required'
-  }else if(inputs['password'].length < 8){
-    errors['password'] = 'Must be at least 8 characters long'
-    //TODO more validation
-  }
-
-  state.errors = errors;
-
-  console.log(errors)
-  for(var i in errors) return false;//return false if not empty
-  return true
-}
-
-function onBtnClick(){
-  var valid = validateInputs()
-  //TODO: backend logic
-  if(valid){
-    window.location.href='profile'
-  }
-}
-
-function onInputChange(e){
-  let inputs = state.inputs
-  inputs[e.target.name] = e.target.value
-  state = {inputs}
-  console.log(inputs)
-}
-
-const Register = () => {
-  return (
-    <div>
-        <h3>Character Sheet</h3>
-        <div className='character-avatar'>
-            <img alt='' src={avatar}/>
-        </div>
-        Name: <input name='name' type='text' placeholder='Name' onChange={onInputChange} required />
-        <span style={{ color: "red" }}>gg{state.inputs['name']}</span>
-        <br/>
-        Age: <input name='age' type='number' placeholder='Age' onChange={onInputChange} required/>
-        <span style={{ color: "red" }}>gg{state.errors["age"]}</span>
-        <br/>
-        Email: <input name='email' type='text' placeholder='Email' onChange={onInputChange} required/>
-        <span style={{ color: "red" }}>gg{state.errors["email"]}</span>
-        <br/>
-        Region: <input name='region' type='text' placeholder='Region' onChange={onInputChange} required/>
-        <span style={{ color: "red" }}>gg{state.errors["region"]}</span>
-        <br/>
-        Password: <input name='password' type='password' placeholder='Password' onChange={onInputChange} required/>
-        <span style={{ color: "red" }}>gg{state.errors["password"]}</span>
-        <br/><br/>
-        <button className='btn' onClick={onBtnClick} >Done</button>
-    </div>
-  )
-}
-
+*/
 export default Register
