@@ -113,7 +113,19 @@
         width: 220%;
     }
 }
-
+/*================= CHARACTER ========================*/
+.avatar-scene > .character-avatar{
+    animation: player_jump 7s forwards infinite;
+    animation-delay: 3s;
+}
+@keyframes player_jump{
+    0%,4%,8%,100%{
+        transform: translateY(0px);
+    }
+    2%,6%{
+        transform: translateY(-80px); 
+    }
+}
 /*================= TOP RIGHT BUTTONS ========================*/
 .characterpage_container>.background>.btn_group {
     grid-area: 'top-btn';
@@ -209,24 +221,20 @@
     animation: battle-btn-hover-effect;
     animation-timing-function: var(--transition-cubicbezier);
     animation-duration: 3.5s;
-    animation-delay: 0.5s;
+    animation-delay: 3s;
     animation-iteration-count: infinite;
 }
 
 @keyframes battle-btn-hover-effect {
-    0% {
+    0%,100% {
         transform: translateY(-15px) scale(1.1);
         box-shadow: 0px 0px 8px 5px var(--color-darkish-yellow);
     }
 
     50% {
         transform: translateY(-15px) scale(1.2);
-        box-shadow: 0px 0px 20px 15px var(--color-darkish-yellow);
-    }
-
-    100% {
-        transform: translateY(-15px) scale(1.1);
-        box-shadow: 0px 0px 8px 5px var(--color-darkish-yellow);
+        box-shadow: 0px 0px 15px 8px var(--color-darkish-yellow);
+        filter: contrast(150%);
     }
 }
 
@@ -239,8 +247,25 @@
 .characterpage_container>.background>.bottom_btn>.inventory-btn:hover {
     background: none;
     box-shadow: none;
-}
+    transform: scale(1.2);
 
+    animation: inventory_animations 1.5s forwards infinite;
+    animation-delay: 0.5s;
+}
+@keyframes inventory_animations{
+    0%, 10%, 30%, 40%{
+        transform: rotate(0deg) scale(1.2);
+    }
+    5%, 25%{
+        transform: rotate(2deg) scale(1.2);
+    }
+    15%, 35%{
+        transform: rotate(-2deg) scale(1.2);
+    }
+    100%{
+        transform: rotate(0deg) scale(1.2);
+    }
+}
 .characterpage_container>.background>.bottom_btn>.sidebar-container>.sidebar-btn {
     display: flex;
     flex-direction: column;

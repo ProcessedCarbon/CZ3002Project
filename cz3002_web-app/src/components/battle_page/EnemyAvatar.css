@@ -1,3 +1,15 @@
+.enemy{
+    transition: var(--transition-bars);
+    animation: enemy_enter 1s ease-in-out;
+}
+@keyframes enemy_enter{
+    from{
+        transform: translateX(500%) scaleX(-1);
+    }
+    to{
+        transform: translateX(0) scaleX(-1);
+    }
+}
 #tree_man{
     width: 150px;
     /* background: red; */
@@ -5,7 +17,7 @@
 }
 #tree_man > img{
     min-width: 300px;
-    padding-top: 5rem;
+    padding-top: 3.5rem;
     animation: sprite-animation 1.5s steps(2) infinite;
 }
 
@@ -14,7 +26,7 @@
 }
 #lesser_devil > img{
     min-width: 400px;
-    padding-top: 8.5rem;
+    padding-top: 7.5rem;
     animation: sprite-animation 0.8s steps(4) infinite;
 }
 
@@ -48,7 +60,6 @@
 
 .enemyavatar-container > .enemy > img:is(.damaged){
     filter: invert(100%) blur(1px);
-
 }
 .enemyavatar-container > .vfx{
     position: absolute;

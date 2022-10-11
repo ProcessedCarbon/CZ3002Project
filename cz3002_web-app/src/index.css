@@ -32,7 +32,7 @@
     --color-reddish: #BE4267;
 
     --transition: all 400ms ease;
-    --transition-bars: 0.8s ease 0.3s;
+    --transition-bars: 0.8s ease;
     --transition-cubicbezier: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     /* --container-width-lg: 75%;
