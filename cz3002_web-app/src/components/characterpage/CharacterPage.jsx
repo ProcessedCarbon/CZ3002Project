@@ -7,6 +7,7 @@ import GiftBox from './GiftBoxComponents/GiftBox'
 import Shop from './ShopComponents/Shop'
 import InventoryBox from './InventoryComponents/InventoryBox'
 import TaskBox from './TaskListComponents/TaskBox'
+import PlayerAvatar from '../PlayerAvatar'
 
 // ICONS OR IMAGES//
 import player_profile_pic from '../../assets/player_profile_pic.png'
@@ -122,10 +123,7 @@ const CharacterPage = () => {
           {/* PLAYER AVATAR */}
           <div className='avatar-scene'>
             <div className='character-avatar'>
-              {/* <img src={char_avatar} alt="" /> */}
-              <div className='player'>
-                <img className="player_spritesheet" src={char_sprites} alt="" />
-              </div>
+              <PlayerAvatar/>
             </div>
           </div>
 

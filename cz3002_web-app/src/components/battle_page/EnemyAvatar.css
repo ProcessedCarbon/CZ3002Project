@@ -48,10 +48,7 @@
 
 .enemyavatar-container > .enemy > img:is(.damaged){
     filter: invert(100%) blur(1px);
-    animation: animation-damaged;
-    animation-duration: 0.5s;
-    animation-timing-function: var(--transition-cubicbezier);
-    animation-iteration-count: 1;
+
 }
 .enemyavatar-container > .vfx{
     position: absolute;
@@ -73,10 +70,4 @@
 .enemyavatar-container > .vfx >img:is(.damaged){
     opacity: 1;
     animation-play-state: running;
-}
-
-@keyframes animation-damaged{
-    to{
-        transform: translateX(10px); filter: blur(3px);
-    }
 }

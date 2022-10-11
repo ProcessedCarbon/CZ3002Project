@@ -34,8 +34,6 @@
     overflow: hidden;
     min-height: 350px;
     overflow: visible;
-    /* align-items: baseline; */
-    /* background-color: red; */
 }
 
 .battlepage-screen > .entity-space > div {
