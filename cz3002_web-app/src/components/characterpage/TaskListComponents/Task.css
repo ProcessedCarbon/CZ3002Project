@@ -12,6 +12,7 @@
     word-wrap: break-word;
     min-width: 10%;
     max-width: 40%;
+    transition: var(--transition-cubicbezier);
 }
 
 .task-container > input{

@@ -116,7 +116,7 @@
 /*================= CHARACTER ========================*/
 .avatar-scene > .character-avatar{
     animation: player_jump 7s forwards infinite;
-    animation-delay: 3s;
+    animation-delay: 7s;
 }
 @keyframes player_jump{
     0%,4%,8%,100%{

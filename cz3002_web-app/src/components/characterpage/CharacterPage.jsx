@@ -8,6 +8,7 @@ import Shop from './ShopComponents/Shop'
 import InventoryBox from './InventoryComponents/InventoryBox'
 import TaskBox from './TaskListComponents/TaskBox'
 import PlayerAvatar from '../PlayerAvatar'
+import RecommendedTaskBox from './RecommendedTaskComponents/RecommendedTaskBox'
 
 // ICONS OR IMAGES//
 import player_profile_pic from '../../assets/player_profile_pic.png'
@@ -22,7 +23,6 @@ import pointerdownicon from '../../assets/icons/Pointer_Down.png'
 import personicon from '../../assets/icons/Person.png'
 import minusicon from '../../assets/icons/Minus.png'
 import homeicon from '../../assets/icons/Home.png'
-import char_sprites from '../../assets/player_idle_sprite_sheet.png'
 
 const CharacterPage = () => {
   /* HOOKS */
@@ -32,26 +32,36 @@ const CharacterPage = () => {
   const [showInventory, setShowInventory] = useState(false);
   const [hideLowerBtn, setHideLowerBtn] = useState(false);
   const [isShown_tasklist, setIsShown_tasklist] = useState(false);
+  const [showRecommendedTask, setShowRecommendedTask] = useState(false);
 
   /* ON CLICK METHODS */
   const handleTaskList = event => {
     setIsShown_tasklist(current => !current);
     setIsShown_fav(false);
     setIsShown_gift(false);
+    setShowRecommendedTask(false);
     collapseLowerBtn(!isShown_tasklist);
   };
   const handleGiftBox = event => {
     setIsShown_gift(current => !current);
     setIsShown_fav(false);
     setIsShown_tasklist(false);
+    setShowRecommendedTask(false);
     collapseLowerBtn(!isShown_gift);
   };
   const handleFavoriteBox = event => {
     setIsShown_fav(current => !current);
     setIsShown_gift(false);
     setIsShown_tasklist(false);
+    setShowRecommendedTask(false);
     collapseLowerBtn(!isShown_fav);
   };
+  const handleShowRecommended = event =>{
+    setShowRecommendedTask(current => !current);
+    setIsShown_gift(false);
+    setIsShown_tasklist(false);
+    setIsShown_fav(false);
+  }
   const handleSideBar = event => {
     setShowSideBar(current => !current);
   }
@@ -63,6 +73,7 @@ const CharacterPage = () => {
     setHideLowerBtn(status);
     setShowSideBar(false);
     setShowInventory(false);
+    setShowRecommendedTask(false);
   }
 
   /* SELECT BUTTON SCREENS TO SHOW */
@@ -78,6 +89,9 @@ const CharacterPage = () => {
   }
   else if (isShown_tasklist) {
     screenToShow = <TaskBox />
+  }
+  else if (showRecommendedTask) {
+    screenToShow = <RecommendedTaskBox />
   }
 
   /* ================ RENDER ==================== */
@@ -132,7 +146,7 @@ const CharacterPage = () => {
               2. battle
               3. sidebar
           */}
-          <div className='bottom_btn' style={{ scale: hideLowerBtn ? '0' : '1' }}>
+          <div className='bottom_btn' style={{ transform: hideLowerBtn ? 'translateY(100%)' : 'translateY(0)' }}>
             <button onClick={handleInventory} className='btn inventory-btn'><img src={chestbtn} alt="" /></button>
             <a href="battle" className='btn battle-btn'><img src={protectionicon} alt="" /></a>
             <div className='sidebar-container'>
@@ -149,7 +163,7 @@ const CharacterPage = () => {
                 {/* Inner buttons inside the side bar */}
                 <div className='inner-btns'>
                   <a href="login" className='btn'><img src={homeicon} alt="" /></a>
-                  <button className='btn'><img src={personicon} alt="" /></button>
+                  <button className='btn' onClick={handleShowRecommended}><img src={personicon} alt="" /></button>
                   <button className='btn'><img src={soundonicon} alt="" /></button>
                   <img src={minusicon} style={{ marginTop: '3rem' }} alt="" />
                   <button className='btn' onClick={handleSideBar}><img src={pointerdownicon} alt="" /></button>
