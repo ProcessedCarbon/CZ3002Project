@@ -50,8 +50,12 @@ const FriendBox = () => {
   return (
     <div className='giftbox-container'>
       <div className='box'>
-        <h2>Gift Box</h2>
-        <button className='btn clearClaimedGifts' onClick={clearGifts}><h4>Clear Claimed</h4></button>
+        <h2>Friends</h2>
+        <div className='input-bar'>
+          <input type="text" />
+          <button className='btn'></button>
+        </div>
+        {/* <button className='btn clearClaimedGifts' onClick={clearGifts}><h4>Clear Claimed</h4></button> */}
         <FriendInterface addGift={addGift} />
         <FriendList gifts={gifts} toggleClaimed={toggleClaimed} />
       </div>

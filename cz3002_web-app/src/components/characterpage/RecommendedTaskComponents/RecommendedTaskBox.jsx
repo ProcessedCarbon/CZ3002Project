@@ -47,19 +47,18 @@ const RecommendedTaskBox = () => {
 
     function selectRandomTask(number) {
         let tmp = []
-        let t = -1;
-        let prev = -1;
+        setDisplay(tmp);
+        let checkArr = []
+
+        for(let i = 0; i < AllRecommendedTask.length; i ++){
+            checkArr[i] = i;
+        }
+        let t = 0;
         for (let i = 0; i < number; i++) {
-            if(t === - 1){
-                t = getRandomValue(0, AllRecommendedTask.length - 1);
-            }
-            else{
-                while(t === prev){
-                    t = getRandomValue(0, AllRecommendedTask.length - 1);
-                }
-            }
-            prev = t;
-            tmp.push(AllRecommendedTask[t]);
+            t = getRandomValue(0, checkArr.length - 1); // random index for array of index in checkarr
+            let index = checkArr[t];
+            checkArr.splice(t, 1); // remove index from check arr
+            tmp.push(AllRecommendedTask[index]);
         }
         setDisplay(tmp);
     }
