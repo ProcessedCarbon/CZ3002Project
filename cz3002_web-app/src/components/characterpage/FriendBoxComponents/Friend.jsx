@@ -1,27 +1,19 @@
 import React from 'react'
 import './Friend.css'
-import completeicon from '../../../assets/icons/Complete.png'
-import minusicon from '../../../assets/icons/Minus.png'
-
-function Friend({ gift, toggleClaimed }) {
+import profilepic from '../../../assets/player_profile_pic.png'
+function Friend({ friend, toggleClaimed }) {
 
   function handleOnClickGift() {
     // Collect gift logic
-    toggleClaimed(gift.id);
+    toggleClaimed(friend.id);
   }
 
   return (
-    <div className='gift-container'>
-      <button 
-        className={gift.claimed ? 'btn giftbtn no-hover' : 'btn giftbtn'}
-        onClick={handleOnClickGift}
-      >
-        <img src={gift.claimed ? completeicon : minusicon} 
-            alt="" 
-            style={{backgroundColor: gift.claimed ? "gray" : "var(--color-dark-purple)"}}
-          />
-      </button>
-      <h4>{gift.name}</h4>
+    <div className='friend-container'>
+      <div className='profile-pic-border'>
+        <img src={profilepic} alt="" />
+      </div>
+      <h4>{friend.name}</h4>
     </div>
   )
 }

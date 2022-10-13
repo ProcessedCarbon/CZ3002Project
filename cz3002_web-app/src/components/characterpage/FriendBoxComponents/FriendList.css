@@ -1,9 +1,11 @@
 .gift-layout{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    width: 750px;
-    height: 350px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
     place-content: start;
     margin-left: 2rem;
     padding: 1rem;
+    margin: 1rem;
+    align-items: center;
 }

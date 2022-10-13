@@ -1,18 +1,41 @@
-.gift-container{
+.friend-container{
     height: fit-content;
-    width: 110px;
+    width: fit-content;
+    max-width: 80%;
+    min-width: 250px;
     margin-top: 1rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     row-gap: 1rem;
+    background: var(--color-light);
+    border-radius: 5px;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.gift-container > h4 {
+.friend-container > .profile-pic-border{
+    overflow: hidden;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    background: var(--color-dark-purple);
+    margin: 0.5rem 0;
+}
+
+.friend-container > .profile-pic-border > img{
+    height: 70%;
+    width: 50%;
+    margin-inline: auto;
+    margin-top: 30%;
+}
+
+.friend-container > h4 {
     color: var(--color-darkish-blue);
     word-wrap: break-word;
+    margin-right: 1rem;
 }
 
-.gift-container > .giftbtn{
+.friend-container > .giftbtn{
     height: 100px;
     width: 110px;
     display: flex;
@@ -22,7 +45,7 @@
     overflow: hidden;
 }
 
-.gift-container > .giftbtn > img{
+.friend-container > .giftbtn > img{
     position: relative;
     height: 100%;
     width: 100%;

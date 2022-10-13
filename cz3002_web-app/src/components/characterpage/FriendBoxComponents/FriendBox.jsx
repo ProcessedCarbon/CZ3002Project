@@ -3,61 +3,54 @@ import './FriendBox.css'
 import FriendList from './FriendList'
 import FriendInterface from './FriendInterface'
 
-const LOCAL_STORAGE_KEY = "GIFTBOX"
+const LOCAL_STORAGE_KEY = "FRIENDS"
 
 const FriendBox = () => {
-  const [gifts, setList] = useState([]);
+  const [friends, setList] = useState([]);
   /**
  * Store data on local storage
  */
   useEffect(() => {
-    const storageGifts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    if (storageGifts) {
-      setList(storageGifts);
+    const storedFriends = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if (storedFriends) {
+      setList(storedFriends);
     }
   }, [])
 
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(gifts))
-  }, [gifts]);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(friends))
+  }, [friends]);
 
-  /**
-   * Method to adda gift 
-   * @param {*} gift 
-   */
-  function addGift(gift) {
-    setList([...gifts, gift]);
+
+  function addFriend(friend) {
+    setList([...friends, friend]);
   }
 
   function toggleClaimed(id) {
     setList(
-      gifts.map(gift => {
-        if (gift.id === id) {
+      friends.map(friend => {
+        if (friend.id === id) {
           return {
-            ...gift,
+            ...friend,
             claimed: true
           };
         }
-        return gift;
+        return friend;
       })
     );
   }
 
   function clearGifts() {
-    setList(gifts.filter(gifts => gifts.claimed !== true))
+    setList(friends.filter(friend => friend.claimed !== true))
   }
 
   return (
     <div className='giftbox-container'>
       <div className='box'>
         <h2>Friends</h2>
-        <div className='input-bar'>
-          <input type="text" />
-          <button className='btn'></button>
-        </div>
         {/* <button className='btn clearClaimedGifts' onClick={clearGifts}><h4>Clear Claimed</h4></button> */}
-        <FriendInterface addGift={addGift} />
-        <FriendList gifts={gifts} toggleClaimed={toggleClaimed} />
+        <FriendInterface addFriend={addFriend} />
+        <FriendList friends={friends} toggleClaimed={toggleClaimed} />
       </div>
     </div>
   )
