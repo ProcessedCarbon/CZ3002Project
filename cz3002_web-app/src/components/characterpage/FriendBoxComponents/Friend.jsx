@@ -1,9 +1,9 @@
 import React from 'react'
-import './Gift.css'
+import './Friend.css'
 import completeicon from '../../../assets/icons/Complete.png'
 import minusicon from '../../../assets/icons/Minus.png'
 
-function Gift({ gift, toggleClaimed }) {
+function Friend({ gift, toggleClaimed }) {
 
   function handleOnClickGift() {
     // Collect gift logic
@@ -26,4 +26,4 @@ function Gift({ gift, toggleClaimed }) {
   )
 }
 
-export default React.memo(Gift)
+export default React.memo(Friend)

@@ -3,7 +3,7 @@ import './CharacterPage.css'
 
 // REACT COMPONENTS //
 import UserProfile from './UserProfile'
-import GiftBox from './GiftBoxComponents/GiftBox'
+import FriendBox from './FriendBoxComponents/FriendBox'
 import Shop from './ShopComponents/Shop'
 import InventoryBox from './InventoryComponents/InventoryBox'
 import TaskBox from './TaskListComponents/TaskBox'
@@ -79,7 +79,7 @@ const CharacterPage = () => {
   /* SELECT BUTTON SCREENS TO SHOW */
   let screenToShow;
   if (isShown_gift) {
-    screenToShow = <GiftBox />;
+    screenToShow = <FriendBox />;
   }
   else if (isShown_fav) {
     screenToShow = <Shop />;

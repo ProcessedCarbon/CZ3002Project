@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import './GiftBox.css'
-import GiftList from './GiftList'
-import GiftInterface from './GiftInterface'
+import './FriendBox.css'
+import FriendList from './FriendList'
+import FriendInterface from './FriendInterface'
 
 const LOCAL_STORAGE_KEY = "GIFTBOX"
 
-const GiftBox = () => {
+const FriendBox = () => {
   const [gifts, setList] = useState([]);
   /**
  * Store data on local storage
@@ -52,11 +52,11 @@ const GiftBox = () => {
       <div className='box'>
         <h2>Gift Box</h2>
         <button className='btn clearClaimedGifts' onClick={clearGifts}><h4>Clear Claimed</h4></button>
-        <GiftInterface addGift={addGift} />
-        <GiftList gifts={gifts} toggleClaimed={toggleClaimed} />
+        <FriendInterface addGift={addGift} />
+        <FriendList gifts={gifts} toggleClaimed={toggleClaimed} />
       </div>
     </div>
   )
 }
 
-export default React.memo(GiftBox)
+export default React.memo(FriendBox)

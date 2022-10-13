@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const TEST_GIFT_NAME = "Tmp_Gift_12345677890123456l1231231kln"
 
-function GiftInterface({ addGift }) {
+function FriendInterface({ addGift }) {
   const [gift, setGift] = useState({
     id: "",
     name: "",
@@ -23,16 +23,11 @@ function GiftInterface({ addGift }) {
     addGiftToList(TEST_GIFT_NAME);
   }
 
-  // function clearLocalStorage(){
-  //   localStorage.clear();
-  // }
-
   return (
     <div>
-      {/* <button className='btn' onClick={clearLocalStorage}>localclear</button> */}
       <button className='btn' onClick={handleAddGift}>test</button>
     </div>
   )
 }
 
-export default GiftInterface
+export default FriendInterface

@@ -1,11 +1,11 @@
 import React from 'react'
-import Gift from './Gift'
-import './GiftList.css'
-function GiftList({ gifts, toggleClaimed }) {
+import Friend from './Friend'
+import './FriendList.css'
+function FriendList({ gifts, toggleClaimed }) {
   return (
     <ul className='layout-scroll gift-layout'>
       {
-        gifts.map(gift => (<Gift
+        gifts.map(gift => (<Friend
           key={gift.id}
           gift={gift}
           toggleClaimed={toggleClaimed}
@@ -17,4 +17,4 @@ function GiftList({ gifts, toggleClaimed }) {
   )
 }
 
-export default GiftList
+export default FriendList
