@@ -13,7 +13,13 @@ function Friend({ friend, toggleClaimed }) {
       <div className='profile-pic-border'>
         <img src={profilepic} alt="" />
       </div>
-      <h4>{friend.name}</h4>
+      <div className='profile-details'>
+        <h4>{friend.name}</h4>
+        <div className='profile-status'>
+          <h5>{friend.name}</h5>
+          <h5>{friend.name}</h5>
+        </div>
+      </div>
     </div>
   )
 }

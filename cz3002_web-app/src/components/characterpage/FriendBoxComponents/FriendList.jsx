@@ -7,7 +7,7 @@ function FriendList({ friends, toggleClaimed }) {
   const [animationParent] = useAutoAnimate()
 
   return (
-    <ul className='layout-scroll gift-layout' ref={animationParent}>
+    <ul className='layout-scroll friend-layout' ref={animationParent}>
       {
         friends.map(friend => (<Friend
           key={friend.id}

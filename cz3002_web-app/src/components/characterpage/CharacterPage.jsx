@@ -1,4 +1,4 @@
-import React,{useState } from 'react'
+import React, { useState } from 'react'
 import './CharacterPage.css'
 
 // REACT COMPONENTS //
@@ -56,7 +56,7 @@ const CharacterPage = () => {
     setShowRecommendedTask(false);
     collapseLowerBtn(!isShown_fav);
   };
-  const handleShowRecommended = event =>{
+  const handleShowRecommended = event => {
     setShowRecommendedTask(current => !current);
     setShowFriends(false);
     setIsShown_tasklist(false);
@@ -113,7 +113,7 @@ const CharacterPage = () => {
 
             {/* Profile details*/}
             <div className='char-details'>
-              <UserProfile/>
+              <UserProfile />
             </div>
           </div>
 
@@ -123,21 +123,15 @@ const CharacterPage = () => {
               3. favourites
           */}
           <div className='btn_group'>
-            <div className='message'>
-              <button onClick={handleTaskList} className="btn message-btn"><img src={messageicon} alt="" /></button>
-            </div>
-            <div className='gift'>
-              <button onClick={handleFriendBox} className="btn friends-btn"><img src={personicon} alt="" /></button>
-            </div>
-            <div className='favorites'>
-              <button onClick={handleFavoriteBox} className="btn fav-btn"><img src={favouritesicon} alt="" /></button>
-            </div>
+            <button onClick={handleTaskList} className="btn message-btn"><img src={messageicon} alt="" /></button>
+            <button onClick={handleFriendBox} className="btn friends-btn"><img src={personicon} alt="" /></button>
+            <button onClick={handleFavoriteBox} className="btn fav-btn"><img src={favouritesicon} alt="" /></button>
           </div>
 
           {/* PLAYER AVATAR */}
           <div className='avatar-scene'>
             <div className='character-avatar'>
-              <PlayerAvatar/>
+              <PlayerAvatar />
             </div>
           </div>
 

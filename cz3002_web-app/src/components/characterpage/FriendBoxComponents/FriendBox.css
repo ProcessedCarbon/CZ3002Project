@@ -1,9 +1,31 @@
+.friendbox-container::before{
+    content: "";
+    width: 100px;
+    height: 100px;
+    background: var(--color-orange);
+    position: absolute;
+    top: 9rem;
+    right: 7rem;
+    transform: rotate(45deg);
+    border-radius: 5px;
+    opacity: 0;
+
+    animation: friendbox-arrow-intro 1s;
+    animation-timing-function: var(--transition-cubicbezier);
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
 .friendbox-container > .box{
     display: flex;
     flex-direction: column;
     place-items: center;
     background: var(--color-orange);
-    width: 400px;
+    width: 250px;
+    right: 2.5rem;
+    top: 9.5rem;
+    margin-inline: auto;
+
+    animation: friendbox-intro 1s forwards;
 }
 
 .friendbox-container >.box >div{
@@ -15,4 +37,29 @@
     right: 1rem;
     top: 1rem;
     height: 35px;
+}
+
+@keyframes friendbox-intro{
+    from{
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateY(100%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes friendbox-arrow-intro{
+    from{
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateY(100%) rotate(45deg);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0%) rotate(45deg);
+        filter: blur(0px);
+    }
 }

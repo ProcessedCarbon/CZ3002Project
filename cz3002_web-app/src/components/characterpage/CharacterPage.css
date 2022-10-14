@@ -136,6 +136,7 @@
     flex-direction: row;
     column-gap: 1.5rem;
     width: fit-content;
+    height: fit-content;
 
     animation: topright-btn-intro;
     animation-timing-function: var(--transition-cubicbezier);
@@ -143,18 +144,14 @@
     animation-iteration-count: 1;
 }
 
-.characterpage_container>.background>.btn_group>div>.btn {
+.characterpage_container>.background>.btn_group >.btn {
     border-radius: 10px;
     text-align: center;
     width: fit-content;
     height: fit-content;
 }
 
-.characterpage_container>.background>.btn_group>div>.btn:not(.no-hover):hover {
-    transform: scale(1.2) rotate(-5deg) translate(-5px, 5px);
-}
-
-.characterpage_container>.background>.btn_group>div>.btn>img {
+.characterpage_container>.background>.btn_group>.btn>img {
     height: 55px;
     width: 55px;
 }

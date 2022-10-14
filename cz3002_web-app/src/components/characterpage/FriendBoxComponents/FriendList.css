@@ -1,11 +1,10 @@
-.gift-layout{
+.friend-layout{
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: fit-content;
     height: 100%;
     place-content: start;
     margin-left: 2rem;
-    padding: 1rem;
     margin: 1rem;
     align-items: center;
 }
