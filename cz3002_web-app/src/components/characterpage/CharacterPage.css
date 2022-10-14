@@ -269,6 +269,7 @@
 .characterpage_container>.background>.bottom_btn>.sidebar-container>.sidebar-btn {
     display: flex;
     flex-direction: column;
+    margin-inline: auto;
 }
 
 .characterpage_container>.background>.bottom_btn>.sidebar-container>.sidebar-btn>.inner-btns {

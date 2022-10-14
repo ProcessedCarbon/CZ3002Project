@@ -1,4 +1,4 @@
-.giftbox-container > .box{
+.friendbox-container > .box{
     display: flex;
     flex-direction: column;
     place-items: center;
@@ -6,11 +6,11 @@
     width: 400px;
 }
 
-.giftbox-container >.box >div{
+.friendbox-container >.box >div{
     margin-bottom: 1rem;
 }
 
-.giftbox-container >.box >.clearClaimedGifts{
+.friendbox-container >.box >.clearClaimedGifts{
     position: inherit;
     right: 1rem;
     top: 1rem;

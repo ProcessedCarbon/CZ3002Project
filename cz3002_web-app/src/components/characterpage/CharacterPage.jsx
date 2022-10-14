@@ -13,7 +13,6 @@ import RecommendedTaskBox from './RecommendedTaskComponents/RecommendedTaskBox'
 // ICONS OR IMAGES//
 import player_profile_pic from '../../assets/player_profile_pic.png'
 import messageicon from '../../assets/icons/Messages.png'
-import giftsicon from '../../assets/icons/Gift.png'
 import favouritesicon from '../../assets/icons/Favorites.png'
 import protectionicon from '../../assets/icons/Protection.png'
 import chestbtn from '../../assets/Chest.png'
@@ -23,10 +22,11 @@ import pointerdownicon from '../../assets/icons/Pointer_Down.png'
 import personicon from '../../assets/icons/Person.png'
 import minusicon from '../../assets/icons/Minus.png'
 import homeicon from '../../assets/icons/Home.png'
+import recommendedtaskicon from '../../assets/icons/Copy_Document.png'
 
 const CharacterPage = () => {
   /* HOOKS */
-  const [isShown_gift, setIsShown_gift] = useState(false);
+  const [showFriends, setShowFriends] = useState(false);
   const [isShown_fav, setIsShown_fav] = useState(false);
   const [showSideBar, setShowSideBar] = useState(false);
   const [showInventory, setShowInventory] = useState(false);
@@ -38,27 +38,27 @@ const CharacterPage = () => {
   const handleTaskList = event => {
     setIsShown_tasklist(current => !current);
     setIsShown_fav(false);
-    setIsShown_gift(false);
+    setShowFriends(false);
     setShowRecommendedTask(false);
     collapseLowerBtn(!isShown_tasklist);
   };
-  const handleGiftBox = event => {
-    setIsShown_gift(current => !current);
+  const handleFriendBox = event => {
+    setShowFriends(current => !current);
     setIsShown_fav(false);
     setIsShown_tasklist(false);
     setShowRecommendedTask(false);
-    collapseLowerBtn(!isShown_gift);
+    collapseLowerBtn(!showFriends);
   };
   const handleFavoriteBox = event => {
     setIsShown_fav(current => !current);
-    setIsShown_gift(false);
+    setShowFriends(false);
     setIsShown_tasklist(false);
     setShowRecommendedTask(false);
     collapseLowerBtn(!isShown_fav);
   };
   const handleShowRecommended = event =>{
     setShowRecommendedTask(current => !current);
-    setIsShown_gift(false);
+    setShowFriends(false);
     setIsShown_tasklist(false);
     setIsShown_fav(false);
   }
@@ -78,7 +78,7 @@ const CharacterPage = () => {
 
   /* SELECT BUTTON SCREENS TO SHOW */
   let screenToShow;
-  if (isShown_gift) {
+  if (showFriends) {
     screenToShow = <FriendBox />;
   }
   else if (isShown_fav) {
@@ -127,10 +127,10 @@ const CharacterPage = () => {
               <button onClick={handleTaskList} className="btn message-btn"><img src={messageicon} alt="" /></button>
             </div>
             <div className='gift'>
-              <button onClick={handleGiftBox} className="btn gifts-btn"><img src={giftsicon} alt="" /></button>
+              <button onClick={handleFriendBox} className="btn friends-btn"><img src={personicon} alt="" /></button>
             </div>
             <div className='favorites'>
-              <button onClick={handleFavoriteBox} className="btn gifts-btn"><img src={favouritesicon} alt="" /></button>
+              <button onClick={handleFavoriteBox} className="btn fav-btn"><img src={favouritesicon} alt="" /></button>
             </div>
           </div>
 
@@ -163,7 +163,7 @@ const CharacterPage = () => {
                 {/* Inner buttons inside the side bar */}
                 <div className='inner-btns'>
                   <a href="login" className='btn'><img src={homeicon} alt="" /></a>
-                  <button className='btn' onClick={handleShowRecommended}><img src={personicon} alt="" /></button>
+                  <button className='btn' onClick={handleShowRecommended}><img src={recommendedtaskicon} alt="" /></button>
                   <button className='btn'><img src={soundonicon} alt="" /></button>
                   <img src={minusicon} style={{ marginTop: '3rem' }} alt="" />
                   <button className='btn' onClick={handleSideBar}><img src={pointerdownicon} alt="" /></button>

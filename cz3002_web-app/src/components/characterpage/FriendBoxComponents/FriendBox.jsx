@@ -45,7 +45,7 @@ const FriendBox = () => {
   }
 
   return (
-    <div className='giftbox-container'>
+    <div className='friendbox-container'>
       <div className='box'>
         <h2>Friends</h2>
         {/* <button className='btn clearClaimedGifts' onClick={clearGifts}><h4>Clear Claimed</h4></button> */}
