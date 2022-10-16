@@ -150,6 +150,10 @@
     width: fit-content;
     height: fit-content;
 }
+.characterpage_container>.background>.btn_group >.btn:not(.no-hover):hover{
+    transform: scale(1.1) rotate(-5deg) translateX(-5px);
+} 
+
 
 .characterpage_container>.background>.btn_group>.btn>img {
     height: 55px;
