@@ -1,24 +1,40 @@
-import React from 'react'
-import './Login.css'
-import avatar from '../../assets/char_avatar.png'
-import { Form, Field } from "react-final-form";
+import React from 'react';
+import './Login.css';
+import avatar from '../../assets/char_avatar.png';
+import { Form, Field } from 'react-final-form';
+import AxiosInterface from '../Misc/AxiosInterface';
+const axiosInterface = new AxiosInterface();
 
 const Login = () => {
-
-  function registerBtnClick(e){
-    window.location.href = 'register'
+  function registerBtnClick(e) {
+    window.location.href = 'register';
   }
-  
-  function loginBtnClick(values){
+
+  async function loginBtnClick(values) {
+    console.log('values', values);
     //TODO: backend logic
-    window.location.href='profile'
+    const userFields = {
+      email: values.email,
+      password: values.password,
+    };
+    try {
+      const response = await axiosInterface.postData('/user/login', userFields);
+      console.log(response);
+    } catch (error) {
+      //fail login user
+      //Do error handling on FE
+      console.log(error);
+    }
+
+    //window.location.href = 'profile';
+    //window.location.href = 'profile';
   }
 
   return (
     <div>
       <h3>Hello Adventurer</h3>
-      <div className='character-avatar'>
-          <img alt='' src={avatar}/>
+      <div className="character-avatar">
+        <img alt="" src={avatar} />
       </div>
       <div>
         <Form
@@ -26,33 +42,37 @@ const Login = () => {
           render={({ handleSubmit, form, submitting, pristine, values }) => (
             <form onSubmit={handleSubmit}>
               <div>
-                <Field name="username" validate={value => value ? undefined : "Required"}>
+                <Field name="email" validate={(value) => (value ? undefined : 'Required')}>
                   {({ input, meta }) => (
                     <div>
-                      <label>Username</label>
+                      <label>Email</label>
                       <input {...input} type="text" />
-                      {meta.error && meta.touched && <span style={{ color: "red" }}>{meta.error}</span>}
+                      {meta.error && meta.touched && <span style={{ color: 'red' }}>{meta.error}</span>}
                     </div>
                   )}
                 </Field>
-                <Field name="password" validate={value => value ? undefined : "Required"}>
+                <Field name="password" validate={(value) => (value ? undefined : 'Required')}>
                   {({ input, meta }) => (
                     <div>
                       <label>Password</label>
                       <input {...input} type="text" />
-                      {meta.error && meta.touched && <span style={{ color: "red" }}>{meta.error}</span>}
+                      {meta.error && meta.touched && <span style={{ color: 'red' }}>{meta.error}</span>}
                     </div>
                   )}
                 </Field>
               </div>
-              <button type="submit" className='btn' disabled={submitting}>Login</button>
+              <button type="submit" className="btn" disabled={submitting}>
+                Login
+              </button>
             </form>
           )}
         />
-        <button className='btn' onClick={registerBtnClick}>New Account</button>
+        <button className="btn" onClick={registerBtnClick}>
+          New Account
+        </button>
       </div>
     </div>
   );
-}
+};
 
-export default Login
+export default Login;
