@@ -24,157 +24,125 @@ import minusicon from '../../assets/icons/Minus.png'
 import homeicon from '../../assets/icons/Home.png'
 import recommendedtaskicon from '../../assets/icons/Copy_Document.png'
 
-const CharacterPage = () => {
-  /* HOOKS */
-  const [showFriends, setShowFriends] = useState(false);
-  const [isShown_fav, setIsShown_fav] = useState(false);
-  const [showSideBar, setShowSideBar] = useState(false);
-  const [showInventory, setShowInventory] = useState(false);
-  const [hideLowerBtn, setHideLowerBtn] = useState(false);
-  const [isShown_tasklist, setIsShown_tasklist] = useState(false);
-  const [showRecommendedTask, setShowRecommendedTask] = useState(false);
+const charPageScreens = [
+  { key: 1, screen: <TaskBox /> },
+  { key: 2, screen: <FriendBox /> },
+  { key: 3, screen: <Shop /> },
+  { key: 4, screen: <InventoryBox /> },
+  { key: 5, screen: <RecommendedTaskBox /> },
+]
 
-  /* ON CLICK METHODS */
-  const handleTaskList = event => {
-    setIsShown_tasklist(current => !current);
-    setIsShown_fav(false);
-    setShowFriends(false);
-    setShowRecommendedTask(false);
-    collapseLowerBtn(!isShown_tasklist);
-  };
-  const handleFriendBox = event => {
-    setShowFriends(current => !current);
-    setIsShown_fav(false);
-    setIsShown_tasklist(false);
-    setShowRecommendedTask(false);
-    collapseLowerBtn(!showFriends);
-  };
-  const handleFavoriteBox = event => {
-    setIsShown_fav(current => !current);
-    setShowFriends(false);
-    setIsShown_tasklist(false);
-    setShowRecommendedTask(false);
-    collapseLowerBtn(!isShown_fav);
-  };
-  const handleShowRecommended = event => {
-    setShowRecommendedTask(current => !current);
-    setShowFriends(false);
-    setIsShown_tasklist(false);
-    setIsShown_fav(false);
+const CharacterPage = () => {
+  const [screen, setScreen] = useState("");
+
+  /* HOOKS */
+  const [showSideBar, setShowSideBar] = useState(false);
+  const [hideLowerBtn, setHideLowerBtn] = useState(false);
+
+  function handleChangeScreen(obj, hideLower) {
+    if (screen.key === obj.key) {
+      setScreen("");
+      if(hideLower){
+        collapseLowerBtn(false);
+      }
+    }
+    else {
+      setScreen(obj);
+      if(hideLower){
+        collapseLowerBtn(true);
+      }
+    }
   }
+
   const handleSideBar = event => {
     setShowSideBar(current => !current);
-  }
-  const handleInventory = event => {
-    setShowInventory(current => !current);
   }
 
   const collapseLowerBtn = (status) => {
     setHideLowerBtn(status);
     setShowSideBar(false);
-    setShowInventory(false);
-    setShowRecommendedTask(false);
-  }
-
-  /* SELECT BUTTON SCREENS TO SHOW */
-  let screenToShow;
-  if (showFriends) {
-    screenToShow = <FriendBox />;
-  }
-  else if (isShown_fav) {
-    screenToShow = <Shop />;
-  }
-  else if (showInventory) {
-    screenToShow = <InventoryBox />;
-  }
-  else if (isShown_tasklist) {
-    screenToShow = <TaskBox />
-  }
-  else if (showRecommendedTask) {
-    screenToShow = <RecommendedTaskBox />
   }
 
   /* ================ RENDER ==================== */
   return (
-    <characterpage>
-      <div className='characterpage_container'>
-        <div className='background'>
+    <div className='characterpage_container'>
+      <div className='background'>
 
-          {/* CHARACTER PROFILE IN THE TOP LEFT*/}
-          <div className='character_profile'>
+        {/* CHARACTER PROFILE IN THE TOP LEFT*/}
+        <div className='character_profile'>
 
-            {/* Profile picture*/}
-            <div className='profile-picture'>
-              <div className='profile-pic-border'>
-                <img src={player_profile_pic} alt="" />
-              </div>
-              <div className='line'></div>
+          {/* Profile picture*/}
+          <div className='profile-picture'>
+            <div className='profile-pic-border'>
+              <img src={player_profile_pic} alt="" />
             </div>
-
-            {/* Profile details*/}
-            <div className='char-details'>
-              <UserProfile />
-            </div>
+            <div className='line'></div>
           </div>
 
-          {/* TOP RIGHT BUTTONS:
+          {/* Profile details*/}
+          <div className='char-details'>
+            <UserProfile />
+          </div>
+        </div>
+
+        {/* TOP RIGHT BUTTONS:
               1. message box
               2. gift box
               3. favourites
           */}
-          <div className='btn_group'>
-            <button onClick={handleTaskList} className="btn message-btn"><img src={messageicon} alt="" /></button>
-            <button onClick={handleFriendBox} className="btn friends-btn"><img src={personicon} alt="" /></button>
-            <button onClick={handleFavoriteBox} className="btn fav-btn"><img src={favouritesicon} alt="" /></button>
-          </div>
+        <div className='btn_group'>
+          <button onClick={() => handleChangeScreen(charPageScreens[0], true)} className="btn message-btn"><img src={messageicon} alt="" /></button>
+          <button onClick={() => handleChangeScreen(charPageScreens[1], true)} className="btn friends-btn"><img src={personicon} alt="" /></button>
+          <button onClick={() => handleChangeScreen(charPageScreens[2], true)} className="btn fav-btn"><img src={favouritesicon} alt="" /></button>
+        </div>
 
-          {/* PLAYER AVATAR */}
-          <div className='avatar-scene'>
-            <div className='character-avatar'>
-              <PlayerAvatar />
-            </div>
+        {/* PLAYER AVATAR */}
+        <div className='avatar-scene'>
+          <div className='character-avatar'>
+            <PlayerAvatar />
           </div>
+        </div>
 
-          {/* BOTTOM BUTTON:
+        {/* BOTTOM BUTTON:
               1. inventory
               2. battle
               3. sidebar
           */}
-          <div className='bottom_btn' style={{ transform: hideLowerBtn ? 'translateY(100%)' : 'translateY(0)' }}>
-            <button onClick={handleInventory} className='btn inventory-btn'><img src={chestbtn} alt="" /></button>
-            <a href="battle" className='btn battle-btn'><img src={protectionicon} alt="" /></a>
-            <div className='sidebar-container'>
-              <button onClick={handleSideBar}
-                className={showSideBar ? 'btn sidebar-btn no-hover' : 'btn sidebar-btn'}
-                disabled={showSideBar}
-                style={{
-                  bottom: showSideBar ? '0rem' : ' -19rem',
-                  backgroundColor: showSideBar ? "var(--color-darkish-blue)" : "",
-                  border: showSideBar ? "0 transparent" : ""
-                }}
-              >
-                <img src={tridot} style={{ display: showSideBar ? 'none' : 'block' }} alt="" />
-                {/* Inner buttons inside the side bar */}
-                <div className='inner-btns'>
-                  <a href="login" className='btn'><img src={homeicon} alt="" /></a>
-                  <button className='btn' onClick={handleShowRecommended}><img src={recommendedtaskicon} alt="" /></button>
-                  <button className='btn'><img src={soundonicon} alt="" /></button>
-                  <img src={minusicon} style={{ marginTop: '3rem' }} alt="" />
-                  <button className='btn' onClick={handleSideBar}><img src={pointerdownicon} alt="" /></button>
-                </div>
-              </button>
-            </div>
+        <div className='bottom_btn' style={{ transform: hideLowerBtn ? 'translateY(100%)' : 'translateY(0)' }}>
+          <button onClick={() => handleChangeScreen(charPageScreens[3], true)} className='btn inventory-btn'><img src={chestbtn} alt="" /></button>
+          <a href="battle" className='btn battle-btn'><img src={protectionicon} alt="" /></a>
+          <div className='sidebar-container'>
+            <button onClick={handleSideBar}
+              className={showSideBar ? 'btn sidebar-btn no-hover' : 'btn sidebar-btn'}
+              disabled={showSideBar}
+              style={{
+                bottom: showSideBar ? '0rem' : ' -19rem',
+                backgroundColor: showSideBar ? "var(--color-darkish-blue)" : "",
+                border: showSideBar ? "0 transparent" : ""
+              }}
+            >
+              <img src={tridot} style={{ display: showSideBar ? 'none' : 'block' }} alt="" />
+              {/* Inner buttons inside the side bar */}
+              <div className='inner-btns'>
+                <a href="login" className='btn'><img src={homeicon} alt="" /></a>
+                <button className='btn' onClick={() => handleChangeScreen(charPageScreens[4], false)}><img src={recommendedtaskicon} alt="" /></button>
+                <button className='btn'><img src={soundonicon} alt="" /></button>
+                <img src={minusicon} style={{ marginTop: '3rem' }} alt="" />
+                <button className='btn' onClick={handleSideBar}><img src={pointerdownicon} alt="" /></button>
+              </div>
+            </button>
           </div>
+        </div>
 
-          {/* VARIOUS BUTTON SCREENS */}
-          <div>
-            {screenToShow}
-          </div>
-
+        {/* VARIOUS BUTTON SCREENS */}
+        <div>
+          {/* {screenToShow} */}
+          {screen.screen}
         </div>
 
       </div>
-    </characterpage>
+
+    </div>
 
   )
 }
