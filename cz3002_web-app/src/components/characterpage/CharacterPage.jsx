@@ -136,7 +136,6 @@ const CharacterPage = () => {
 
         {/* VARIOUS BUTTON SCREENS */}
         <div>
-          {/* {screenToShow} */}
           {screen.screen}
         </div>
 
