@@ -116,7 +116,7 @@ const CharacterPage = () => {
               className={showSideBar ? 'btn sidebar-btn no-hover' : 'btn sidebar-btn'}
               disabled={showSideBar}
               style={{
-                bottom: showSideBar ? '0rem' : ' -19rem',
+                bottom: showSideBar ? '-4rem' : ' -23rem',
                 backgroundColor: showSideBar ? "var(--color-darkish-blue)" : "",
                 border: showSideBar ? "0 transparent" : ""
               }}
