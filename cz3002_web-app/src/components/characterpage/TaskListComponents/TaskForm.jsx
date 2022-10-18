@@ -77,7 +77,7 @@ function TaskForm({ addTask }) {
                     onChange={handleTaskInputChange}
                     value={todo.task}
                 />
-                <Select className='taskprioritnpmy-select'
+                <Select className='taskpriority-select'
                     options={options}
                     onChange={handleTaskPriorityChange}
                     styles={customStyles}

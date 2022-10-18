@@ -16,6 +16,8 @@
     border-radius: 10px;
     padding: 1rem;
     font-family: var(--main-font);
+
+    animation: input-intro 0.8s ease-in-out;
 }
 .taskform-format > .btn{
     height: 45px;
@@ -25,4 +27,17 @@
 }
 .taskform-format > .btn > h5{
     color: var(--color-white);
+}
+.taskform-format > .taskpriority-select{
+    animation: select-intro 1s ease-in-out;
+}
+@keyframes input-intro{
+    from{
+        opacity: 0;
+        width: 0;
+    }
+    to{
+        opacity: 1;
+        width: 30rem;
+    }
 }
