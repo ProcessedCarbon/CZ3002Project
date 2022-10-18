@@ -17,7 +17,7 @@ const UserProfile = () => {
     })
     useEffect(() => {
         const player_stats = JSON.parse(localStorage.getItem(PLAYER_LOCAL_KEY));
-        if (player_stats) {
+        if (player_stats && player_stats.name !== "") {
             setPlayerState(player_stats);
         }
         else{
