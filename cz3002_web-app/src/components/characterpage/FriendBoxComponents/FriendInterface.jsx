@@ -14,7 +14,8 @@ function FriendInterface({ addFriend }) {
   const [friend, setFriend] = useState({
     id: "",
     name: "",
-    added: false
+    added: false,
+    profile_pic: 0
   });
 
   //////////////////////////////////////////////// TESTING ////////////////////////////////////////////////////////////////
@@ -46,7 +47,7 @@ function FriendInterface({ addFriend }) {
   function addFriendToList(friendName) {
     // get list of accounts and check against input
     if (friendName !== "") {
-      addFriend({ ...friend, id: uuidv4(), name: friendName, added: true });
+      addFriend({ ...friend, id: uuidv4(), name: friendName, added: true, profile_pic: 1 });
       setFriend({ ...friend, name: "" });
     }
   }

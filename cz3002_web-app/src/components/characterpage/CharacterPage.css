@@ -192,7 +192,7 @@
     display: flex;
     position: relative;
     flex-direction: row;
-    margin-top: 30%;
+    margin-top: 36%;
     column-gap: 33.5rem;
     transition: var(--transition-cubicbezier);
     justify-content: space-evenly;
