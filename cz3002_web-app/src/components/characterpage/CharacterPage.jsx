@@ -88,7 +88,6 @@ const CharacterPage = () => {
 
           {/* CHARACTER PROFILE IN THE TOP LEFT*/}
           <div className='character_profile'>
-
             {/* Profile picture*/}
             <div className='profile-picture'>
               <div className='profile-pic-border'>

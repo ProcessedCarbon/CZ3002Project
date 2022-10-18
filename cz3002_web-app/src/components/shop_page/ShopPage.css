@@ -1,0 +1,63 @@
+.shoppage_container>.background {
+    background-color: #2F283A;
+    background-image: url(../../assets/characterpage_scene.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: 1.5rem 1fr 1.5rem;
+    grid-template-areas:
+        "gold-profile . shopkeeper-img"
+        ". middle ."
+        ". bottom .";
+    margin: 1rem;
+    padding: 1rem;
+    height: 650px;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+}
+.items{
+    display: flex;
+    flex-direction: row;
+    background: transparent;
+    overflow-x: scroll;
+    width: 80%;
+    height: fit-content;
+    position: absolute;
+    justify-content: center;
+    bottom: 8rem;
+    left: 9.5rem;
+}
+/*================= CHARACTER PROFILE ========================*/
+.shoppage_container>.background>.character_gold_profile {
+    grid-area: 'char-profile';
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 1rem;
+    background-color: var(--color-reddish);
+    border-radius: 10px;
+    border: 8px solid var(--color-reddish);
+    border-style: ridge;
+    width: 35%;
+    height: fit-content;
+    padding: 0.5rem;
+    top: 1rem;
+    filter: drop-shadow(5px 5px 10px #000);
+
+    animation: char-profile-intro;
+    animation-duration: 1.5s;
+    animation-timing-function: var(--transition-cubicbezier);
+    animation-iteration-count: 1;
+}
+
+@keyframes char-profile-intro {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
