@@ -1,13 +1,13 @@
 .battletaskbox-container > .box{
-    height: fit-content;
-    width: 90%;
-    top: 75%;
+    height: auto;
+    min-width: 90%;
     left: 4.5rem;
     background: #5f6f944a;
     backdrop-filter: blur(5px);
     border: 5px solid var(--color-reddish);
     border-style: ridge;
-
+    position: relative;
+    margin-top: 5%;
     animation: battletaskbox-intro;
     animation-duration: 1s;
     animation-timing-function: var(--transition-cubicbezier);
