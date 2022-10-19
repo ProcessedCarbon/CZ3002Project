@@ -139,7 +139,6 @@ const CharacterPage = () => {
         <div>
           {screen.screen}
         </div>
-
       </div>
 
     </div>

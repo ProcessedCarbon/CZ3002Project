@@ -10,6 +10,7 @@
     padding: 1rem;
     overflow: hidden;
     justify-content: center;
+    min-height: 700px;
 }
 
 .battlepage-screen > .return-home-btn{

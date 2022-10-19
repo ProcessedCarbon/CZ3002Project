@@ -140,12 +140,18 @@ const BattlePage = () => {
             name={enemyState.name}
             type={enemyState.type}
             dead={battlecomplete}
+            damageTaken={damageToDeal}
           />
         </div>
         {/* VARIOUS BUTTON SCREENS */}
         <div>
-          {!battlecomplete && <BattleTaskBox setTaskComplete={setTaskComplete} damageToDeal={getDamageToDeal} />}
           {battlecomplete && <VictoryBox xp={enemyState.xp} gold={enemyState.gold} />}
+        </div>
+        <div style={{
+            pointerEvents: battlecomplete ? "none" : "",
+            filter: battlecomplete ? "blur(10px)" : "",
+          }}>
+          <BattleTaskBox setTaskComplete={setTaskComplete} damageToDeal={getDamageToDeal}/>
         </div>
       </div>
     </div>

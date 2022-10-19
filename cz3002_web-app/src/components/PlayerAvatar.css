@@ -1,7 +1,6 @@
 .player{
     animation: player-attack 0.3s forwards infinite;
     animation-play-state: paused;
-    /* transform: translateX(650px); */
 }
 .player > .player-avatar{
     height: fit-content;
