@@ -13,7 +13,7 @@ function onBtnClick(values){
 
 const Register = () => {
   return (
-    <div>
+    <div className='box'>
       <h3>Character Sheet</h3>
         <div className='character-avatar'>
             <img alt='' src={avatar}/>
@@ -73,10 +73,12 @@ const Register = () => {
                 )}
               </Field>
             </div>
-            <button type="submit" className='btn' disabled={submitting}>Done</button>
+            <br/>
+            <button type="submit" className='btn' disabled={submitting}>Register</button>
           </form>
         )}
       />
+      <button className='btn' onClick={v => window.location.href = 'login'}>Login Instead</button>
     </div>
   )
 }

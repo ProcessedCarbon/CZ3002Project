@@ -1,6 +1,5 @@
 .character-avatar{
-    position: absolute;
-    margin-top: 18%;
+    position: relative;
     width: 50%;
     display: flex;
     left: 45%;
@@ -10,4 +9,20 @@
     margin-right: auto;
     width: 25%;
     height: fit-content;
+}
+
+.box{
+    color: blue;
+    padding: 1rem;
+}
+
+label {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+    padding: 0.5rem;
+}
+
+input {
+    padding: 5px;
 }

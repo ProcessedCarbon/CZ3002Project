@@ -15,7 +15,7 @@ const Login = () => {
   }
 
   return (
-    <div>
+    <div className='box'>
       <h3>Hello Adventurer</h3>
       <div className='character-avatar'>
           <img alt='' src={avatar}/>
@@ -45,6 +45,7 @@ const Login = () => {
                   )}
                 </Field>
               </div>
+              <br/>
               <button type="submit" className='btn' disabled={submitting}>Login</button>
             </form>
           )}
