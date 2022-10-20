@@ -112,19 +112,7 @@
         width: 220%;
     }
 }
-/*================= CHARACTER ========================*/
-.avatar-scene > .character-avatar{
-    animation: player_jump 7s forwards infinite;
-    animation-delay: 7s;
-}
-@keyframes player_jump{
-    0%,4%,8%,100%{
-        transform: translateY(0px);
-    }
-    2%,6%{
-        transform: translateY(-80px); 
-    }
-}
+
 /*================= TOP RIGHT BUTTONS ========================*/
 .characterpage_container>.background>.btn_group {
     grid-area: 'top-btn';
@@ -181,9 +169,20 @@
 .characterpage_container>.background>.avatar-scene>.character-avatar {
     position: absolute;
     margin-left: 3rem;
-    
-}
+    top: 20rem;
+    left: 40rem;
 
+    animation: player_jump 7s forwards infinite;
+    animation-delay: 7s;
+}
+@keyframes player_jump{
+    0%,4%,8%,100%{
+        transform: translateY(0px);
+    }
+    2%,6%{
+        transform: translateY(-80px); 
+    }
+}
 /*================= BOTTOM BUTTON GROUP ========================*/
 .characterpage_container>.background>.bottom_btn {
     grid-area: 'bottom';

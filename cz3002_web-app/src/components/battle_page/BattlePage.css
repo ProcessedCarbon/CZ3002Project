@@ -28,7 +28,7 @@
 .battlepage-screen > .entity-space{
     display: flex;
     flex-direction: row;
-    column-gap: 50rem;
+    column-gap: 30rem;
     margin: 5% auto;
     height: fit-content;
     overflow: hidden;
@@ -38,5 +38,5 @@
 
 .battlepage-screen > .entity-space > div {
     position: relative;
-    top: 8rem;
+    top: 7rem;
 }
