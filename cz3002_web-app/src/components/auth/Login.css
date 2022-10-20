@@ -8,10 +8,7 @@
     flex-direction: column;
     place-content: center;
 }
-.login-background  > .login-character-avatar{
-    transform: scale(1.5);
-    margin-top: -5rem;
-}
+
 .login-background > .box{
     position: relative;
     margin-inline: auto;
@@ -37,25 +34,27 @@
     transform: translate(-50%, -50%) rotate(45deg);
     z-index: -1;
 }
-.login-btn-group{
+.auth-btn-group{
     display: flex;
     flex-direction: row;
     margin-left: 35%;
     column-gap: 1rem;
 }
-.login-btn-group > .btn{
+.auth-btn-group > .btn{
     min-width: 60px;
     min-height: 30px;
     padding: 0.5rem;
 }
-.login-btn-group > .btn > h5{
+.auth-btn-group > .btn > h5{
     font-size: 1.2rem;
 }
-.login-character-avatar{
+.auth-character-avatar{
+    transform: scale(1.5);
+    margin-top: -5rem;
     margin-inline: auto;
 }
 
-.login > h3{
+.login-background > .box > h3{
     color:var(--color-light-yellow);
     font-family: var(--alt-font);
     text-shadow: 4px 4px rgba(0,0,0,0.5);
