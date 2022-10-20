@@ -68,16 +68,6 @@ const CharacterPage = () => {
     <div className='characterpage_container'>
       <div className='background'>
 
-<<<<<<< HEAD
-          {/* CHARACTER PROFILE IN THE TOP LEFT*/}
-          <div className='character_profile'>
-            {/* Profile picture*/}
-            <div className='profile-picture'>
-              <div className='profile-pic-border'>
-                <img src={player_profile_pic} alt="" />
-              </div>
-              <div className='line'></div>
-=======
         {/* CHARACTER PROFILE IN THE TOP LEFT*/}
         <div className='character_profile'>
 
@@ -85,7 +75,6 @@ const CharacterPage = () => {
           <div className='profile-picture'>
             <div className='profile-pic-border'>
               <img src={player_profile_pic} alt="" />
->>>>>>> greg-branch
             </div>
             <div className='line'></div>
           </div>
@@ -104,7 +93,8 @@ const CharacterPage = () => {
         <div className='btn_group'>
           <button onClick={() => handleChangeScreen(charPageScreens[0], true)} className="btn message-btn"><img src={messageicon} alt="" /></button>
           <button onClick={() => handleChangeScreen(charPageScreens[1], true)} className="btn friends-btn"><img src={personicon} alt="" /></button>
-          <button onClick={() => handleChangeScreen(charPageScreens[2], true)} className="btn fav-btn"><img src={favouritesicon} alt="" /></button>
+          <a href="shop" className='btn fav-btn'><img src={favouritesicon} alt="" /></a>
+          {/* <button onClick={() => handleChangeScreen(charPageScreens[2], true)} className="btn fav-btn"><img src={favouritesicon} alt="" /></button> */}
         </div>
 
         {/* PLAYER AVATAR */}

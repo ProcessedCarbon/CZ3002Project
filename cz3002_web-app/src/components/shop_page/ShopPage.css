@@ -24,7 +24,7 @@
     width: 80%;
     height: fit-content;
     position: absolute;
-    justify-content: center;
+    justify-content: start;
     bottom: 8rem;
     left: 9.5rem;
 }
