@@ -13,9 +13,9 @@ function onBtnClick(values){
 
 const Register = () => {
   return (
-    <div className='box'>
+    <div className='box login'>
       <h3>Character Sheet</h3>
-        <div className='character-avatar'>
+        <div className='login-character-avatar'>
             <img alt='' src={avatar}/>
         </div>
       <Form

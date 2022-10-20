@@ -7,7 +7,6 @@
     width: 75px;
     bottom: 1rem;    
     overflow: hidden;
-    position: relative;
 }  
 
 .player > .player-avatar > .player_spritesheet{
