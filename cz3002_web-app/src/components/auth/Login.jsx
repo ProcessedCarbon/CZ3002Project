@@ -15,7 +15,7 @@ const Login = () => {
 
   return (
     <div className='login-background'>
-      <div className='box login'>
+      <div className='box'>
         <h3>Hello Adventurer,</h3>
         <div>
           <Form
@@ -43,7 +43,7 @@ const Login = () => {
                   </Field>
                 </div>
                 <br />
-                <div className='login-btn-group'>
+                <div className='auth-btn-group'>
                   <button type="submit" className='btn' disabled={submitting}>
                     <h5>Login</h5>
                   </button>
@@ -56,8 +56,7 @@ const Login = () => {
           />
         </div>
       </div>
-      <div className='login-character-avatar'>
-        {/* <img alt='' src={avatar} /> */}
+      <div className='auth-character-avatar'>
         <PlayerAvatar />
       </div>
     </div>
