@@ -85,6 +85,10 @@ const ShopPage = () => {
             <div className='shoppage_container'>
                 <div className='background'>
 
+                    <a href="profile" className='btn return-home-btn'>
+                        <h5>Return Home</h5>
+                    </a>
+
                     {/* Character Profile in top left corner */}
                     <div className='character_gold_profile'>
                         <h1> Gold: {'$' + playerDetails.gold} </h1>

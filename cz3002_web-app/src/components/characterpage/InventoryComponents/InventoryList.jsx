@@ -6,12 +6,24 @@ function InventoryList({ items , toggleEquipped }) {
 
     return (
         <ul className='layout-scroll inventory-layout'>
-            {
-                items.map(item => <Item key={item.id} 
-                                        item={item}
-                                        toggleEquipped={toggleEquipped}
-                                    />)
-            }
+            
+                <Item   key={1}
+                        item={1}
+                        //toggleEquipped={1}
+                ></Item>
+                <Item   key={1}
+                        item={1}
+                        //toggleEquipped={1}
+                ></Item>
+                <Item   key={1}
+                        item={1}
+                        //toggleEquipped={1}
+                ></Item>
+
+
+
+
+            
         </ul>
     )
 }
