@@ -1,3 +1,4 @@
+
 .characterpage_container>.background {
     background-color: #2F283A;
     background-image: url(../../assets/characterpage_scene.png);
@@ -5,15 +6,13 @@
     background-size: 100% 100%;
     border-radius: 30px;
     display: grid;
-    grid-template-columns: 1.5rem 1fr 1.5rem;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
         "char-profile . top-btn"
         ". middle ."
         ". bottom .";
     margin: 1rem;
     padding: 1rem;
-    height: 650px;
-    grid-template-columns: 1fr 1fr;
     overflow: hidden;
 }
 
@@ -113,19 +112,7 @@
         width: 220%;
     }
 }
-/*================= CHARACTER ========================*/
-.avatar-scene > .character-avatar{
-    animation: player_jump 7s forwards infinite;
-    animation-delay: 7s;
-}
-@keyframes player_jump{
-    0%,4%,8%,100%{
-        transform: translateY(0px);
-    }
-    2%,6%{
-        transform: translateY(-80px); 
-    }
-}
+
 /*================= TOP RIGHT BUTTONS ========================*/
 .characterpage_container>.background>.btn_group {
     grid-area: 'top-btn';
@@ -181,10 +168,21 @@
 
 .characterpage_container>.background>.avatar-scene>.character-avatar {
     position: absolute;
-    bottom: 10.5rem;
     margin-left: 3rem;
-}
+    top: 20rem;
+    left: 40rem;
 
+    animation: player_jump 7s forwards infinite;
+    animation-delay: 7s;
+}
+@keyframes player_jump{
+    0%,4%,8%,100%{
+        transform: translateY(0px);
+    }
+    2%,6%{
+        transform: translateY(-80px); 
+    }
+}
 /*================= BOTTOM BUTTON GROUP ========================*/
 .characterpage_container>.background>.bottom_btn {
     grid-area: 'bottom';
@@ -192,7 +190,7 @@
     display: flex;
     position: relative;
     flex-direction: row;
-    top: 80%;
+    margin-top: 36%;
     column-gap: 33.5rem;
     transition: var(--transition-cubicbezier);
     justify-content: space-evenly;

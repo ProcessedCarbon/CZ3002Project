@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Healthbar.css'
 
-function Healthbar({ currHealth, hpSetter, health }) {
+function Healthbar({ currHealth, health }) {
     const [style, setStyle] = useState({});
     const [danger, setDanger] = useState(false);
     const [damaged, setDamaged] = useState(false);

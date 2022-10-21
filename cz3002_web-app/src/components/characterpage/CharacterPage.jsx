@@ -109,7 +109,7 @@ const CharacterPage = () => {
               2. battle
               3. sidebar
           */}
-        <div className='bottom_btn' style={{ transform: hideLowerBtn ? 'translateY(100%)' : 'translateY(0)' }}>
+        <div className='bottom_btn' style={{ transform: hideLowerBtn ? 'translateY(120%)' : 'translateY(0)' }}>
           <button onClick={() => handleChangeScreen(charPageScreens[3], true)} className='btn inventory-btn'><img src={chestbtn} alt="" /></button>
           <a href="battle" className='btn battle-btn'><img src={protectionicon} alt="" /></a>
           <div className='sidebar-container'>
@@ -117,7 +117,8 @@ const CharacterPage = () => {
               className={showSideBar ? 'btn sidebar-btn no-hover' : 'btn sidebar-btn'}
               disabled={showSideBar}
               style={{
-                bottom: showSideBar ? '0rem' : ' -19rem',
+                // bottom: showSideBar ? '-4rem' : ' -23rem',
+                transform: showSideBar ? 'translateY(-65%)': 'translateY(5%)',
                 backgroundColor: showSideBar ? "var(--color-darkish-blue)" : "",
                 border: showSideBar ? "0 transparent" : ""
               }}
@@ -139,7 +140,6 @@ const CharacterPage = () => {
         <div>
           {screen.screen}
         </div>
-
       </div>
 
     </div>

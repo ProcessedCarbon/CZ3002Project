@@ -1,0 +1,67 @@
+.titlescreen-container > .background{
+    background-image: url(../../assets/login_page_background.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-width: 100%;
+    min-height: 820px;
+    justify-content: center;
+    align-items: center;
+    place-content: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 4rem;
+}
+.titlescreen-container >.background > .main-title{
+    max-height: 25%;
+    max-width: 25%;
+    transform: scale(1.5);
+}
+
+.titlescreen-body {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+.titlescreen-body  > .auth-char-avatar{
+    transform: scale(1.5);
+}
+.titlescreen-body >.char-text-box >.box{
+    min-width: fit-content;
+    min-height: 100%;
+    overflow: visible;
+    background: var(--color-orange);
+    position: relative;
+    padding: 1rem;
+    top: 5rem;
+    left: 1rem;
+}
+
+.char-text-box >.box > .box-content {
+    min-width: fit-content;
+    min-height: fit-content;
+}
+.char-text-box >.box > .box-content > h5{
+    font-weight: 100;
+    font-size: 2rem;
+}
+.char-text-box >.box > .box-content > h4{
+    font-family: var(--alt-font);
+    font-weight:700;
+    font-size: 3rem;
+    margin-top: -1rem;
+}
+.titlescreen-body >.char-text-box >.box::after{
+    content: "";
+    height: 40px;
+    width: 40px;
+    background: var(--color-orange);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.titlescreen-body > .char-text-box > .title-screen-btn:not(.no-hover):hover{
+    transform: scale(1.2);
+    background: var(--color-orange);
+    box-shadow: none;
+}

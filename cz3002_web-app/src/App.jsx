@@ -6,6 +6,7 @@ import Register from './components/auth/Register'
 import BattlePage from './components/battle_page/BattlePage';
 import ShopPage from './components/shop_page/ShopPage'
 
+import Title from './components/auth/Title'
 const App = () => {
   
   function ClearLocalStorage(){
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="profile" element={<CharacterPage/>}/>
           <Route path="battle" element={<BattlePage/>}/>
           <Route path="shop" element={<ShopPage/>}/>
+          <Route path="title" element={<Title/>}/>
           <Route path="*" element={<h1>404</h1>}/>
         </Routes>
       </BrowserRouter>

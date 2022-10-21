@@ -17,8 +17,8 @@
 }
 
 .battletask-container > .btn{
-    width: 10%;
-    height: 40px;
+    max-width: 10%;
+    min-height: 40px;
 }
 ::-webkit-scrollbar{
     display: none;
