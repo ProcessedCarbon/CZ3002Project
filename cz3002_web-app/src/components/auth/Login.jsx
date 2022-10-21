@@ -1,8 +1,9 @@
 import React from 'react';
 import './Login.css';
-import avatar from '../../assets/char_avatar.png';
 import { Form, Field } from 'react-final-form';
 import AxiosInterface from '../Misc/AxiosInterface';
+import PlayerAvatar from '../PlayerAvatar'
+
 const axiosInterface = new AxiosInterface();
 
 const Login = () => {
@@ -31,16 +32,13 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <h3>Hello Adventurer</h3>
-      <div className="character-avatar">
-        <img alt="" src={avatar} />
-      </div>
-      <div>
+    <div className='login-background'>
+      <div className='box'>
+        <h3>Hello Adventurer</h3>
         <Form
           onSubmit={loginBtnClick}
           render={({ handleSubmit, form, submitting, pristine, values }) => (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="login-form">
               <div>
                 <Field name="email" validate={(value) => (value ? undefined : 'Required')}>
                   {({ input, meta }) => (
@@ -61,16 +59,22 @@ const Login = () => {
                   )}
                 </Field>
               </div>
-              <button type="submit" className="btn" disabled={submitting}>
-                Login
-              </button>
+              <div className='auth-btn-group'>
+                <button type="submit" className="btn" disabled={submitting}>
+                  <h5>Login</h5>
+                </button>
+                <button className="btn" onClick={registerBtnClick}>
+                  <h5>New Account</h5>
+                </button>
+              </div>
+
             </form>
           )}
         />
-        <button className="btn" onClick={registerBtnClick}>
-          New Account
-        </button>
 
+      </div>
+      <div className="auth-character-avatar">
+        <PlayerAvatar />
       </div>
     </div>
 

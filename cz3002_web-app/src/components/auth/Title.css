@@ -22,7 +22,7 @@
     flex-direction: column;
     place-items: center;
 }
-.titlescreen-body  > .player-avatar{
+.titlescreen-body  > .auth-char-avatar{
     transform: scale(1.5);
 }
 .titlescreen-body >.char-text-box >.box{
@@ -52,8 +52,8 @@
 }
 .titlescreen-body >.char-text-box >.box::after{
     content: "";
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     background: var(--color-orange);
     position: absolute;
     top: 100%;

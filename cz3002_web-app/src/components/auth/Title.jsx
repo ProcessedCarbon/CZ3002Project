@@ -18,7 +18,7 @@ const Title = () => {
                             </div>
                         </a>
                     </div>
-                    <div className='player-avatar'>
+                    <div className='auth-char-avatar'>
                         <PlayerAvatar />
                     </div>
                 </div>
