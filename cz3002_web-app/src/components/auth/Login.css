@@ -52,6 +52,7 @@
     transform: scale(1.5);
     margin-top: -5rem;
     margin-inline: auto;
+    pointer-events: none;
 }
 
 .login-background > .box > h3{
