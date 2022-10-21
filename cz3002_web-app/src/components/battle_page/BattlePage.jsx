@@ -1,54 +1,53 @@
-
-import React, { useState, useEffect } from 'react'
-import './BattlePage.css'
+import React, { useState, useEffect } from 'react';
+import './BattlePage.css';
 
 // REACT COMPONENTS //
-import BattleTaskBox from './BattleTaskListComponents/BattleTaskBox'
-import VictoryBox from './VictoryBox'
+import BattleTaskBox from './BattleTaskListComponents/BattleTaskBox';
+import VictoryBox from './VictoryBox';
 
 // ENTITIES //
-import Player from './Player'
-import Enemy from './Enemy'
+import Player from './Player';
+import Enemy from './Enemy';
 
-const LOCAL_STORAGE_KEY = "BATTLEPAGE"
+const LOCAL_STORAGE_KEY = 'BATTLEPAGE';
 
 const enemies = [
   {
-    type: "tree_man",
-    name: "Tree Man",
+    type: 'tree_man',
+    name: 'Tree Man',
     health: 120,
     xp: 150,
     gold: 200,
   },
   {
-    type: "lesser_devil",
-    name: "Lesser Devil",
+    type: 'lesser_devil',
+    name: 'Lesser Devil',
     health: 50,
     xp: 30,
-    gold: 50
+    gold: 50,
   },
   {
-    type: "dark_mage",
-    name: "Dark Mage",
+    type: 'dark_mage',
+    name: 'Dark Mage',
     health: 100,
     xp: 80,
-    gold: 100
+    gold: 100,
   },
   {
-    type: "green_slime",
-    name: "Green Slime",
+    type: 'green_slime',
+    name: 'Green Slime',
     health: 80,
     xp: 50,
-    gold: 80
+    gold: 80,
   },
   {
-    type: "terror_monster",
-    name: "Terror",
+    type: 'terror_monster',
+    name: 'Terror',
     health: 150,
     xp: 250,
-    gold: 250
-  }
-]
+    gold: 250,
+  },
+];
 let damageToDeal = 0;
 
 const BattlePage = () => {
@@ -56,10 +55,10 @@ const BattlePage = () => {
   const [battlecomplete, setBattleComplete] = useState(false);
   const [taskComplete, setTaskStatus] = useState(false);
   const [enemyState, setEnemyState] = useState({
-    name: "",
+    name: '',
     currhp: 120,
     hp: 120,
-    type: "dark_mage",
+    type: 'dark_mage',
     xp: 0,
     gold: 0,
   });
@@ -68,19 +67,17 @@ const BattlePage = () => {
     const storeEnemy = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if (storeEnemy && storeEnemy.currhp > 0) {
       setEnemyState(storeEnemy);
-    }
-    else {
+    } else {
       createEnemy();
     }
-
-  }, [])
+  }, []);
 
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(enemyState))
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(enemyState));
   }, [enemyState]);
 
   function createEnemy() {
-    let enemyIndex = getRandomValue(0, (enemies.length - 1))
+    let enemyIndex = getRandomValue(0, enemies.length - 1);
     setEnemyState({
       name: enemies[enemyIndex].name,
       currhp: enemies[enemyIndex].health,
@@ -96,7 +93,7 @@ const BattlePage = () => {
   }
 
   function setTaskComplete(completed) {
-    setTaskStatus(completed)
+    setTaskStatus(completed);
   }
 
   useEffect(() => {
@@ -115,7 +112,7 @@ const BattlePage = () => {
     }
     // reset taskcomplete
     setTaskStatus(false);
-  }, [taskComplete])
+  }, [taskComplete]);
 
   function getDamageToDeal(value) {
     damageToDeal = value;
@@ -125,15 +122,17 @@ const BattlePage = () => {
   }
 
   return (
-    <div className='battlepage-container'>
-      <div className='battlepage-screen'>
-        <a href="profile" className='btn return-home-btn'>
+    <div className="battlepage-container">
+      <div className="battlepage-screen">
+        <a href="profile" className="btn return-home-btn">
           <h5>Return Home</h5>
         </a>
-        <button className='btn' onClick={ClearLocalStorage}>Clear Storage</button>
+        <button className="btn" onClick={ClearLocalStorage}>
+          Clear Storage
+        </button>
         {/* ENTITY COMPONENTS */}
-        <div className='entity-space'>
-          <Player health={100} maxhealth={100} name="Gregory123" taskcomplete={taskComplete} />
+        <div className="entity-space">
+          <Player health={100} maxhealth={100} name="" taskcomplete={taskComplete} />
           <Enemy
             currHealth={enemyState.currhp}
             health={enemyState.hp}
@@ -144,18 +143,18 @@ const BattlePage = () => {
           />
         </div>
         {/* VARIOUS BUTTON SCREENS */}
-        <div>
-          {battlecomplete && <VictoryBox xp={enemyState.xp} gold={enemyState.gold} />}
-        </div>
-        <div style={{
-            pointerEvents: battlecomplete ? "none" : "",
-            filter: battlecomplete ? "blur(10px)" : "",
-          }}>
-          <BattleTaskBox setTaskComplete={setTaskComplete} damageToDeal={getDamageToDeal}/>
+        <div>{battlecomplete && <VictoryBox xp={enemyState.xp} gold={enemyState.gold} />}</div>
+        <div
+          style={{
+            pointerEvents: battlecomplete ? 'none' : '',
+            filter: battlecomplete ? 'blur(10px)' : '',
+          }}
+        >
+          <BattleTaskBox setTaskComplete={setTaskComplete} damageToDeal={getDamageToDeal} />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BattlePage
+export default BattlePage;
