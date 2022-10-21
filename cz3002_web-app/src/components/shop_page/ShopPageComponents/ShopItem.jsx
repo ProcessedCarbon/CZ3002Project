@@ -19,8 +19,6 @@ const ShopItem = ({title, cost, is_Buy, buy_f}) => {
 
     // Player Details
 
-
-
     function imgBasedOnCharacter() {
 
         if (title === "ranger 1") {
