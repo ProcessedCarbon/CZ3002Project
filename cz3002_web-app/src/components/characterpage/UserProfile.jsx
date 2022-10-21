@@ -15,6 +15,7 @@ const UserProfile = () => {
         // lvl: 0,
         // sp: 0
         char_bought: [],
+        char_equipped: '',
     })
     useEffect(() => {
         const player_stats = JSON.parse(localStorage.getItem(PLAYER_LOCAL_KEY));
@@ -29,7 +30,8 @@ const UserProfile = () => {
                 gold: 0,
                 // lvl: 0,
                 // sp: 0
-                char_bought: [],
+                char_bought: ["warrior 1"],
+                char_equipped: 'warrior_1',
             })
         }
     }, [])

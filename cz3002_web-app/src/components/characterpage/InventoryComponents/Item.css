@@ -7,8 +7,10 @@
     row-gap: .5rem;
 }
 .item-container > .item-body{
-    background: var(--color-light-purple);
-    border-radius: 5px;
+    background: transparent;
+    border: 0;
+    border-radius: 0px;
+    box-shadow: none;
     width: 100%;
 }
 .item-container > .item-body:is(.equipped){
