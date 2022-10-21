@@ -25,7 +25,7 @@ const UserProfile = () => {
   }, []);
   //re render only
   // useEffect(() => {
-  //   //localStorage.setItem(PLAYER_LOCAL_KEY, JSON.stringify(playerDetails));
+  //   );
   // }, [playerDetails]);
 
   //get profile related specific user
