@@ -106,21 +106,19 @@ function TaskForm({ addTask }) {
   return (
     <div className="taskform-container">
       <form action="" onSubmit={handleSubmit} className="taskform-format">
-                <input
-                    name="task"
-                    type="text"
-                    on}
-                    value={todo.task}
-                />
-                <Select className='taskpriority-select'
-                    options={options}
-                    onChange={handleTaskPriorityChange}
-                    styles={customStyles}
-                    placeholder={"Select your priority..."}
-                />
-                <button className='btn' type='submit'><h5>+</h5></button>
-            </form>
-        </div>
+        <input name="task" type="text" onChange={handleTaskInputChange} value={todo.task} />
+        <Select
+          className="taskpriority-select"
+          options={options}
+          onChange={handleTaskPriorityChange}
+          styles={customStyles}
+          placeholder={'Select your priority...'}
+        />
+        <button className="btn" type="submit">
+          <h5>+</h5>
+        </button>
+      </form>
+    </div>
   );
 }
 
