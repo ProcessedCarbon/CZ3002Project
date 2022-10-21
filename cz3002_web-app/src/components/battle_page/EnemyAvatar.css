@@ -1,11 +1,40 @@
+.enemy{
+    transition: var(--transition-bars);
+    animation: enemy_enter 1s ease-in-out;
+}
+.damageText{
+    animation: damageText-anim 1s forwards infinite;
+    animation-play-state: paused;
+}
+.damageText > h5{
+    position: absolute;
+    font-size: xx-large;
+    color: var(--color-light-yellow);
+    filter: drop-shadow(0px 0px 5px var(--color-reddish));
+}
+@keyframes damageText-anim{
+    from{
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to{
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+@keyframes enemy_enter{
+    from{
+        transform: translateX(500%) scaleX(-1);
+    }
+    to{
+        transform: translateX(0) scaleX(-1);
+    }
+}
 #tree_man{
     width: 150px;
-    /* background: red; */
     filter: drop-shadow(0px 0px 5px #38E54D);
 }
 #tree_man > img{
     min-width: 300px;
-    padding-top: 5rem;
+    padding-top: 3.5rem;
     animation: sprite-animation 1.5s steps(2) infinite;
 }
 
@@ -14,7 +43,7 @@
 }
 #lesser_devil > img{
     min-width: 400px;
-    padding-top: 8.5rem;
+    padding-top: 7.5rem;
     animation: sprite-animation 0.8s steps(4) infinite;
 }
 
@@ -32,7 +61,7 @@
 }
 #green_slime > img{
     min-width: 400px;
-    padding-top: 10rem;
+    padding-top: 9rem;
     animation: sprite-animation 0.8s steps(4) infinite;
 }
 
@@ -48,7 +77,6 @@
 
 .enemyavatar-container > .enemy > img:is(.damaged){
     filter: invert(100%) blur(1px);
-
 }
 .enemyavatar-container > .vfx{
     position: absolute;

@@ -1,3 +1,4 @@
+
 .characterpage_container>.background {
     background-color: #2F283A;
     background-image: url(../../assets/characterpage_scene.png);
@@ -5,15 +6,13 @@
     background-size: 100% 100%;
     border-radius: 30px;
     display: grid;
-    grid-template-columns: 1.5rem 1fr 1.5rem;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
         "char-profile . top-btn"
         ". middle ."
         ". bottom .";
     margin: 1rem;
     padding: 1rem;
-    height: 650px;
-    grid-template-columns: 1fr 1fr;
     overflow: hidden;
 }
 
@@ -124,6 +123,7 @@
     flex-direction: row;
     column-gap: 1.5rem;
     width: fit-content;
+    height: fit-content;
 
     animation: topright-btn-intro;
     animation-timing-function: var(--transition-cubicbezier);
@@ -131,18 +131,18 @@
     animation-iteration-count: 1;
 }
 
-.characterpage_container>.background>.btn_group>div>.btn {
+.characterpage_container>.background>.btn_group >.btn {
     border-radius: 10px;
     text-align: center;
     width: fit-content;
     height: fit-content;
 }
+.characterpage_container>.background>.btn_group >.btn:not(.no-hover):hover{
+    transform: scale(1.1) rotate(-5deg) translateX(-5px);
+} 
 
-.characterpage_container>.background>.btn_group>div>.btn:not(.no-hover):hover {
-    transform: scale(1.2) rotate(-5deg) translate(-5px, 5px);
-}
 
-.characterpage_container>.background>.btn_group>div>.btn>img {
+.characterpage_container>.background>.btn_group>.btn>img {
     height: 55px;
     width: 55px;
 }
@@ -168,10 +168,21 @@
 
 .characterpage_container>.background>.avatar-scene>.character-avatar {
     position: absolute;
-    bottom: 10.5rem;
     margin-left: 3rem;
-}
+    top: 20rem;
+    left: 40rem;
 
+    animation: player_jump 7s forwards infinite;
+    animation-delay: 7s;
+}
+@keyframes player_jump{
+    0%,4%,8%,100%{
+        transform: translateY(0px);
+    }
+    2%,6%{
+        transform: translateY(-80px); 
+    }
+}
 /*================= BOTTOM BUTTON GROUP ========================*/
 .characterpage_container>.background>.bottom_btn {
     grid-area: 'bottom';
@@ -179,7 +190,7 @@
     display: flex;
     position: relative;
     flex-direction: row;
-    top: 80%;
+    margin-top: 36%;
     column-gap: 33.5rem;
     transition: var(--transition-cubicbezier);
     justify-content: space-evenly;
@@ -209,24 +220,20 @@
     animation: battle-btn-hover-effect;
     animation-timing-function: var(--transition-cubicbezier);
     animation-duration: 3.5s;
-    animation-delay: 0.5s;
+    animation-delay: 3s;
     animation-iteration-count: infinite;
 }
 
 @keyframes battle-btn-hover-effect {
-    0% {
+    0%,100% {
         transform: translateY(-15px) scale(1.1);
         box-shadow: 0px 0px 8px 5px var(--color-darkish-yellow);
     }
 
     50% {
         transform: translateY(-15px) scale(1.2);
-        box-shadow: 0px 0px 20px 15px var(--color-darkish-yellow);
-    }
-
-    100% {
-        transform: translateY(-15px) scale(1.1);
-        box-shadow: 0px 0px 8px 5px var(--color-darkish-yellow);
+        box-shadow: 0px 0px 15px 8px var(--color-darkish-yellow);
+        filter: contrast(150%);
     }
 }
 
@@ -239,28 +246,50 @@
 .characterpage_container>.background>.bottom_btn>.inventory-btn:hover {
     background: none;
     box-shadow: none;
-}
+    transform: scale(1.2);
 
+    animation: inventory_animations 1.5s forwards infinite;
+    animation-delay: 0.5s;
+}
+@keyframes inventory_animations{
+    0%, 10%, 30%, 40%{
+        transform: rotate(0deg) scale(1.2);
+    }
+    5%, 25%{
+        transform: rotate(2deg) scale(1.2);
+    }
+    15%, 35%{
+        transform: rotate(-2deg) scale(1.2);
+    }
+    100%{
+        transform: rotate(0deg) scale(1.2);
+    }
+}
 .characterpage_container>.background>.bottom_btn>.sidebar-container>.sidebar-btn {
     display: flex;
     flex-direction: column;
+    margin-inline: auto;
 }
 
-.characterpage_container>.background>.bottom_btn>.sidebar-container>.sidebar-btn>.inner-btns {
+.sidebar-btn>.inner-btns {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
     margin-top: 1.5rem;
 }
 
-.characterpage_container>.background>.bottom_btn>.sidebar-container>.sidebar-btn>.inner-btns>.btn {
+.sidebar-btn>.inner-btns>.btn {
     border: 0px;
     box-shadow: none;
     background-color: transparent;
+    width: 45px;
+    height: 45px;
 }
 
-.characterpage_container>.background>.bottom_btn>.sidebar-container>.sidebar-btn>.inner-btns>.btn:hover {
+.sidebar-btn>.inner-btns>.btn:hover {
     background-color: transparent;
+    box-shadow: none;
+    transform: scale(1.2);
 }
 
 .characterpage_container>.background>.bottom_btn>.sidebar-container>.sidebar-btn {

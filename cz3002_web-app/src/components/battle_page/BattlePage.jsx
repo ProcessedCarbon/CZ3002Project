@@ -61,13 +61,12 @@ const BattlePage = () => {
     hp: 120,
     type: "dark_mage",
     xp: 0,
-    gold: 0
+    gold: 0,
   });
-
 
   useEffect(() => {
     const storeEnemy = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    if (storeEnemy) {
+    if (storeEnemy && storeEnemy.currhp > 0) {
       setEnemyState(storeEnemy);
     }
     else {
@@ -88,7 +87,7 @@ const BattlePage = () => {
       hp: enemies[enemyIndex].health,
       type: enemies[enemyIndex].type,
       xp: enemies[enemyIndex].xp,
-      gold: enemies[enemyIndex].gold
+      gold: enemies[enemyIndex].gold,
     });
   }
 
@@ -108,14 +107,14 @@ const BattlePage = () => {
         hp = hp - damageToDeal;
         setEnemyState({ ...enemyState, currhp: hp });
       }
-      // reset taskcomplete
-      setTaskStatus(false);
     }
 
     if (enemyState.currhp <= 0) {
       setBattleComplete(true);
-      createEnemy();
+      //createEnemy();
     }
+    // reset taskcomplete
+    setTaskStatus(false);
   }, [taskComplete])
 
   function getDamageToDeal(value) {
@@ -133,20 +132,26 @@ const BattlePage = () => {
         </a>
         <button className='btn' onClick={ClearLocalStorage}>Clear Storage</button>
         {/* ENTITY COMPONENTS */}
-        {!battlecomplete &&
-          <div className='entity-space'>
-            <Player health={100} maxhealth={100} name="Gregory123" taskcomplete={taskComplete}/>
-            <Enemy
-              currHealth={enemyState.currhp}
-              health={enemyState.hp}
-              name={enemyState.name}
-              type={enemyState.type}
-            />
-          </div>}
+        <div className='entity-space'>
+          <Player health={100} maxhealth={100} name="Gregory123" taskcomplete={taskComplete} />
+          <Enemy
+            currHealth={enemyState.currhp}
+            health={enemyState.hp}
+            name={enemyState.name}
+            type={enemyState.type}
+            dead={battlecomplete}
+            damageTaken={damageToDeal}
+          />
+        </div>
         {/* VARIOUS BUTTON SCREENS */}
         <div>
-          <BattleTaskBox setTaskComplete={setTaskComplete} damageToDeal={getDamageToDeal} />
           {battlecomplete && <VictoryBox xp={enemyState.xp} gold={enemyState.gold} />}
+        </div>
+        <div style={{
+            pointerEvents: battlecomplete ? "none" : "",
+            filter: battlecomplete ? "blur(10px)" : "",
+          }}>
+          <BattleTaskBox setTaskComplete={setTaskComplete} damageToDeal={getDamageToDeal}/>
         </div>
       </div>
     </div>

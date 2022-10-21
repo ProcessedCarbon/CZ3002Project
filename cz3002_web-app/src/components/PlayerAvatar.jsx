@@ -10,7 +10,7 @@ const PlayerAvatar = ({ taskcomplete }) => {
             setPlayerAttackAnim(true);
             setTimeout(() => {
                 setPlayerAttackAnim(false);
-            }, 500)
+            }, 300)
         }
     },[taskcomplete])
 

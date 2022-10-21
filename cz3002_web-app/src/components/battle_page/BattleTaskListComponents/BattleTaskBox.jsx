@@ -7,8 +7,8 @@ const AUTH_TOKEN = localStorage.getItem('auth_token');
 const axiosInterface = new AxiosInterface();
 
 const h_DMG = 20;
-const m_DMG = 15;
-const l_DMG = 10;
+const m_DMG = 10;
+const l_DMG = 5;
 
 const BattleTaskBox = ({ setTaskComplete, damageToDeal }) => {
   const [tasks, setTasks] = useState([]);

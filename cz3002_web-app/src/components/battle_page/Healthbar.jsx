@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Healthbar.css'
 
-function Healthbar({ currHealth, hpSetter, health }) {
+function Healthbar({ currHealth, health }) {
     const [style, setStyle] = useState({});
     const [danger, setDanger] = useState(false);
     const [damaged, setDamaged] = useState(false);
@@ -22,15 +22,6 @@ function Healthbar({ currHealth, hpSetter, health }) {
         }
     }
 
-    function handleIncreaseHP(value) {
-        currHealth += value;
-        hpSetter(currHealth);
-    }
-
-    function handleDownHP(value) {
-        currHealth -= value;
-        hpSetter(currHealth);
-    }
     function getPercent() {
         return (currHealth / health) * 100;
     }
@@ -56,8 +47,6 @@ function Healthbar({ currHealth, hpSetter, health }) {
 
     return (
         <div className= {(damaged) ? "healthbar-container damaged" : "healthbar-container"}>
-            {/* <button className='btn' onClick={() => handleIncreaseHP(10)}>+</button>
-            <button className='btn' onClick={() => handleDownHP(10)}>-</button> */}
             <div className={danger ? "healthbar-parent danger" : "healthbar-parent"}>
                 <div className= "health-bar" style={style}></div>
             </div>

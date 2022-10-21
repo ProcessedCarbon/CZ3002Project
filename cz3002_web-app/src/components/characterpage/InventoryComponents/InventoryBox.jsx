@@ -22,7 +22,6 @@ const InventoryBox = () => {
     }, [items]);
 
     function toggleEquipped(id) {
-        console.log("ran");
         setList(
             items.map(item => {
             if (item.id === id) {

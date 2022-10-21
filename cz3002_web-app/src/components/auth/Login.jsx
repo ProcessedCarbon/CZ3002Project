@@ -70,8 +70,10 @@ const Login = () => {
         <button className="btn" onClick={registerBtnClick}>
           New Account
         </button>
+
       </div>
     </div>
+
   );
 };
 
