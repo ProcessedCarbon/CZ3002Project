@@ -1,6 +1,6 @@
 .register-background{
     background: url(../../assets/login_page_background.png);
-    min-height: 820px;
+    min-height: 100vh;
     min-width: fit-content;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -15,9 +15,9 @@
     left: 0;
     top: 20%;
     background: var(--color-orange);
-    width: fit-content;
     overflow: visible;
-    min-width: 800px;
+    min-width: 400px;
+    min-height: 400px;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -25,8 +25,8 @@
 }
 .register-background > .box::after{
     content: "";
-    height: 50px;
-    width: 50px;
+    min-height: 5vh;
+    min-width: 5vh;
     background: var(--color-orange);
     position: absolute;
     left: 50%;

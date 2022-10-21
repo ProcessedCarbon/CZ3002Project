@@ -2,8 +2,7 @@
     background-image: url(../../assets/login_page_background.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    min-width: 100%;
-    min-height: 820px;
+    min-height: 100vh;
     justify-content: center;
     align-items: center;
     place-content: center;
@@ -12,9 +11,9 @@
     row-gap: 4rem;
 }
 .titlescreen-container >.background > .main-title{
-    max-height: 25%;
-    max-width: 25%;
-    transform: scale(1.5);
+    max-height: 25vh;
+    max-width: 25vw;
+    transform: scale(45vh, 45vw);
 }
 
 .titlescreen-body {
@@ -27,7 +26,9 @@
 }
 .titlescreen-body >.char-text-box >.box{
     min-width: fit-content;
-    min-height: 100%;
+    min-height: 70px;
+    max-height: 20vh;
+    max-width: 18vw;
     overflow: visible;
     background: var(--color-orange);
     position: relative;
@@ -42,23 +43,24 @@
 }
 .char-text-box >.box > .box-content > h5{
     font-weight: 100;
-    font-size: 2rem;
+    font-size: 3vw;
 }
 .char-text-box >.box > .box-content > h4{
     font-family: var(--alt-font);
     font-weight:700;
-    font-size: 3rem;
-    margin-top: -1rem;
+    font-size: 3.5vw;
+    margin-top: -2vh;
 }
 .titlescreen-body >.char-text-box >.box::after{
     content: "";
-    height: 40px;
-    width: 40px;
+    min-height: 3vw;
+    min-width: 3vw;
     background: var(--color-orange);
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
+    z-index: -1;
 }
 .titlescreen-body > .char-text-box > .title-screen-btn:not(.no-hover):hover{
     transform: scale(1.2);

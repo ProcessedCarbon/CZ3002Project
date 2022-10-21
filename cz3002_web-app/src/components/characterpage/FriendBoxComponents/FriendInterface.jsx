@@ -89,12 +89,12 @@ function FriendInterface({ addFriend }) {
 
   return (
     <div className='friendinterface-container'>
-      {/* <button className='btn' onClick={addALL}></button>
-      <button className='btn' onClick={ClearLocalStorage}>Clear</button> */}
+      <button className='btn' onClick={addALL}></button>
+      <button className='btn' onClick={ClearLocalStorage}>Clear</button>
       <form action="" onSubmit={handleAddFriend}>
         <input type="text" onChange={handleFriendInputChange} />
       </form>
-      {/* <button className='btn' onClick={handleAddFriend}>Add</button> */}
+      <button className='btn' onClick={handleAddFriend}>Add</button>
     </div>
   )
 }

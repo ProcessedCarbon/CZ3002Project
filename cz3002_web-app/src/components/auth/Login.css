@@ -1,6 +1,6 @@
 .login-background{
     background-image: url(../../assets/login_page_background.png);
-    min-height: 820px;
+    min-height: 100vh;
     min-width: fit-content;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -13,11 +13,12 @@
     position: relative;
     margin-inline: auto;
     left: 0;
-    top: 20%;
+    top: 0vh;
     background: var(--color-orange);
     width: fit-content;
     overflow: visible;
-    min-width: 600px;
+    min-width: 45vw;
+    height: auto;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -26,8 +27,8 @@
 }
 .login-background > .box::after{
     content: "";
-    height: 50px;
-    width: 50px;
+    min-height: 5vh;
+    min-width: 5vh;
     background: var(--color-orange);
     position: absolute;
     left: 50%;
@@ -40,7 +41,7 @@
     color:var(--color-light-yellow);
     font-family: var(--alt-font);
     text-shadow: 4px 4px rgba(0,0,0,0.5);
-    font-size: 4rem;
+    font-size: 5vw;
     animation: growing 1s forwards infinite;
 }
 @keyframes growing {
@@ -55,13 +56,13 @@
 }
 
 .login-form > .auth-btn-group{
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
+    margin-top: 3vh;
+    margin-bottom: 1vh;
 }
 
 label {
     display: inline-block;
-    width: 150px;
+    min-width: 100px;
     text-align: start;
     padding: 0.5rem;
     text-shadow: 2px 2px rgba(0,0,0,0.3);
@@ -69,8 +70,8 @@ label {
 }
 
 input {
-    padding: 5px;
-    border-radius: 5px;
-    width: 250px;
+    padding: 0.75vh;
+    border-radius: 0.75vh;
+    width: 20vw;
     font-family: var(--font-main);
 }

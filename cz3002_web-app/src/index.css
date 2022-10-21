@@ -149,8 +149,8 @@ img {
     text-align: center;
     overflow: hidden;
     background: var(--color-light-yellow);
-    height: 70%;
-    width: 60%;
+    height: 45vh;
+    width: 40vw;
     right: 20%;
     top: 15%;
     border-radius: 10px;
@@ -200,8 +200,8 @@ img {
     column-gap: 1rem;
 }
 .auth-btn-group > .btn{
-    min-width: 60px;
-    min-height: 30px;
+    min-width: fit-content;
+    min-height: 0vh;
     padding: 0.5rem;
 }
 .auth-btn-group > .btn > h5{
