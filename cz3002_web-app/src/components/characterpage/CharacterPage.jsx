@@ -93,7 +93,8 @@ const CharacterPage = () => {
         <div className='btn_group'>
           <button onClick={() => handleChangeScreen(charPageScreens[0], true)} className="btn message-btn"><img src={messageicon} alt="" /></button>
           <button onClick={() => handleChangeScreen(charPageScreens[1], true)} className="btn friends-btn"><img src={personicon} alt="" /></button>
-          <button onClick={() => handleChangeScreen(charPageScreens[2], true)} className="btn fav-btn"><img src={favouritesicon} alt="" /></button>
+          <a href="shop" className='btn fav-btn'><img src={favouritesicon} alt="" /></a>
+          {/* <button onClick={() => handleChangeScreen(charPageScreens[2], true)} className="btn fav-btn"><img src={favouritesicon} alt="" /></button> */}
         </div>
 
         {/* PLAYER AVATAR */}

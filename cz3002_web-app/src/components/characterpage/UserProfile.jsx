@@ -17,6 +17,7 @@ const UserProfile = () => {
     gold: 0,
     // lvl: 0,
     // sp: 0
+    char_bought: [],
   });
   //intial render
   useEffect(() => {
