@@ -28,6 +28,22 @@
     bottom: 8rem;
     left: 9.5rem;
 }
+
+.shoppage_container>.background > .return-home-btn{
+    position: absolute;
+    right: 3rem;
+    top: 3rem;
+    width: fit-content;
+    font-size: 1.5rem;
+}
+.shoppage_container >.background > .return-home-btn > h5{
+    margin: .25rem;
+}
+
+
+
+
+
 /*================= CHARACTER PROFILE ========================*/
 .shoppage_container>.background>.character_gold_profile {
     grid-area: 'char-profile';
