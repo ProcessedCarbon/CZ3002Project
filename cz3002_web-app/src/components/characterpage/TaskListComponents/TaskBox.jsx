@@ -18,7 +18,9 @@ const TaskBox = () => {
   }, []);
 
   //re-render when tasks is updated
-  useEffect(() => {}, [tasks]);
+  useEffect(() => {
+    //console.log('rerender');
+  }, [tasks]);
 
   //get all task related specific user
   const getAllTask = async () => {

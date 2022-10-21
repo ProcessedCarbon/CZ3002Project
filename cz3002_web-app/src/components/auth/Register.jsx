@@ -17,8 +17,9 @@ async function onBtnClick(values) {
   };
   try {
     const response = await axiosInterface.postData('/user/register', userFields);
+    const auth_token = response.headers.auth_token;
+    localStorage.setItem('auth_token', auth_token);
     window.location.href = 'profile';
-    //console.log(response);
   } catch (error) {
     //console.log(error);
   }

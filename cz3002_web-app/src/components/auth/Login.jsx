@@ -20,9 +20,9 @@ const Login = () => {
     try {
       const response = await axiosInterface.postData('/user/login', userFields);
       const auth_token = response.headers.auth_token;
+      localStorage.setItem('auth_token', auth_token);
       window.location.href = 'profile';
       //console.log(auth_token);
-      localStorage.setItem('auth_token', auth_token);
     } catch (error) {
       //fail login user
       //Do error handling on FE

@@ -19,6 +19,7 @@ const BattleTaskBox = ({ setTaskComplete, damageToDeal }) => {
   //       setTasks(storageTask);
   //     }
   //   }, []);
+
   //   useEffect(() => {
   //     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tasks));
   //   }, [tasks]);
@@ -27,6 +28,10 @@ const BattleTaskBox = ({ setTaskComplete, damageToDeal }) => {
   useEffect(() => {
     getAllTask();
   }, []);
+  //re render
+    // useEffect(() => {
+    //   //localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tasks));
+    // }, [tasks]);
 
   //get all task related specific user
   const getAllTask = async () => {
@@ -74,6 +79,7 @@ const BattleTaskBox = ({ setTaskComplete, damageToDeal }) => {
   }
 
   function removeTask(id) {
+    deleteTask(id);
     setTasks(tasks.filter((task) => task.id !== id));
   }
 
