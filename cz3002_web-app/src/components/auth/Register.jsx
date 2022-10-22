@@ -33,7 +33,7 @@ const Register = () => {
         <Form
           onSubmit={onBtnClick}
           render={({ handleSubmit, form, submitting, pristine, values }) => (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='authform'>
               <div>
                 <Field name="username" validate={(value) => (value ? (value.match(/^[a-zA-Z]+$/) ? undefined : 'Only letters allowed') : 'Required')}>
                   {({ input, meta }) => (

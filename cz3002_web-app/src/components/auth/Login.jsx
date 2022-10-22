@@ -38,7 +38,7 @@ const Login = () => {
         <Form
           onSubmit={loginBtnClick}
           render={({ handleSubmit, form, submitting, pristine, values }) => (
-            <form onSubmit={handleSubmit} className="login-form">
+            <form onSubmit={handleSubmit} className="authform login-form">
               <div>
                 <Field name="email" validate={(value) => (value ? undefined : 'Required')}>
                   {({ input, meta }) => (
