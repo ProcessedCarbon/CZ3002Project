@@ -57,5 +57,24 @@
 
 .login-form > .auth-btn-group{
     margin-top: 3vh;
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
+}
+
+.authform input {
+    padding: 0.75vh;
+    border-radius: 0.75vh;
+    width: 20vw;
+    font-family: var(--font-main);
+    animation: i-anim 1s ease-in-out;
+}
+
+@keyframes i-anim {
+   from{
+        width: 0;
+        filter: blur(5px);
+        opacity: 0;
+    }
+    to{
+        width: 20vw;
+    }
 }
