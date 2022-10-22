@@ -2,13 +2,12 @@
     background-color: #2F283A;
     background-image: url(../../assets/battle_background.png);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 100vw 100vh;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
     margin: 1rem;
     padding: 1rem;
-    height: 650px;
     overflow: hidden;
     justify-content: center;
 }
@@ -18,7 +17,7 @@
     right: 3rem;
     top: 3rem;
     width: fit-content;
-    font-size: 1.5rem;
+    font-size: 2vw;
 }
 .battlepage-screen > .return-home-btn > h5{
     margin: .25rem;
@@ -28,14 +27,15 @@
 .battlepage-screen > .entity-space{
     display: flex;
     flex-direction: row;
-    column-gap: 50rem;
-    margin: auto auto;
+    column-gap: 40vw;
+    margin: 8vh auto;
     height: fit-content;
     overflow: hidden;
-    min-height: 350px;
+    min-height: 50vh;
     overflow: visible;
 }
 
 .battlepage-screen > .entity-space > div {
     position: relative;
+    top: 18vh;
 }

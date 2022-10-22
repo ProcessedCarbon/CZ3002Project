@@ -10,19 +10,36 @@
     align-items: baseline;
 }
 .taskform-format > input{
-    width: 30rem;
-    height: 40px;
+    width: 35vw;
+    height: 5vh;
     border: 1px solid var(--color-btn-bg);
     border-radius: 10px;
     padding: 1rem;
     font-family: var(--main-font);
+
+    animation: input-intro 0.8s ease-in-out;
 }
 .taskform-format > .btn{
-    height: 45px;
-    width: 45px ;
+    height: 6.5vh;
+    width: 3.5vw ;
+    min-width: 45px;
+    min-height: 45px;
     font-size: xx-large;
     font-weight: 100;
 }
 .taskform-format > .btn > h5{
     color: var(--color-white);
+}
+.taskform-format > .taskpriority-select{
+    animation: select-intro 1s ease-in-out;
+}
+@keyframes input-intro{
+    from{
+        opacity: 0;
+        width: 0;
+    }
+    to{
+        opacity: 1;
+        width: 30rem;
+    }
 }

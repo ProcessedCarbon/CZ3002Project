@@ -1,26 +1,24 @@
 .player{
     animation: player-attack 0.3s forwards infinite;
     animation-play-state: paused;
-    /* transform: translateX(650px); */
 }
 .player > .player-avatar{
     height: fit-content;
-    width: 75px;
+    width: 5.5vw;
     bottom: 1rem;    
     overflow: hidden;
-    position: relative;
 }  
 
 .player > .player-avatar > .player_spritesheet{
-    min-width: 150px;
+    min-width: 11vw;
     animation: sprite-animation 1s steps(2) infinite;
 }
 
 .player > .player_sword{
-    width: 60px;
+    width: 4vw;
     position: relative;
-    right: -4rem;
-    top: 8.5rem;
+    right: -4vw;
+    top: 18vh;
     transform: rotate(45deg);
     animation: player-sword-animation 1s steps(2) infinite;
 }

@@ -1,6 +1,9 @@
 import React from 'react'
 import './Friend.css'
 import profilepic from '../../../assets/player_profile_pic.png'
+
+
+
 function Friend({ friend, toggleClaimed }) {
 
   function handleOnClickGift() {

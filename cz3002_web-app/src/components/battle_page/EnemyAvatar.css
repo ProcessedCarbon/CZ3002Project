@@ -2,6 +2,24 @@
     transition: var(--transition-bars);
     animation: enemy_enter 1s ease-in-out;
 }
+.damageText{
+    animation: damageText-anim 1s forwards infinite;
+    animation-play-state: paused;
+}
+.damageText > h5{
+    position: absolute;
+    font-size: xx-large;
+    color: var(--color-light-yellow);
+    filter: drop-shadow(0px 0px 5px var(--color-reddish));
+}
+@keyframes damageText-anim{
+    from{
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to{
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
 @keyframes enemy_enter{
     from{
         transform: translateX(500%) scaleX(-1);
@@ -21,11 +39,11 @@
 }
 
 #lesser_devil{
-    width: 80px;
+    width: 6vw;
 }
 #lesser_devil > img{
-    min-width: 400px;
-    padding-top: 7.5rem;
+    min-width: 30vw;
+    padding-top: 17vh;
     animation: sprite-animation 0.8s steps(4) infinite;
 }
 

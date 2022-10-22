@@ -3,7 +3,7 @@ import './Enemy.css'
 import Healthbar from './Healthbar'
 import EnemyAvatar from './EnemyAvatar';
 
-function Enemy({ currHealth, health, name, type, dead }) {
+function Enemy({ currHealth, health, name, type, dead, damageTaken }) {
   const [damaged, setDamaged] = useState(false);
   
   function hpSetter(value) {
@@ -23,10 +23,10 @@ function Enemy({ currHealth, health, name, type, dead }) {
 
   return (
     <div className='enemy-container'>
-      <div className='enemy-avatar'>
+      <div className='entity-container'>
         <h5>{name}</h5>
         <Healthbar currHealth={currHealth} health={health} hpSetter={hpSetter} />
-        <EnemyAvatar type={type} damaged={damaged} dead={dead}/>
+        <EnemyAvatar type={type} damaged={damaged} dead={dead} damageTaken={damageTaken}/>
       </div>
     </div>
   )

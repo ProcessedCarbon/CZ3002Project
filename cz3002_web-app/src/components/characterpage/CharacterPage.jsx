@@ -17,7 +17,6 @@ import favouritesicon from '../../assets/icons/Favorites.png'
 import protectionicon from '../../assets/icons/Protection.png'
 import chestbtn from '../../assets/Chest.png'
 import tridot from '../../assets/icons/Kebab_Menu_Horizontal.png'
-import soundonicon from '../../assets/icons/Sound_On.png'
 import pointerdownicon from '../../assets/icons/Pointer_Down.png'
 import personicon from '../../assets/icons/Person.png'
 import minusicon from '../../assets/icons/Minus.png'
@@ -109,7 +108,7 @@ const CharacterPage = () => {
               2. battle
               3. sidebar
           */}
-        <div className='bottom_btn' style={{ transform: hideLowerBtn ? 'translateY(100%)' : 'translateY(0)' }}>
+        <div className='bottom_btn' style={{ transform: hideLowerBtn ? 'translateY(120%)' : 'translateY(0)' }}>
           <button onClick={() => handleChangeScreen(charPageScreens[3], true)} className='btn inventory-btn'><img src={chestbtn} alt="" /></button>
           <a href="battle" className='btn battle-btn'><img src={protectionicon} alt="" /></a>
           <div className='sidebar-container'>
@@ -117,7 +116,8 @@ const CharacterPage = () => {
               className={showSideBar ? 'btn sidebar-btn no-hover' : 'btn sidebar-btn'}
               disabled={showSideBar}
               style={{
-                bottom: showSideBar ? '0rem' : ' -19rem',
+                // bottom: showSideBar ? '-4rem' : ' -23rem',
+                transform: showSideBar ? 'translateY(-65%)': 'translateY(5%)',
                 backgroundColor: showSideBar ? "var(--color-darkish-blue)" : "",
                 border: showSideBar ? "0 transparent" : ""
               }}
@@ -127,8 +127,7 @@ const CharacterPage = () => {
               <div className='inner-btns'>
                 <a href="login" className='btn'><img src={homeicon} alt="" /></a>
                 <button className='btn' onClick={() => handleChangeScreen(charPageScreens[4], false)}><img src={recommendedtaskicon} alt="" /></button>
-                <button className='btn'><img src={soundonicon} alt="" /></button>
-                <img src={minusicon} style={{ marginTop: '3rem' }} alt="" />
+                <img src={minusicon} style={{ marginTop: '14vh' }} alt="" />
                 <button className='btn' onClick={handleSideBar}><img src={pointerdownicon} alt="" /></button>
               </div>
             </button>
@@ -139,7 +138,6 @@ const CharacterPage = () => {
         <div>
           {screen.screen}
         </div>
-
       </div>
 
     </div>
