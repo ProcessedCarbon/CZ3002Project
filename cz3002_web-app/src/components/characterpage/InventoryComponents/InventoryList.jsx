@@ -47,7 +47,7 @@ function InventoryList({ items, toggleEquipped }) {
 
   //re render
   useEffect(() => {
-    console.log(playerDetails);
+    console.log("reRender",playerDetails);
     //localStorage.setItem(PLAYER_LOCAL_KEY, JSON.stringify(playerDetails))
   }, [playerDetails]);
 
