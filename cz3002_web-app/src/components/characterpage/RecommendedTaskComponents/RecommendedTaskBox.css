@@ -10,6 +10,10 @@
 .recommendedtaskbox-container > .box > h2{
     color: var(--color-darkish-blue);
 }
+.recommendedtaskbox-container > .box {
+    min-width: fit-content;
+    min-height: fit-content;
+}
 
 .recommendedtaskbox-container > .box > .btn{
     position: relative;

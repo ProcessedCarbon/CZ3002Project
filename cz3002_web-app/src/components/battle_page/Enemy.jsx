@@ -23,7 +23,7 @@ function Enemy({ currHealth, health, name, type, dead, damageTaken }) {
 
   return (
     <div className='enemy-container'>
-      <div className='enemy-avatar'>
+      <div className='entity-container'>
         <h5>{name}</h5>
         <Healthbar currHealth={currHealth} health={health} hpSetter={hpSetter} />
         <EnemyAvatar type={type} damaged={damaged} dead={dead} damageTaken={damageTaken}/>

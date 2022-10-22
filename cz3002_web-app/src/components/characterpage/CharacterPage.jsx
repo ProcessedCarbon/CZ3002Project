@@ -17,7 +17,6 @@ import favouritesicon from '../../assets/icons/Favorites.png'
 import protectionicon from '../../assets/icons/Protection.png'
 import chestbtn from '../../assets/Chest.png'
 import tridot from '../../assets/icons/Kebab_Menu_Horizontal.png'
-import soundonicon from '../../assets/icons/Sound_On.png'
 import pointerdownicon from '../../assets/icons/Pointer_Down.png'
 import personicon from '../../assets/icons/Person.png'
 import minusicon from '../../assets/icons/Minus.png'
@@ -127,8 +126,7 @@ const CharacterPage = () => {
               <div className='inner-btns'>
                 <a href="login" className='btn'><img src={homeicon} alt="" /></a>
                 <button className='btn' onClick={() => handleChangeScreen(charPageScreens[4], false)}><img src={recommendedtaskicon} alt="" /></button>
-                <button className='btn'><img src={soundonicon} alt="" /></button>
-                <img src={minusicon} style={{ marginTop: '3rem' }} alt="" />
+                <img src={minusicon} style={{ marginTop: '14vh' }} alt="" />
                 <button className='btn' onClick={handleSideBar}><img src={pointerdownicon} alt="" /></button>
               </div>
             </button>
