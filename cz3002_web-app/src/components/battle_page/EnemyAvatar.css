@@ -39,11 +39,11 @@
 }
 
 #lesser_devil{
-    width: 80px;
+    width: 6vw;
 }
 #lesser_devil > img{
-    min-width: 400px;
-    padding-top: 7.5rem;
+    min-width: 30vw;
+    padding-top: 17vh;
     animation: sprite-animation 0.8s steps(4) infinite;
 }
 

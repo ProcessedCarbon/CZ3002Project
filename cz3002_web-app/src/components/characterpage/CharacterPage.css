@@ -1,9 +1,8 @@
-
 .characterpage_container>.background {
     background-color: #2F283A;
     background-image: url(../../assets/characterpage_scene.png);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 100vw 100vh;
     border-radius: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -14,6 +13,7 @@
     margin: 1rem;
     padding: 1rem;
     overflow: hidden;
+    min-height: fit-content;
 }
 
 /*================= CHARACTER PROFILE ========================*/
@@ -26,8 +26,10 @@
     border-radius: 10px;
     border: 8px solid var(--color-reddish);
     border-style: ridge;
-    width: 35%;
-    height: fit-content;
+    max-width: fit-content;
+    min-width: 30vw;
+    min-height: 100px;
+    max-height: 20vh;
     padding: 0.5rem;
     top: 1rem;
     filter: drop-shadow(5px 5px 10px #000);
@@ -39,9 +41,9 @@
 }
 .character_profile>.profile-picture > .profile-pic-border{
     border-radius: 50%;
-    border: 5px solid var(--color-darkish-blue);
-    width: 110px;
-    height: 110px;
+    border: 0.35vw solid var(--color-darkish-blue);
+    max-width: 8vw;
+    max-height: 15vh;
     overflow: hidden;
     background: var(--color-light);
     transform: translateX(-100%);
@@ -55,19 +57,17 @@
 }
 .profile-pic-border>img {
     margin:0 auto;
-    width: 50%;
+    width: 4vw;
 }
 
 .profile-picture>.line {
     position: relative;
-    display: flex;
-    top: -4.5rem;
-    left: 6.45rem;
+    top: -9vh;
+    left: 7.65vw;
     content: "";
-    height: 5px;
-    width: 0%;
-    text-align: right;
+    min-height: 0.75vh;
     background: var(--color-darkish-blue);
+    opacity: 0;
 
     animation: profile-pic-line-intro;
     animation-duration: 1.5s;
@@ -105,10 +105,12 @@
 
 @keyframes profile-pic-line-intro {
     from {
+        opacity: 0;
         width: 0%;
     }
 
     to {
+        opacity: 1;
         width: 220%;
     }
 }
@@ -118,7 +120,7 @@
     grid-area: 'top-btn';
     position: relative;
     margin-top: 1rem;
-    right: 70%;
+    right: 13vw;
     display: flex;
     flex-direction: row;
     column-gap: 1.5rem;
@@ -143,8 +145,10 @@
 
 
 .characterpage_container>.background>.btn_group>.btn>img {
-    height: 55px;
-    width: 55px;
+    min-height: 6vh;
+    min-width: 4vw;
+    max-width: 55px;
+    max-height: 55px;
 }
 
 @keyframes topright-btn-intro {
@@ -169,8 +173,8 @@
 .characterpage_container>.background>.avatar-scene>.character-avatar {
     position: absolute;
     margin-left: 3rem;
-    top: 20rem;
-    left: 40rem;
+    top: 40vh;
+    left: 45vw;
 
     animation: player_jump 7s forwards infinite;
     animation-delay: 7s;
@@ -186,12 +190,10 @@
 /*================= BOTTOM BUTTON GROUP ========================*/
 .characterpage_container>.background>.bottom_btn {
     grid-area: 'bottom';
-    width: 100%;
     display: flex;
-    position: relative;
     flex-direction: row;
-    margin-top: 36%;
-    column-gap: 33.5rem;
+    margin-top: 58vh;
+    column-gap: 37vw;
     transition: var(--transition-cubicbezier);
     justify-content: space-evenly;
     align-items: center;
@@ -204,8 +206,8 @@
 
 .characterpage_container>.background>.bottom_btn>.battle-btn {
     display: flex;
-    height: 110px;
-    width: 110px;
+    min-height: 10vh;
+    min-width: 6vw;
     border-radius: 50%;
     border: 5px #F4A716;
     border-style: outset;
@@ -296,9 +298,9 @@
     position: absolute;
     display: flex;
     text-align: center;
-    bottom: -20.5rem;
-    height: 400px;
-    width: fit-content;
+    bottom: -45vh;
+    min-height: 53vh;
+    max-width: fit-content;
     place-items: start;
 }
 

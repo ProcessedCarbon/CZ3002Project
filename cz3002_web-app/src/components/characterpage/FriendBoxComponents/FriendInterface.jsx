@@ -94,7 +94,7 @@ function FriendInterface({ addFriend }) {
       <form action="" onSubmit={handleAddFriend}>
         <input type="text" onChange={handleFriendInputChange} />
       </form>
-      {/* <button className='btn' onClick={handleAddFriend}>Add</button> */}
+      <button className='btn' onClick={handleAddFriend}>Add</button>
     </div>
   )
 }

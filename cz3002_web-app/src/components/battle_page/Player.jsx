@@ -12,7 +12,7 @@ function Player({ health, maxhealth, name, taskcomplete }) {
 
     return (
         <div className='player-container'>
-            <div className='character-avatar'>
+            <div className='entity-container'>
                 <h5>{name}</h5>
                 <Healthbar currHealth={hp} health={maxhealth} hpSetter={hpSetter} />
                 <PlayerAvatar taskcomplete={taskcomplete}/>
