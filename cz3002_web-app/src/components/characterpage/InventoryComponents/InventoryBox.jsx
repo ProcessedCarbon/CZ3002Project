@@ -40,6 +40,7 @@ const InventoryBox = () => {
  * @param {*} item 
  */
     function addItem(item) {
+        console.log("added");
         setList([...items, item]);
     }
 
