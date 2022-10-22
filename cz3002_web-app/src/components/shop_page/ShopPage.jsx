@@ -58,6 +58,7 @@ const ShopPage = () => {
   function updatePlayer(cost, title) {
     let n_gold = updateValue(playerDetails.gold, cost);
     let n_char_bought = updateCharBought(playerDetails.char_bought, title);
+    console.log('n_gold', n_gold);
     console.log('array', n_char_bought);
     //Update profile in DB
     updateProfile({ gold: n_gold, char_bought: n_char_bought });

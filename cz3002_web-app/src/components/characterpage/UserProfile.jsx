@@ -10,7 +10,6 @@ const PLAYER_LOCAL_KEY = 'PLAYER_LOCAL_KEY';
 const MAX_XP = 3000;
 
 const UserProfile = () => {
-
   const [playerDetails, setPlayerState] = useState({
     name: '',
     xp: 0,
@@ -18,10 +17,11 @@ const UserProfile = () => {
     gold: 0,
     // lvl: 0,
     // sp: 0
-        char_bought: [],
-        char_equipped: '',
-        //char_bought: ["warrior 1"],
-        //char_equipped: 'warrior_1',
+    //char_bought: [],
+    //char_equipped: '',
+    //BY default inside
+    char_bought: ["warrior 1"],
+    char_equipped: 'warrior_1',
   });
   //intial render
   useEffect(() => {
@@ -32,7 +32,6 @@ const UserProfile = () => {
   // useEffect(() => {
   //   );
   // }, [playerDetails]);
-
 
   //get profile related specific user
   const getProfile = async () => {
