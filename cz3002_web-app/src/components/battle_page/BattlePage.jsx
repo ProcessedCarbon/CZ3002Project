@@ -66,43 +66,48 @@ const BattlePage = () => {
     gold: 0,
   });
 
-  // useEffect(() => {
-  //   console.log('First Redering Enemy');
-  //   const storeEnemy = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-  //   if (storeEnemy && storeEnemy.currhp > 0) {
-  //     setEnemyState(storeEnemy);
-  //   } else {
-  //     createEnemy();
-  //   }
-  // }, []);
 
-  // useEffect(() => {
-  //   //console.log('Re redering enemy');
-  //   //console.log(enemyState);
-  //   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(enemyState));
-  // }, [enemyState]);
-
-  //first render
+  //Runs on the first render
+  //And any time any dependency value changes
   useEffect(() => {
-    console.log('First Redering Enemy');
-    getEnemy();
-    // const storeEnemy = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    // if (storeEnemy && storeEnemy.currhp > 0) {
-    //   setEnemyState(storeEnemy);
-    // } else {
-    //   createEnemy();
-    // }
-  }, []);
+    //console.log(' Redering Enemy');
+    //get enemy to specific user
+    async function getEnemy() {
+      //console.log('start get');
+      //not null key exist in local storage
+      if (AUTH_TOKEN) {
+        let headers = {
+          auth_token: AUTH_TOKEN,
+        };
+        try {
+          let response = await axiosInterface.getData('/home/enemy', headers);
+          // enemy associated to specific user
+          const enemyArray = await response.data;
+          // console.log(tasksArray);
+          if (enemyArray.length === 0) {
+            //nothing to render
+            console.log('No enemy');
+            return;
+          }
+          //mongo always return an array
+          let db_enemy = enemyArray[0];
+          //console.log('get enemy', db_enemy);
+          //setEnemyState(enemy);
 
-  //re render
-  useEffect(() => {
-    console.log('Re redering enemy', enemyState);
-    if (enemyState.name === '') {
-      console.log('create enemy');
-      createEnemy();
+          if (db_enemy.name === '') {
+            //console.log('create enemy');
+            createEnemy();
+          } else {
+            setEnemyState(db_enemy);
+            //console.log('no enemy created');
+          }
+        } catch (error) {
+          console.log(error);
+          return;
+        }
+      }
     }
-    //console.log(enemyState);
-    //localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(enemyState));
+    getEnemy();
   }, [enemyState]);
 
   //=============================
@@ -117,9 +122,25 @@ const BattlePage = () => {
       gold: enemies[enemyIndex].gold,
     };
     //save to db
-    updateEnemy({ new_enemy });
-
+    console.log('create enemy to DB');
+    updateEnemy(new_enemy);
+    // update use state
     setEnemyState(new_enemy);
+  }
+
+  function resetEnemy() {
+    const clear_enemy = {
+      name: '',
+      currhp: 120,
+      hp: 120,
+      type: 'dark_mage',
+      xp: 0,
+      gold: 0,
+    };
+    //console.log('Resetting enemy in DB');
+    updateEnemy(clear_enemy);
+    // update use state
+    //setEnemyState(clear_enemy);
   }
 
   function getRandomValue(from, to) {
@@ -136,11 +157,18 @@ const BattlePage = () => {
       if (enemyState.currhp > 0) {
         let hp = enemyState.currhp;
         hp = hp - damageToDeal;
+
+        // update/damage enemy in DB
+        damageEnemy({ currhp: hp });
+
+        //update use state
         setEnemyState({ ...enemyState, currhp: hp });
       }
     }
 
     if (enemyState.currhp <= 0) {
+      //set enemy as default in db
+      resetEnemy()
       setBattleComplete(true);
       //createEnemy();
     }
@@ -157,7 +185,7 @@ const BattlePage = () => {
 
   //bryan code
 
-  //update in DB
+  //create/update whole new enemy in DB
   const updateEnemy = async (update) => {
     let headers = {
       auth_token: AUTH_TOKEN,
@@ -169,31 +197,15 @@ const BattlePage = () => {
     }
   };
 
-  //get profile related specific user
-  const getEnemy = async () => {
-    //not null key exist in local storage
-    if (AUTH_TOKEN) {
-      let headers = {
-        auth_token: AUTH_TOKEN,
-      };
-      try {
-        let response = await axiosInterface.getData('/home/enemy', headers);
-        // enemy associated to specific user
-        const enemyArray = response.data;
-        // console.log(tasksArray);
-        if (enemyArray.length === 0) {
-          //nothing to render
-          console.log('No enemy');
-          return;
-        }
-        //mongo always return an array
-        const enemy = enemyArray[0];
-        console.log('get enemy', enemy);
-        //setEnemyState(enemy);
-      } catch (error) {
-        console.log(error);
-        return;
-      }
+  // damage enemy
+  const damageEnemy = async (update) => {
+    let headers = {
+      auth_token: AUTH_TOKEN,
+    };
+    try {
+      await axiosInterface.patchData('/home/enemy/damage', '', update, headers);
+    } catch (error) {
+      console.log(error);
     }
   };
 

@@ -42,7 +42,7 @@ const PlayerAvatar = ({ taskcomplete }) => {
     //charAndWeapon();
     //charImgBasedOnCharacter();
     //weaponImgBasedOnCharacter();
-    const t = setInterval(charAndWeapon, 600);
+    const t = setInterval(charAndWeapon, 1500);
     return () => clearInterval(t); // clear
   }, []);
   //   useEffect(() => {
