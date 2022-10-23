@@ -59,7 +59,11 @@ const ShopItem = ({title, cost, is_Buy, buy_f}) => {
                 <h2>{title}</h2>
                 <img src={imgBasedOnCharacter()} alt="" />
                 <div className='cost_bg'>
-                    <div className='cost_text'>{cost}</div>
+                    <div className='cost_text'>
+                        <h3>
+                        {cost}
+                        </h3>
+                    </div>
                 </div>
             </button>
             

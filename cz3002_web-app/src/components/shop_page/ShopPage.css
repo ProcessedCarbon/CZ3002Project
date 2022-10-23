@@ -2,7 +2,7 @@
     background-color: #2F283A;
     background-image: url(../../assets/characterpage_scene.png);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 100vw 100vh;
     border-radius: 30px;
     display: grid;
     grid-template-areas:
@@ -18,15 +18,12 @@
 .items{
     display: flex;
     flex-direction: row;
-    background: transparent;
     overflow-x: scroll;
-    width: 80%;
-    height: fit-content;
+    width: 80vw;
     position: absolute;
     justify-content: start;
-    bottom: 8rem;
-    left: 9.5rem;
-    margin-inline: auto;
+    bottom: 15vh;
+    left: 10vw;
     animation: shop-item-intro 1.5s forwards;
 }
 
@@ -39,22 +36,16 @@
     }
 }
 
-
-
 .shoppage_container>.background > .return-home-btn{
     position: absolute;
     right: 3rem;
     top: 3rem;
     width: fit-content;
-    font-size: 1.5rem;
+    font-size: 2vw;
 }
 .shoppage_container >.background > .return-home-btn > h5{
     margin: .25rem;
 }
-
-
-
-
 
 /*================= CHARACTER PROFILE ========================*/
 .shoppage_container>.background>.character_gold_profile {
@@ -71,7 +62,6 @@
     overflow-x: scroll;
     height: fit-content;
     padding: 0.5rem;
-    top: 1rem;
     filter: drop-shadow(5px 5px 10px #000);
 
     animation: char-profile-intro;
