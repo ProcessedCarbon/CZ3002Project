@@ -9,6 +9,9 @@ import VictoryBox from './VictoryBox';
 import Player from './Player';
 import Enemy from './Enemy';
 
+import AxiosInterface from '../Misc/AxiosInterface';
+const AUTH_TOKEN = localStorage.getItem('auth_token');
+const axiosInterface = new AxiosInterface();
 const LOCAL_STORAGE_KEY = 'BATTLEPAGE';
 
 const enemies = [
@@ -63,29 +66,81 @@ const BattlePage = () => {
     gold: 0,
   });
 
-  useEffect(() => {
-    const storeEnemy = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    if (storeEnemy && storeEnemy.currhp > 0) {
-      setEnemyState(storeEnemy);
-    } else {
-      createEnemy();
-    }
-  }, []);
 
+  //Runs on the first render
+  //And any time any dependency value changes
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(enemyState));
+    //console.log(' Redering Enemy');
+    //get enemy to specific user
+    async function getEnemy() {
+      //console.log('start get');
+      //not null key exist in local storage
+      if (AUTH_TOKEN) {
+        let headers = {
+          auth_token: AUTH_TOKEN,
+        };
+        try {
+          let response = await axiosInterface.getData('/home/enemy', headers);
+          // enemy associated to specific user
+          const enemyArray = await response.data;
+          // console.log(tasksArray);
+          if (enemyArray.length === 0) {
+            //nothing to render
+            console.log('No enemy');
+            return;
+          }
+          //mongo always return an array
+          let db_enemy = enemyArray[0];
+          //console.log('get enemy', db_enemy);
+          //setEnemyState(enemy);
+
+          if (db_enemy.name === '') {
+            //console.log('create enemy');
+            createEnemy();
+          } else {
+            setEnemyState(db_enemy);
+            //console.log('no enemy created');
+          }
+        } catch (error) {
+          console.log(error);
+          return;
+        }
+      }
+    }
+    getEnemy();
   }, [enemyState]);
 
+  //=============================
   function createEnemy() {
     let enemyIndex = getRandomValue(0, enemies.length - 1);
-    setEnemyState({
+    const new_enemy = {
       name: enemies[enemyIndex].name,
       currhp: enemies[enemyIndex].health,
       hp: enemies[enemyIndex].health,
       type: enemies[enemyIndex].type,
       xp: enemies[enemyIndex].xp,
       gold: enemies[enemyIndex].gold,
-    });
+    };
+    //save to db
+    console.log('create enemy to DB');
+    updateEnemy(new_enemy);
+    // update use state
+    setEnemyState(new_enemy);
+  }
+
+  function resetEnemy() {
+    const clear_enemy = {
+      name: '',
+      currhp: 120,
+      hp: 120,
+      type: 'dark_mage',
+      xp: 0,
+      gold: 0,
+    };
+    //console.log('Resetting enemy in DB');
+    updateEnemy(clear_enemy);
+    // update use state
+    //setEnemyState(clear_enemy);
   }
 
   function getRandomValue(from, to) {
@@ -102,11 +157,18 @@ const BattlePage = () => {
       if (enemyState.currhp > 0) {
         let hp = enemyState.currhp;
         hp = hp - damageToDeal;
+
+        // update/damage enemy in DB
+        damageEnemy({ currhp: hp });
+
+        //update use state
         setEnemyState({ ...enemyState, currhp: hp });
       }
     }
 
     if (enemyState.currhp <= 0) {
+      //set enemy as default in db
+      resetEnemy()
       setBattleComplete(true);
       //createEnemy();
     }
@@ -120,6 +182,32 @@ const BattlePage = () => {
   function ClearLocalStorage() {
     localStorage.clear();
   }
+
+  //bryan code
+
+  //create/update whole new enemy in DB
+  const updateEnemy = async (update) => {
+    let headers = {
+      auth_token: AUTH_TOKEN,
+    };
+    try {
+      await axiosInterface.patchData('/home/enemy/update', '', update, headers);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // damage enemy
+  const damageEnemy = async (update) => {
+    let headers = {
+      auth_token: AUTH_TOKEN,
+    };
+    try {
+      await axiosInterface.patchData('/home/enemy/damage', '', update, headers);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="battlepage-container">
