@@ -21,8 +21,16 @@ async function onBtnClick(values) {
     localStorage.setItem('auth_token', auth_token);
     window.location.href = 'profile';
   } catch (error) {
-    //console.log("reg")
-    console.log(error);
+    if(error.message == 'Network Error')
+      alert('Backend connection error')
+    switch(error.response.data.message){
+      case 'Email already exist':
+        alert('Please use another email')
+        break
+      default:
+        alert(error.response.data.message)
+        break
+    }
   }
 }
 
@@ -85,7 +93,7 @@ const Register = () => {
                     {({ input, meta }) => (
                       <div>
                         <label>Password</label>
-                        <input {...input} type="text" />
+                        <input {...input} type="password" />
                         {meta.error && meta.touched && <span style={{ color: 'red' }}>{meta.error}</span>}
                       </div>
                     )}

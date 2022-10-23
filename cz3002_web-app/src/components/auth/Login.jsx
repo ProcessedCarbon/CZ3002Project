@@ -12,8 +12,6 @@ const Login = () => {
   }
 
   async function loginBtnClick(values) {
-    console.log('values', values);
-    //TODO: backend logic
     const userFields = {
       email: values.email,
       password: values.password,
@@ -25,9 +23,21 @@ const Login = () => {
       window.location.href = 'profile';
       //console.log(auth_token);
     } catch (error) {
-      //fail login user
-      //Do error handling on FE
-      console.log(error);
+      if(error.message == 'Network Error')
+        alert('Backend connection error')
+      switch(error.response.data.message){
+        case 'Email does not exist':
+        case 'Invalid Password':
+        case '"password" length must be at least 5 characters long':
+          alert("Incorrect username or password")
+          break
+        case '"email" must be a valid email':
+          alert("Please enter a valid email")
+          break
+        default:
+          alert(error.response.data.message)
+          break
+      }
     }
   }
 
@@ -53,7 +63,7 @@ const Login = () => {
                   {({ input, meta }) => (
                     <div>
                       <label>Password</label>
-                      <input {...input} type="text" />
+                      <input {...input} type="password" />
                       {meta.error && meta.touched && <span style={{ color: 'red' }}>{meta.error}</span>}
                     </div>
                   )}
