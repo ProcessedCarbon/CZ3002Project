@@ -1,8 +1,8 @@
-import axios from 'axios';
-import React from 'react';
+import axios from "axios";
+import React from "react";
 
 /** Base path to database */
-const axiosInstance = axios.create({ baseURL: 'http://localhost:8080' });
+const axiosInstance = axios.create({ baseURL: "http://localhost:8080" });
 
 /**
  * Token for database if needed
@@ -18,7 +18,7 @@ class AxiosInterface extends React.Component {
 
   // GET REQUEST
   async getData(route, custom_headers) {
-    console.log('GET Request');
+    console.log("GET Request", route);
     const config = {
       headers: custom_headers,
     };
@@ -32,7 +32,7 @@ class AxiosInterface extends React.Component {
   //          completed: false
   //        }
   async postData(route, post, custom_headers) {
-    console.log('POST Request');
+    console.log("POST Request", route);
     const config = {
       headers: custom_headers,
     };
@@ -42,20 +42,20 @@ class AxiosInterface extends React.Component {
   // DELETE REQUEST
   // Deletes data in route with id
   async removeData(route, id, custom_headers) {
-    console.log('DELETE Request');
+    console.log("DELETE Request", route);
     const config = {
       headers: custom_headers,
     };
-    return await axiosInstance.delete(route + '/' + id, config);
+    return await axiosInstance.delete(route + "/" + id, config);
   }
 
   // Everything in update will change but the rest retains
   async patchData(route, id, update, custom_headers) {
-    console.log('PATCH Request');
+    console.log("PATCH Request", route);
     const config = {
       headers: custom_headers,
     };
-    return await axiosInstance.patch(route + '/' + id, update, config);
+    return await axiosInstance.patch(route + "/" + id, update, config);
   }
 
   //==========================================================
@@ -67,12 +67,12 @@ class AxiosInterface extends React.Component {
   //        }
   // Replaces the previous data with post param
   putData(route, id, update, custom_headers) {
-    console.log('PUT Request');
+    console.log("PUT Request");
     const config = {
       headers: custom_headers,
     };
     axiosInstance
-      .put(route + '/' + id, update, config)
+      .put(route + "/" + id, update, config)
       .then((res) => console.log(res))
       .catch((err) => {
         if (err.response) {
@@ -82,7 +82,7 @@ class AxiosInterface extends React.Component {
           console.log(err.response.headers);
 
           if (err.response.status === 404) {
-            alert('Error: Page Not Found');
+            alert("Error: Page Not Found");
           }
         } else if (err.request) {
           // Request was made but no response
@@ -102,9 +102,12 @@ class AxiosInterface extends React.Component {
 
   // SIMULTANEOUS DATA (NOT SURE IF WORKING ATM)
   getSimData() {
-    console.log('Simultaneous Request');
+    console.log("Simultaneous Request");
     axios
-      .all([axios.get('https://jsonplaceholder.typicode.com/todos'), axios.get('https://jsonplaceholder.typicode.com/posts')])
+      .all([
+        axios.get("https://jsonplaceholder.typicode.com/todos"),
+        axios.get("https://jsonplaceholder.typicode.com/posts"),
+      ])
       .then((res) => {
         console.log(res[0]);
         console.log(res[1]);
@@ -117,7 +120,7 @@ class AxiosInterface extends React.Component {
           console.log(err.response.headers);
 
           if (err.response.status === 404) {
-            alert('Error: Page Not Found');
+            alert("Error: Page Not Found");
           }
         } else if (err.request) {
           // Request was made but no response
@@ -150,11 +153,11 @@ class AxiosInterface extends React.Component {
 
   // CANCEL TOKEN
   cancelToken() {
-    console.log('Cancel Token');
+    console.log("Cancel Token");
     const source = axios.CancelToken.source();
 
     axiosInstance
-      .get('https://jsonplaceholder.typicode.com/todos', {
+      .get("https://jsonplaceholder.typicode.com/todos", {
         cancelToken: source.token,
       })
       .then((res) => {
@@ -162,7 +165,7 @@ class AxiosInterface extends React.Component {
       })
       .catch((thrown) => {
         if (axiosInstance.isCancel(thrown)) {
-          console.log('Request canceled', thrown.message);
+          console.log("Request canceled", thrown.message);
         }
       });
   }
@@ -172,7 +175,11 @@ class AxiosInterface extends React.Component {
   Logger() {
     axiosInstance.interceptors.request.use(
       (config) => {
-        console.log(`${config.method.toUpperCase()} request send to ${config.url} at ${new Date().getTime()}`);
+        console.log(
+          `${config.method.toUpperCase()} request send to ${
+            config.url
+          } at ${new Date().getTime()}`
+        );
 
         return config;
       },

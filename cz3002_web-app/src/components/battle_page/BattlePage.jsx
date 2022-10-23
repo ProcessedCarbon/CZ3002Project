@@ -1,51 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import './BattlePage.css';
+import React, { useState, useEffect } from "react";
+import "./BattlePage.css";
 
 // REACT COMPONENTS //
-import BattleTaskBox from './BattleTaskListComponents/BattleTaskBox';
-import VictoryBox from './VictoryBox';
+import BattleTaskBox from "./BattleTaskListComponents/BattleTaskBox";
+import VictoryBox from "./VictoryBox";
 
 // ENTITIES //
-import Player from './Player';
-import Enemy from './Enemy';
+import Player from "./Player";
+import Enemy from "./Enemy";
 
-import AxiosInterface from '../Misc/AxiosInterface';
-const AUTH_TOKEN = localStorage.getItem('auth_token');
+import AxiosInterface from "../Misc/AxiosInterface";
+const AUTH_TOKEN = localStorage.getItem("auth_token");
 const axiosInterface = new AxiosInterface();
-const LOCAL_STORAGE_KEY = 'BATTLEPAGE';
+const LOCAL_STORAGE_KEY = "BATTLEPAGE";
 
 const enemies = [
   {
-    type: 'tree_man',
-    name: 'Tree Man',
+    type: "tree_man",
+    name: "Tree Man",
     health: 120,
     xp: 150,
     gold: 200,
   },
   {
-    type: 'lesser_devil',
-    name: 'Lesser Devil',
+    type: "lesser_devil",
+    name: "Lesser Devil",
     health: 50,
     xp: 30,
     gold: 50,
   },
   {
-    type: 'dark_mage',
-    name: 'Dark Mage',
+    type: "dark_mage",
+    name: "Dark Mage",
     health: 100,
     xp: 80,
     gold: 100,
   },
   {
-    type: 'green_slime',
-    name: 'Green Slime',
+    type: "green_slime",
+    name: "Green Slime",
     health: 80,
     xp: 50,
     gold: 80,
   },
   {
-    type: 'terror_monster',
-    name: 'Terror',
+    type: "terror_monster",
+    name: "Terror",
     health: 150,
     xp: 250,
     gold: 250,
@@ -58,14 +58,13 @@ const BattlePage = () => {
   const [battlecomplete, setBattleComplete] = useState(false);
   const [taskComplete, setTaskStatus] = useState(false);
   const [enemyState, setEnemyState] = useState({
-    name: '',
+    name: "",
     currhp: 120,
     hp: 120,
-    type: 'dark_mage',
+    type: "dark_mage",
     xp: 0,
     gold: 0,
   });
-
 
   //Runs on the first render
   //And any time any dependency value changes
@@ -80,13 +79,13 @@ const BattlePage = () => {
           auth_token: AUTH_TOKEN,
         };
         try {
-          let response = await axiosInterface.getData('/home/enemy', headers);
+          let response = await axiosInterface.getData("/home/enemy", headers);
           // enemy associated to specific user
           const enemyArray = await response.data;
           // console.log(tasksArray);
           if (enemyArray.length === 0) {
             //nothing to render
-            console.log('No enemy');
+            console.log("No enemy");
             return;
           }
           //mongo always return an array
@@ -94,7 +93,7 @@ const BattlePage = () => {
           //console.log('get enemy', db_enemy);
           //setEnemyState(enemy);
 
-          if (db_enemy.name === '') {
+          if (db_enemy.name === "") {
             //console.log('create enemy');
             createEnemy();
           } else {
@@ -107,7 +106,8 @@ const BattlePage = () => {
         }
       }
     }
-    getEnemy();
+    const t = setInterval(getEnemy, 250);
+    return () => clearInterval(t); // clear
   }, [enemyState]);
 
   //=============================
@@ -122,7 +122,7 @@ const BattlePage = () => {
       gold: enemies[enemyIndex].gold,
     };
     //save to db
-    console.log('create enemy to DB');
+    console.log("create enemy to DB");
     updateEnemy(new_enemy);
     // update use state
     setEnemyState(new_enemy);
@@ -130,10 +130,10 @@ const BattlePage = () => {
 
   function resetEnemy() {
     const clear_enemy = {
-      name: '',
+      name: "",
       currhp: 120,
       hp: 120,
-      type: 'dark_mage',
+      type: "dark_mage",
       xp: 0,
       gold: 0,
     };
@@ -168,7 +168,7 @@ const BattlePage = () => {
 
     if (enemyState.currhp <= 0) {
       //set enemy as default in db
-      resetEnemy()
+      resetEnemy();
       setBattleComplete(true);
       //createEnemy();
     }
@@ -191,7 +191,7 @@ const BattlePage = () => {
       auth_token: AUTH_TOKEN,
     };
     try {
-      await axiosInterface.patchData('/home/enemy/update', '', update, headers);
+      await axiosInterface.patchData("/home/enemy/update", "", update, headers);
     } catch (error) {
       console.log(error);
     }
@@ -203,7 +203,7 @@ const BattlePage = () => {
       auth_token: AUTH_TOKEN,
     };
     try {
-      await axiosInterface.patchData('/home/enemy/damage', '', update, headers);
+      await axiosInterface.patchData("/home/enemy/damage", "", update, headers);
     } catch (error) {
       console.log(error);
     }
@@ -217,7 +217,12 @@ const BattlePage = () => {
         </a>
         {/* ENTITY COMPONENTS */}
         <div className="entity-space">
-          <Player health={100} maxhealth={100} name="" taskcomplete={taskComplete} />
+          <Player
+            health={100}
+            maxhealth={100}
+            name=""
+            taskcomplete={taskComplete}
+          />
           <Enemy
             currHealth={enemyState.currhp}
             health={enemyState.hp}
@@ -228,14 +233,21 @@ const BattlePage = () => {
           />
         </div>
         {/* VARIOUS BUTTON SCREENS */}
-        <div>{battlecomplete && <VictoryBox xp={enemyState.xp} gold={enemyState.gold} />}</div>
+        <div>
+          {battlecomplete && (
+            <VictoryBox xp={enemyState.xp} gold={enemyState.gold} />
+          )}
+        </div>
         <div
           style={{
-            pointerEvents: battlecomplete ? 'none' : '',
-            filter: battlecomplete ? 'blur(10px)' : '',
+            pointerEvents: battlecomplete ? "none" : "",
+            filter: battlecomplete ? "blur(10px)" : "",
           }}
         >
-          <BattleTaskBox setTaskComplete={setTaskComplete} damageToDeal={getDamageToDeal} />
+          <BattleTaskBox
+            setTaskComplete={setTaskComplete}
+            damageToDeal={getDamageToDeal}
+          />
         </div>
       </div>
     </div>
