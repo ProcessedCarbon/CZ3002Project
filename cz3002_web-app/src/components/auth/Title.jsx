@@ -2,7 +2,8 @@ import React from 'react'
 import './Title.css'
 import PlayerAvatar from '../PlayerAvatar'
 import title from '../../assets/Title.png'
-
+import char from '../../assets/player_idle_sprite_sheet.png'
+import sword from '../../assets/player_sword.png'
 const Title = () => {
     return (
         <div className='titlescreen-container'>
@@ -20,7 +21,12 @@ const Title = () => {
                         </a>
                     </div>
                     <div className='auth-character-avatar'>
-                        <PlayerAvatar />
+                        <div className="player">
+                            <img className="player_sword" src={sword} alt="" />
+                            <div className="player-avatar">
+                                <img className="player_spritesheet" src={char} alt="" />
+                            </div>
+                        </div>
                     </div>
                 </div>
 

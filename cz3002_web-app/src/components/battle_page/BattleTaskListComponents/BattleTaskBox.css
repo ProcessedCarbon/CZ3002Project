@@ -1,15 +1,15 @@
 .battletaskbox-container > .box{
-    height: auto;
-    min-width: 90%;
-    min-height: 100px;
-    left: 4.5rem;
+    height: 20vh;
+    min-width: 90vw;
+    min-height: 5vh;
+    left: 2vw;
     background: #5f6f944a;
     backdrop-filter: blur(5px);
     border: 5px solid var(--color-reddish);
     border-style: ridge;
     position: relative;
-    margin-top: 5%;
-    
+    top: 0;
+    place-content: center;
 
     animation: battletaskbox-intro;
     animation-duration: 1s;

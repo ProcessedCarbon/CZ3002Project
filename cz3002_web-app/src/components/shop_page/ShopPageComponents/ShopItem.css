@@ -1,11 +1,8 @@
 .shop_item{
     position:relative;
-  
 }
 
 .shop_item >  .shopitem_container{
-    /* height: 160px;
-    width: 120px; */
     height: 20vh;
     width: 8vw;
     position: relative;
@@ -19,6 +16,9 @@
     place-content: center;
 
     animation: light-up 2s infinite;
+}
+.shop_item > .btn:not(.no-hover):hover{
+    transform: scale(1.2) translateY(-10%);
 }
 .shopitem_container::after{
     content: "";
@@ -39,34 +39,17 @@
 }
 
 .shop_item >  .shopitem_container:is(.bought){
-    /* height: 160px;
-    width: 120px; */
-    /* position: relative; */
-    /* right:0;
-    margin: 3rem; */
     transform: scale(0.9);
-    /* background: var(--color-darkish-blue); */
     filter: grayscale(100%);
     border-style: ridge;
+    animation: none;
+    pointer-events: none;
 }
 
 .shop_item >  .shopitem_container > h2{
-    /* width: 100%;
-    height: 20%; */
-    /* background-color: aqua; */
     color: white;
     font-size: 1.5vw;
-    /* top:-10; */
 }
-
-.shop_item >  .shopitem_container > .cost_bg{
-    /* background-color:aqua; */
-    /* position: relative;
-    height: 18%; */
-    /* width: 100%; */
-    /* bottom: 0; */
-}
-
 .shop_item >  .shopitem_container > .cost_bg > .cost_text{
     color: white;
     font-size: 1.5vw;

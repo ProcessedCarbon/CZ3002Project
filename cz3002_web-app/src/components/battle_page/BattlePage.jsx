@@ -179,9 +179,9 @@ const BattlePage = () => {
   function getDamageToDeal(value) {
     damageToDeal = value;
   }
-  function ClearLocalStorage() {
-    localStorage.clear();
-  }
+  // function ClearLocalStorage() {
+  //   localStorage.clear();
+  // }
 
   //bryan code
 

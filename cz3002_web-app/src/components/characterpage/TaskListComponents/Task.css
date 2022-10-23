@@ -10,8 +10,8 @@
     border: 1px transparent;
     border-radius: 5px;
     word-wrap: break-word;
-    min-width: 10%;
-    max-width: 40%;
+    min-width: 10vw;
+    max-width: 30vw;
     transition: var(--transition-cubicbezier);
 }
 
@@ -29,17 +29,17 @@
 }
 
 .task-container > h5{
-    font-size: small;
+    font-size: 1vw;
     color: var(--color-darkish-blue);
     margin: 0rem 1rem;
     text-align: center;
-    max-width: 70%;
+    max-width: 20vw;
     text-shadow: none;
 }
 
 .task-container > .btn{
-    width: 20%;
-    height: 20%;
+    width: 3vw;
+    height: 6vh;
     text-align: center;
 }
 .task-container > .btn:hover > img{

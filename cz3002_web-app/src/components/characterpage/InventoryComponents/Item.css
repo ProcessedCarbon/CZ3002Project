@@ -14,7 +14,7 @@
     box-shadow: none;
     width: fit-content;
 }
-.item-container > .item-body:is(.equipped){
+.item-container > .item-body:is(.equip){
     background: gray;
     border: 8px var(--color-btn-bg);
     border-style: inset;

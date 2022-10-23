@@ -201,6 +201,9 @@ img {
     width: 20vw;
     height: fit-content;
 }
+.entity-container > h5{
+    font-size: 1.5vw;
+}
 
 /* AUTH STYLING */
 .auth-btn-group{

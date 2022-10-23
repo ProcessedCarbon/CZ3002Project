@@ -2,8 +2,8 @@ import React from 'react';
 import './Login.css';
 import { Form, Field } from 'react-final-form';
 import AxiosInterface from '../Misc/AxiosInterface';
-import PlayerAvatar from '../PlayerAvatar'
-
+import char from '../../assets/player_idle_sprite_sheet.png'
+import sword from '../../assets/player_sword.png'
 const axiosInterface = new AxiosInterface();
 
 const Login = () => {
@@ -84,7 +84,13 @@ const Login = () => {
 
       </div>
       <div className="auth-character-avatar">
-        <PlayerAvatar />
+        {/* <PlayerAvatar /> */}
+        <div className="player">
+          <img className="player_sword" src={sword} alt="" />
+          <div className="player-avatar">
+            <img className="player_spritesheet" src={char} alt="" />
+          </div>
+        </div>
       </div>
     </div>
 

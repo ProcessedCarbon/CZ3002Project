@@ -3,7 +3,8 @@ import './Register.css';
 import AxiosInterface from '../Misc/AxiosInterface';
 import { Form, Field } from 'react-final-form';
 import PlayerAvatar from '../PlayerAvatar';
-
+import char from '../../assets/player_idle_sprite_sheet.png'
+import sword from '../../assets/player_sword.png'
 const axiosInterface = new AxiosInterface();
 
 async function onBtnClick(values) {
@@ -129,7 +130,12 @@ const Register = () => {
         />
       </div>
       <div className="auth-character-avatar">
-        <PlayerAvatar />
+        <div className="player">
+          <img className="player_sword" src={sword} alt="" />
+          <div className="player-avatar">
+            <img className="player_spritesheet" src={char} alt="" />
+          </div>
+        </div>
       </div>
     </div>
   );

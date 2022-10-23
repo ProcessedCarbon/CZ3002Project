@@ -1,7 +1,6 @@
 .battletask-container{
-    min-height: 75px;
-    min-width: 20%;
-    max-height: 75px;
+    min-height: 10vh;
+    min-width: 18vw;
     filter: drop-shadow(8px 8px 8px #000);
     transition: var(--transition-cubicbezier);
     justify-content: baseline;
@@ -10,15 +9,15 @@
 
 .battletask-container > h5{
     text-align: start;
-    max-width: 50%;
-    max-height: 70%;
+    max-width: 10vw;
+    max-height: 5vh;
     overflow: scroll;
     text-decoration-color: var(--color-reddish);
 }
 
 .battletask-container > .btn{
-    max-width: 10%;
-    min-height: 40px;
+    width: 3vw;
+    height: 6vh;
 }
 ::-webkit-scrollbar{
     display: none;
