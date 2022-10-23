@@ -12,6 +12,16 @@ import RecommendedTaskBox from './RecommendedTaskComponents/RecommendedTaskBox'
 
 // ICONS OR IMAGES//
 import player_profile_pic from '../../assets/player_profile_pic.png'
+import ranger_1 from '../../assets/profile_pics/ranger_1.png'
+import ranger_2 from '../../assets/profile_pics/ranger_2.png'
+import warrior_1 from '../../assets/player_profile_pic.png'
+import warrior_2 from '../../assets/profile_pics/warrior_2.png'
+import mage_1 from '../../assets/profile_pics/mage_1.png'
+import mage_2 from '../../assets/profile_pics/mage_2.png'
+import dino_1 from '../../assets/profile_pics/dino_1.png'
+import dino_2 from '../../assets/profile_pics/dino_2.png'
+
+
 import messageicon from '../../assets/icons/Messages.png'
 import favouritesicon from '../../assets/icons/Favorites.png'
 import protectionicon from '../../assets/icons/Protection.png'
@@ -62,6 +72,38 @@ const CharacterPage = () => {
     setShowSideBar(false);
   }
 
+  // Character Profile Picture Change Function
+
+  function charProfileBasedOnCharEquipped(){
+    // let title = localStorage.getItem(PLAYER_LOCAL_KEY).char_equipped // char_equipped
+    let title = "warrior 1" // hardcoded to test (REMOVE)
+    if (title === "ranger 1") {
+      return ranger_1;
+    }
+    else if (title === "ranger 2") {
+      return ranger_2;
+    }
+    else if (title === "warrior 1") {
+      return warrior_1;
+    }
+    else if (title === "warrior 2") {
+      return warrior_2;
+    }
+    else if (title === "wizard 1") {
+      return mage_1;
+    }
+    else if (title === "wizard 2") {
+      return mage_2;
+    }
+    else if (title === "dino 1") {
+      return dino_1;
+    }
+    else if (title === "dino 2") {
+      return dino_2;
+    }
+  }
+
+
   /* ================ RENDER ==================== */
   return (
     <div className='characterpage_container'>
@@ -73,7 +115,7 @@ const CharacterPage = () => {
           {/* Profile picture*/}
           <div className='profile-picture'>
             <div className='profile-pic-border'>
-              <img src={player_profile_pic} alt="" />
+              <img src={charProfileBasedOnCharEquipped()} alt="" />
             </div>
             <div className='line'></div>
           </div>
