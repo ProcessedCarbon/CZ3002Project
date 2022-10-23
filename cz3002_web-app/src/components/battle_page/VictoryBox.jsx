@@ -5,7 +5,7 @@ import AxiosInterface from '../Misc/AxiosInterface';
 
 const AUTH_TOKEN = localStorage.getItem('auth_token');
 const axiosInterface = new AxiosInterface();
-const PLAYER_LOCAL_KEY = 'PLAYER_LOCAL_KEY';
+// const PLAYER_LOCAL_KEY = 'PLAYER_LOCAL_KEY';
 
 function VictoryBox({ xp, gold }) {
   const ref = useRef();
@@ -109,7 +109,7 @@ function VictoryBox({ xp, gold }) {
 
         {/* <h3>items</h3> */}
         <a className="btn" href="profile">
-          BACK
+          <h5>BACK</h5>
         </a>
       </div>
     </div>

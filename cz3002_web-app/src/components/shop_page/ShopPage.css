@@ -2,31 +2,38 @@
     background-color: #2F283A;
     background-image: url(../../assets/characterpage_scene.png);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 100vw 100vh;
     border-radius: 30px;
     display: grid;
-    grid-template-columns: 1.5rem 1fr 1.5rem;
     grid-template-areas:
         "gold-profile . shopkeeper-img"
         ". middle ."
         ". bottom .";
     margin: 1rem;
     padding: 1rem;
-    height: 650px;
+    height: 100vh;
     grid-template-columns: 1fr 1fr;
     overflow: hidden;
 }
 .items{
     display: flex;
     flex-direction: row;
-    background: transparent;
     overflow-x: scroll;
-    width: 80%;
-    height: fit-content;
+    width: 80vw;
     position: absolute;
     justify-content: start;
-    bottom: 8rem;
-    left: 9.5rem;
+    bottom: 15vh;
+    left: 10vw;
+    animation: shop-item-intro 1.5s forwards;
+}
+
+@keyframes shop-item-intro{
+    from{
+        transform: translateX(100%);
+    }
+    to{
+        transform: translateX(0%);
+    }
 }
 
 .shoppage_container>.background > .return-home-btn{
@@ -34,30 +41,27 @@
     right: 3rem;
     top: 3rem;
     width: fit-content;
-    font-size: 1.5rem;
+    font-size: 2vw;
 }
 .shoppage_container >.background > .return-home-btn > h5{
     margin: .25rem;
 }
 
-
-
-
-
 /*================= CHARACTER PROFILE ========================*/
 .shoppage_container>.background>.character_gold_profile {
     grid-area: 'char-profile';
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    column-gap: 1rem;
-    background-color: var(--color-reddish);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-orange);
     border-radius: 10px;
-    border: 8px solid var(--color-reddish);
+    border: 8px solid var(--color-yellow-orange);
     border-style: ridge;
-    width: 35%;
+    min-width: 10vw;
+    max-width: 40vw;
+    width: fit-content;
+    overflow-x: scroll;
     height: fit-content;
     padding: 0.5rem;
-    top: 1rem;
     filter: drop-shadow(5px 5px 10px #000);
 
     animation: char-profile-intro;
@@ -65,7 +69,13 @@
     animation-timing-function: var(--transition-cubicbezier);
     animation-iteration-count: 1;
 }
-
+.character_gold_profile > h1{
+    font-size: 2vw;
+}
+.character_gold_profile > h2{
+    font-weight: 300;
+    font-size: 5vw;
+}
 @keyframes char-profile-intro {
     0% {
         transform: translateX(-100%);

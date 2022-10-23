@@ -215,9 +215,6 @@ const BattlePage = () => {
         <a href="profile" className="btn return-home-btn">
           <h5>Return Home</h5>
         </a>
-        <button className="btn" onClick={ClearLocalStorage}>
-          Clear Storage
-        </button>
         {/* ENTITY COMPONENTS */}
         <div className="entity-space">
           <Player health={100} maxhealth={100} name="" taskcomplete={taskComplete} />

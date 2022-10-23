@@ -14,8 +14,8 @@
 
 .battlepage-screen > .return-home-btn{
     position: absolute;
-    right: 3rem;
-    top: 3rem;
+    right: 3vw;
+    top: 5vh;
     width: fit-content;
     font-size: 2vw;
 }

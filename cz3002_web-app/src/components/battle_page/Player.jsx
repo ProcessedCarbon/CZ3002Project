@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './Player.css'
+// import './Player.css'
 import Healthbar from './Healthbar'
 import PlayerAvatar from '../PlayerAvatar';
 

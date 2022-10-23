@@ -17,8 +17,8 @@
 
 .recommendedtaskbox-container > .box > .btn{
     position: relative;
-    width: 45px;
-    height: 45px;
+    max-width: 45px;
+    max-height: 45px;
     margin: 1rem 0;
 }
 
