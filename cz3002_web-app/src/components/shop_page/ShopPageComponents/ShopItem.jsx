@@ -53,7 +53,7 @@ const ShopItem = ({title, cost, is_Buy, buy_f}) => {
     return (
         <div className='shop_item'>
             <button onClick={() => handleClick()} 
-                    className= {(is_Buy) ? 'btn shopitem_container bought' : 'btn shopitem_container'}
+                    className= {(is_Buy) ? 'btn shopitem_container bought no-hover' : 'btn shopitem_container'}
                     disabled={is_Buy}
             >
                 <h2>{title}</h2>

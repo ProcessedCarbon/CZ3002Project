@@ -10,6 +10,7 @@
     padding: 1rem;
     overflow: hidden;
     justify-content: center;
+    min-height: 100vh;
 }
 
 .battlepage-screen > .return-home-btn{
@@ -28,7 +29,7 @@
     display: flex;
     flex-direction: row;
     column-gap: 40vw;
-    margin: 8vh auto;
+    margin: auto auto;
     height: fit-content;
     overflow: hidden;
     min-height: 50vh;
@@ -37,5 +38,5 @@
 
 .battlepage-screen > .entity-space > div {
     position: relative;
-    top: 18vh;
+    top: 14vh;
 }

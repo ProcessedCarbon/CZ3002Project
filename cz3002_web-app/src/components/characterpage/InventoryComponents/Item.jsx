@@ -50,8 +50,8 @@ const Item = ({title, is_equipped, is_Buy, equip_char_f}) => {
     return (
         <div className="item-container">
             <button onClick={() => handleClick()} 
-                    className= {(is_equipped) ? 'btn item-body equip' : 'btn item-body'}
-                    disabled = {is_equipped}
+                    className= {(equip) ? 'btn item-body equip no-hover' : 'btn item-body'}
+                    disabled = {equip}
             >
                 <div >
                     <img src={imgBasedOnCharacter()} alt="" style={{filter: (is_Buy) ? "" : "grayscale(100%)"}}/>

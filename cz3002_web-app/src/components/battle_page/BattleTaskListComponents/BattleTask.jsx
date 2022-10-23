@@ -47,7 +47,7 @@ function BattleTask({ todo, toggleComplete, removeTask }) {
         {todo.task}
       </h5>
       <button className='btn' onClick={handleRemoveClick}
-              style={{scale: todo.completed ? "1.5" : ""}}
+              style={{scale: todo.completed ? "1.1" : ""}}
       >
         <img src={plusicon} alt="" />
       </button>

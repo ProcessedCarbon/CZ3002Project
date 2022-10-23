@@ -1,19 +1,19 @@
 import React from 'react'
 import './ShopItem.css'
 const ShopItem = ({name, removeFromList}) => {
-    const CheckCost = () =>{
+    // const CheckCost = () =>{
 
-    }
-    const CheckSpace = () =>{
+    // }
+    // const CheckSpace = () =>{
 
-    }
-    const AddToInventory = () =>{
+    // }
+    // const AddToInventory = () =>{
 
-    }
-    const handleOnClickBuy = event => {
-        // Collect gift logic
-        removeFromList();
-    }
+    // }
+    // const handleOnClickBuy = event => {
+    //     // Collect gift logic
+    //     removeFromList();
+    // }
 
     return (
     <div className='shopitem'>
