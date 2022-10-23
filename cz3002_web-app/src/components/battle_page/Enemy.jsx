@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './Enemy.css'
+// import './Enemy.css'
 import Healthbar from './Healthbar'
 import EnemyAvatar from './EnemyAvatar';
 

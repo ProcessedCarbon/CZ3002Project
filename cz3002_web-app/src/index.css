@@ -152,8 +152,8 @@ img {
     background: var(--color-light-yellow);
     height: 45vh;
     width: 40vw;
-    right: 20%;
-    top: 15%;
+    right: 20vw;
+    top: 20vh;
     border-radius: 10px;
     animation: fade-in 0.5s forwards;
 }
@@ -162,8 +162,9 @@ img {
     font-family: var(--alt-font);
     color: var(--color-darkish-blue);
     font-weight: 700;
-    margin-top: 1rem;
-    font-size: xx-large;
+    margin-top: 1vh;
+    font-size: 3vw;
+    text-shadow: none;
 }
 @keyframes fade-in{
     from{

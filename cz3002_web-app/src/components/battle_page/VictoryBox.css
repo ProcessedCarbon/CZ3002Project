@@ -8,20 +8,20 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    min-width: 300px;
+    min-width: fit-content;
 }
 .victorybox-container > .box > h2{
     font-family: var(--alt-font);
     color: var(--color-white);
     text-decoration: underline;
     filter: drop-shadow(6px 6px 3px #000);
-    font-size: 3rem;
+    font-size: 4vw;
 }
 .victorybox-container > .box > .fields {
     display: flex;
     flex-direction: column;
     place-items: center;
-    font-size: 1.5rem;
+    font-size: 2vw;
 }
 .victorybox-container > .box > .fields > div{
     display: flex;
@@ -34,11 +34,8 @@
     font-family: var(--alt-font);
 }
 .victorybox-container > .box > *{
-    margin: 1rem 2rem;
+    margin: 3vh 2vw;
 }
-.victorybox-container > .box > a{
-    height: 50px;
-    width: 100px;
-    font-size: 1.5rem;
-    font-weight: 500;
+.victorybox-container > .box > a >h5{
+    font-size: 2vw;
 }
