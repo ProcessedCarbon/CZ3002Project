@@ -2,7 +2,7 @@ import React from 'react';
 import './Register.css';
 import AxiosInterface from '../Misc/AxiosInterface';
 import { Form, Field } from 'react-final-form';
-import PlayerAvatar from '../PlayerAvatar'
+import PlayerAvatar from '../PlayerAvatar';
 
 const axiosInterface = new AxiosInterface();
 
@@ -21,19 +21,20 @@ async function onBtnClick(values) {
     localStorage.setItem('auth_token', auth_token);
     window.location.href = 'profile';
   } catch (error) {
-    //console.log(error);
+    //console.log("reg")
+    console.log(error);
   }
 }
 
 const Register = () => {
   return (
-    <div className='register-background'>
-      <div className='box'>
+    <div className="register-background">
+      <div className="box">
         <h3>Character Sheet</h3>
         <Form
           onSubmit={onBtnClick}
           render={({ handleSubmit, form, submitting, pristine, values }) => (
-            <form onSubmit={handleSubmit} className='authform'>
+            <form onSubmit={handleSubmit} className="authform">
               <div>
                 <Field name="username" validate={(value) => (value ? (value.match(/^[a-zA-Z]+$/) ? undefined : 'Only letters allowed') : 'Required')}>
                   {({ input, meta }) => (
@@ -119,7 +120,7 @@ const Register = () => {
           )}
         />
       </div>
-      <div className='auth-character-avatar'>
+      <div className="auth-character-avatar">
         <PlayerAvatar />
       </div>
     </div>

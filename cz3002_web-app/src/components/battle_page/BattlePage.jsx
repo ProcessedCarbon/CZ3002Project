@@ -9,6 +9,9 @@ import VictoryBox from './VictoryBox';
 import Player from './Player';
 import Enemy from './Enemy';
 
+import AxiosInterface from '../Misc/AxiosInterface';
+const AUTH_TOKEN = localStorage.getItem('auth_token');
+const axiosInterface = new AxiosInterface();
 const LOCAL_STORAGE_KEY = 'BATTLEPAGE';
 
 const enemies = [
@@ -63,29 +66,60 @@ const BattlePage = () => {
     gold: 0,
   });
 
+  // useEffect(() => {
+  //   console.log('First Redering Enemy');
+  //   const storeEnemy = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+  //   if (storeEnemy && storeEnemy.currhp > 0) {
+  //     setEnemyState(storeEnemy);
+  //   } else {
+  //     createEnemy();
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   //console.log('Re redering enemy');
+  //   //console.log(enemyState);
+  //   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(enemyState));
+  // }, [enemyState]);
+
+  //first render
   useEffect(() => {
-    const storeEnemy = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    if (storeEnemy && storeEnemy.currhp > 0) {
-      setEnemyState(storeEnemy);
-    } else {
-      createEnemy();
-    }
+    console.log('First Redering Enemy');
+    getEnemy();
+    // const storeEnemy = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    // if (storeEnemy && storeEnemy.currhp > 0) {
+    //   setEnemyState(storeEnemy);
+    // } else {
+    //   createEnemy();
+    // }
   }, []);
 
+  //re render
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(enemyState));
+    console.log('Re redering enemy', enemyState);
+    if (enemyState.name === '') {
+      console.log('create enemy');
+      createEnemy();
+    }
+    //console.log(enemyState);
+    //localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(enemyState));
   }, [enemyState]);
 
+  //=============================
   function createEnemy() {
     let enemyIndex = getRandomValue(0, enemies.length - 1);
-    setEnemyState({
+    const new_enemy = {
       name: enemies[enemyIndex].name,
       currhp: enemies[enemyIndex].health,
       hp: enemies[enemyIndex].health,
       type: enemies[enemyIndex].type,
       xp: enemies[enemyIndex].xp,
       gold: enemies[enemyIndex].gold,
-    });
+    };
+    //save to db
+    updateEnemy({ new_enemy });
+
+    setEnemyState(new_enemy);
   }
 
   function getRandomValue(from, to) {
@@ -120,6 +154,48 @@ const BattlePage = () => {
   function ClearLocalStorage() {
     localStorage.clear();
   }
+
+  //bryan code
+
+  //update in DB
+  const updateEnemy = async (update) => {
+    let headers = {
+      auth_token: AUTH_TOKEN,
+    };
+    try {
+      await axiosInterface.patchData('/home/enemy/update', '', update, headers);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //get profile related specific user
+  const getEnemy = async () => {
+    //not null key exist in local storage
+    if (AUTH_TOKEN) {
+      let headers = {
+        auth_token: AUTH_TOKEN,
+      };
+      try {
+        let response = await axiosInterface.getData('/home/enemy', headers);
+        // enemy associated to specific user
+        const enemyArray = response.data;
+        // console.log(tasksArray);
+        if (enemyArray.length === 0) {
+          //nothing to render
+          console.log('No enemy');
+          return;
+        }
+        //mongo always return an array
+        const enemy = enemyArray[0];
+        console.log('get enemy', enemy);
+        //setEnemyState(enemy);
+      } catch (error) {
+        console.log(error);
+        return;
+      }
+    }
+  };
 
   return (
     <div className="battlepage-container">
