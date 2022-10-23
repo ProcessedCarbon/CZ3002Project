@@ -10,7 +10,6 @@ import dino_1 from '../../../assets/PlayerAvatars/dino_1.png'
 import dino_2 from '../../../assets/PlayerAvatars/dino_2.png'
 
 
-
 const PLAYER_LOCAL_KEY = "PLAYER_LOCAL_KEY";
 
 const ShopItem = ({title, cost, is_Buy, buy_f}) => {
@@ -53,7 +52,10 @@ const ShopItem = ({title, cost, is_Buy, buy_f}) => {
 
     return (
         <div className='shop_item'>
-            <button onClick={() => handleClick()} className= {(is_Buy) ? 'btn shopitem_container bought' : 'btn shopitem_container'}>
+            <button onClick={() => handleClick()} 
+                    className= {(is_Buy) ? 'btn shopitem_container bought' : 'btn shopitem_container'}
+                    disabled={is_Buy}
+            >
                 <h2>{title}</h2>
                 <img src={imgBasedOnCharacter()} alt="" />
                 <div className='cost_bg'>

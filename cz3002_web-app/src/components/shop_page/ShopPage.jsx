@@ -141,7 +141,8 @@ const ShopPage = () => {
 
         {/* Character Profile in top left corner */}
         <div className="character_gold_profile">
-          <h1> Gold: {'$' + playerDetails.gold} </h1>
+          <h1> Gold: </h1>
+          <h2>{'$' + playerDetails.gold}</h2>
         </div>
 
         <div className="items">

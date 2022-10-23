@@ -2,6 +2,7 @@ import React from 'react'
 import './Title.css'
 import PlayerAvatar from '../PlayerAvatar'
 import title from '../../assets/Title.png'
+
 const Title = () => {
     return (
         <div className='titlescreen-container'>
@@ -18,7 +19,7 @@ const Title = () => {
                             </div>
                         </a>
                     </div>
-                    <div className='auth-char-avatar'>
+                    <div className='auth-character-avatar'>
                         <PlayerAvatar />
                     </div>
                 </div>
