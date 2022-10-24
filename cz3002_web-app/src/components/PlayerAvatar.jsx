@@ -31,6 +31,8 @@ BAD IMPLEMENTATION AS CONSTANLY REFRSHING WHEN CHANGING CHARACTER
 USE EFFECT WILL NOT TRIGGER NOT PERSISTENT AS SAPERATE.
 Periodically refresh this page stealthly
 */
+let player_weapon ="";
+let player_sprite ="";
 
 const PlayerAvatar = ({ taskcomplete }) => {
   const [playerAttack, setPlayerAttackAnim] = useState(false);
@@ -60,63 +62,78 @@ const PlayerAvatar = ({ taskcomplete }) => {
     //console.log('cur char', title);
     if (title === 'ranger 1') {
       char = ranger_1_idle;
+      player_sprite = "ranger_1"
       //setAvatarSrc(ranger_1_idle);
       //return ranger_1_idle;
     } else if (title === 'ranger 2') {
       char = ranger_2_idle;
+      player_sprite = "ranger_2"
       //setAvatarSrc(ranger_2_idle);
       //return ranger_2_idle;
     } else if (title === 'warrior 1') {
       char = warrior_1_idle;
+      player_sprite = "warrior_1"
       //setAvatarSrc(warrior_1_idle);
       //return warrior_1_idle;
     } else if (title === 'warrior 2') {
       char = warrior_2_idle;
+      player_sprite = "warrior_2"
       //setAvatarSrc(warrior_2_idle);
       //return warrior_2_idle;
     } else if (title === 'wizard 1') {
       char = mage_1_idle;
+      player_sprite = "wizard_1"
       //setAvatarSrc(mage_1_idle);
       //return mage_1_idle;
     } else if (title === 'wizard 2') {
       char = mage_2_idle;
+      player_sprite = "wizard_2"
       //setAvatarSrc(mage_2_idle);
       //return mage_2_idle;
     } else if (title === 'dino 1') {
       char = dino_1_idle;
+      player_sprite = "dino_1"
       //setAvatarSrc(dino_1_idle);
       //return dino_1_idle;
     } else if (title === 'dino 2') {
       char = dino_2_idle;
+      player_sprite = "dino_2"
       //setAvatarSrc(dino_2_idle);
       //return dino_2_idle;
     }
     if (title === 'ranger 1' || title === 'ranger 2') {
       weapon = ranger_weapon;
+      player_weapon="ranger_weapon"
       //setWeaponSrc(ranger_weapon);
       //return ranger_weapon;
     } else if (title === 'warrior 1') {
       weapon = warrior_1_weapon;
+      player_weapon="warrior_weapon_1"
       //setWeaponSrc(warrior_1_weapon);
       //return warrior_1_weapon;
     } else if (title === 'warrior 2') {
       weapon = warrior_2_weapon;
+      player_weapon="warrior_weapon_2"
       //setWeaponSrc(warrior_2_weapon);
       //return warrior_2_weapon;
     } else if (title === 'wizard 1') {
       weapon = mage_1_weapon;
+      player_weapon ="mage_weapon_1"
       //setWeaponSrc(mage_1_weapon);
       //return mage_1_weapon;
     } else if (title === 'wizard 2') {
       weapon = mage_2_weapon;
+      player_weapon="mage_weapon_2"
       //setWeaponSrc(mage_2_weapon);
       //return mage_2_weapon;
     } else if (title === 'dino 1') {
       weapon = dino_1_weapon;
+      player_weapon ="dino_weapon_1"
       //setWeaponSrc(dino_1_weapon);
       //return dino_1_weapon;
     } else if (title === 'dino 2') {
       weapon = dino_2_weapon;
+      player_weapon ="dino_weapon_2"
       //setWeaponSrc(dino_2_weapon);
       //return dino_2_weapon;
     }
@@ -171,8 +188,10 @@ const PlayerAvatar = ({ taskcomplete }) => {
         animationPlayState: playerAttack ? 'running' : 'paused',
       }}
     >
-      <img className="player_sword" src={characterSrc.weaponSrc} alt="" />
-      <div className="player-avatar">
+      <div id={player_weapon} className='player_weapon'>
+        <img className="player_sword" src={characterSrc.weaponSrc} alt="" />
+      </div>
+      <div id={player_sprite} className="player-avatar">
         <img className="player_spritesheet" src={characterSrc.charSrc} alt="" />
       </div>
     </div>
