@@ -23,9 +23,9 @@ const Login = () => {
       window.location.href = 'profile';
       //console.log(auth_token);
     } catch (error) {
-      if(error.message == 'Network Error')
+      if (error.message == 'Network Error')
         alert('Backend connection error')
-      switch(error.response.data.message){
+      switch (error.response.data.message) {
         case 'Email does not exist':
         case 'Invalid Password':
         case '"password" length must be at least 5 characters long':
@@ -44,7 +44,7 @@ const Login = () => {
   return (
     <div className='login-background'>
       <div className='box'>
-        <h3>Hello Adventurer</h3>
+        <h3>Hello, Adventurer</h3>
         <Form
           onSubmit={loginBtnClick}
           render={({ handleSubmit, form, submitting, pristine, values }) => (
@@ -86,7 +86,9 @@ const Login = () => {
       <div className="auth-character-avatar">
         {/* <PlayerAvatar /> */}
         <div className="player">
-          <img className="player_sword" src={sword} alt="" />
+          <div id="warrior_weapon_1" className='player_weapon'>
+            <img className="player_sword" src={sword} alt="" />
+          </div>
           <div className="player-avatar">
             <img className="player_spritesheet" src={char} alt="" />
           </div>

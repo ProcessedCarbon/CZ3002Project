@@ -5,14 +5,15 @@
 .player > .player-avatar{
     height: fit-content;
     width: 5.5vw;
-    bottom: 1rem;    
     overflow: hidden;
 }  
+
 
 .player > .player-avatar > img{
     min-width: 11vw;
     animation: sprite-animation 1s steps(2) infinite;
 }
+
 #dino_1{
     width: 4.37vw;
     transform: scale(1.3);

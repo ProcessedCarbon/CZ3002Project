@@ -14,7 +14,7 @@
     transform: scale(45vh, 45vw);
     filter: drop-shadow(5px 10px 10px rgba(0,0,0,0.5));
 
-    animation-name: main-title-intro,  main-title-anim ;
+    animation-name: main-title-intro, main-title-anim ;
     animation-duration: 2s, 1.5s;
     animation-delay: 0s, 2.5s;
     animation-iteration-count: 1, infinite;
@@ -24,7 +24,7 @@
 
 @keyframes main-title-intro{
     from{
-        transform: translateY(-100%);
+        transform: translateY(-100%) scaleY(3);
         opacity: 0;
         filter: blur(10px);
     }

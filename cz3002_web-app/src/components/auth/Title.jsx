@@ -22,7 +22,9 @@ const Title = () => {
                     </div>
                     <div className='auth-character-avatar'>
                         <div className="player">
-                            <img className="player_sword" src={sword} alt="" />
+                            <div id="warrior_weapon_1" className='player_weapon'>
+                                <img className="player_sword" src={sword} alt="" />
+                            </div>
                             <div className="player-avatar">
                                 <img className="player_spritesheet" src={char} alt="" />
                             </div>

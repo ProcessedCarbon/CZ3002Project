@@ -22,9 +22,9 @@ async function onBtnClick(values) {
     localStorage.setItem('auth_token', auth_token);
     window.location.href = 'profile';
   } catch (error) {
-    if(error.message == 'Network Error')
+    if (error.message == 'Network Error')
       alert('Backend connection error')
-    switch(error.response.data.message){
+    switch (error.response.data.message) {
       case 'Email already exist':
         alert('Please use another email')
         break
@@ -131,7 +131,9 @@ const Register = () => {
       </div>
       <div className="auth-character-avatar">
         <div className="player">
-          <img className="player_sword" src={sword} alt="" />
+          <div id="warrior_weapon_1" className='player_weapon'>
+            <img className="player_sword" src={sword} alt="" />
+          </div>          
           <div className="player-avatar">
             <img className="player_spritesheet" src={char} alt="" />
           </div>
