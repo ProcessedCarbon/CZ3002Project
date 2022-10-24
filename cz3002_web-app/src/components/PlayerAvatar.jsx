@@ -39,14 +39,18 @@ const PlayerAvatar = ({ taskcomplete }) => {
   //   const [avatarSrc, setAvatarSrc] = useState('');
   //   const [weaponSrc, setWeaponSrc] = useState('');
   const [characterSrc, setCharacter] = useState({ charSrc: '', weaponSrc: '' });
+
   useEffect(() => {
     //console.log('First render playerAvatar');
     //charAndWeapon();
     //charImgBasedOnCharacter();
     //weaponImgBasedOnCharacter();
     const t = setInterval(charAndWeapon, 1500);
-    return () => clearInterval(t); // clear
-  }, []);
+    return () => {
+      //console.log('clean up1');
+      clearInterval(t);
+    }; // clear
+  }, [characterSrc]);
   //   useEffect(() => {
   //     console.log('Rerender playerAvatar');
   //     //charAndWeapon();
