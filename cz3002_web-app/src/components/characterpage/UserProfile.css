@@ -2,10 +2,27 @@
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
+    opacity: 0;
+
+    animation: user-profile-intro 2s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: var(--transition-cubicbezier);
 }
 .userprofile-container >.stats-grp {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 0.1vw;
     padding: .25rem;
+}
+
+@keyframes user-profile-intro{
+    from{
+        opacity: 0;
+        filter: blur(5px);
+    }
+    to{
+        opacity: 1;
+        filter: blur(0);
+    }
 }

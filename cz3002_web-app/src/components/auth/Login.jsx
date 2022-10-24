@@ -44,7 +44,7 @@ const Login = () => {
   return (
     <div className='login-background'>
       <div className='box'>
-        <h3>Hello Adventurer</h3>
+        <h3>Hello, Adventurer</h3>
         <Form
           onSubmit={loginBtnClick}
           render={({ handleSubmit, form, submitting, pristine, values }) => (

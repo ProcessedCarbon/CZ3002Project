@@ -201,6 +201,7 @@ img {
     width: 20vw;
     height: fit-content;
 }
+
 .entity-container > h5{
     font-size: 1.5vw;
 }
@@ -227,8 +228,7 @@ img {
     pointer-events: none;
 }
 
-.auth-character-avatar::after,
-.entity-container::after{
+.auth-character-avatar::after{
     content: "";
     position: absolute;
     width: 7vw;
