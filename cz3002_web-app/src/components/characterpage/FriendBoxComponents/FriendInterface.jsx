@@ -56,27 +56,35 @@ function FriendInterface({ addFriend }) {
   }
 
   // For testing only
-  function handleAddFriend(e) {
+  async function handleAddFriend(e) {
     e.preventDefault(); // prevents browser refresh
-    addFriendIfExists(input_value, testFriendInSystem);
+    //console.log('Add friend btn press');
+    await addFriendIfExists(input_value, testFriendInSystem);
   }
 
-  function addFriendIfExists(name, list) {
-    setFriendInSystem(
-      list.map((friend) => {
-        if (friend.name === name && friend.added === false) {
-          // add to personal list
-          addFriendToList(name);
+  async function addFriendIfExists(name, list) {
+    console.log('Inputed friend name', name);
+    if (AUTH_TOKEN) {
+      let headers = {
+        auth_token: AUTH_TOKEN,
+      };
+      await axiosInterface.postData('/home/users/addFriend', { friend: name }, headers);
+      setFriendInSystem(
+        list.map((friend) => {
+          if (friend.name === name && friend.added === false) {
+            // add to personal list
+            addFriendToList(name);
 
-          // update DB on added
-          return {
-            ...friend,
-            added: true,
-          };
-        }
-        return friend;
-      })
-    );
+            // update DB on added
+            return {
+              ...friend,
+              added: true,
+            };
+          }
+          return friend;
+        })
+      );
+    }
   }
 
   function handleFriendInputChange(e) {
