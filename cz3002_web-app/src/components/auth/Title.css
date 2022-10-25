@@ -15,7 +15,8 @@
     transform: scale(45vh, 45vw);
     filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.5));
     overflow: hidden;
-    border: 3px solid rgba(255, 255, 255, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    padding: 0.3vw;
     border-radius: 1vw;
 
     animation-name: main-title-intro, main-title-anim;
@@ -33,14 +34,16 @@
     left: -42vw;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
     transform: skewX(-30deg);
     transition: 0.5s;
+
+    animation: shining-animation 7s forwards infinite;
 }
 
 .main-title:hover:before {
     left: 42vw;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 @keyframes main-title-intro {
