@@ -5,39 +5,48 @@ import { Form, Field } from 'react-final-form';
 import PlayerAvatar from '../PlayerAvatar';
 import char from '../../assets/player_idle_sprite_sheet.png'
 import sword from '../../assets/player_sword.png'
+import PopUp from './Popup';
+import { useState } from 'react';
+
 const axiosInterface = new AxiosInterface();
 
-async function onBtnClick(values) {
-  //TODO: backend logic
-  console.log('values', values);
-  const userFields = {
-    name: values.username,
-    email: values.email,
-    region: values.region,
-    password: values.password,
-  };
-  try {
-    const response = await axiosInterface.postData('/user/register', userFields);
-    const auth_token = response.headers.auth_token;
-    localStorage.setItem('auth_token', auth_token);
-    window.location.href = 'profile';
-  } catch (error) {
-    if (error.message == 'Network Error')
-      alert('Backend connection error')
-    switch (error.response.data.message) {
-      case 'Email already exist':
-        alert('Please use another email')
-        break
-      default:
-        alert(error.response.data.message)
-        break
+const Register = () => {
+  var [popupError,showError] = useState(undefined);
+
+  async function onBtnClick(values) {
+    //TODO: backend logic
+    console.log('values', values);
+    const userFields = {
+      name: values.username,
+      email: values.email,
+      region: values.region,
+      password: values.password,
+    };
+    try {
+      const response = await axiosInterface.postData('/user/register', userFields);
+      const auth_token = response.headers.auth_token;
+      localStorage.setItem('auth_token', auth_token);
+      window.location.href = 'profile';
+    } catch (error) {
+      if (error.message === 'Network Error')
+        showError('Backend connection error')
+      switch (error.response.data.message) {
+        case 'Email already exist':
+          showError('Please use another email')
+          break
+        case '"region" is required':
+          showError('Please select a region')
+          break
+        default:
+          showError(error.response.data.message)
+          break
+      }
     }
   }
-}
 
-const Register = () => {
   return (
     <div className="register-background">
+      {popupError ? <PopUp toggle={() => showError(undefined)} errorMsg={popupError}/> : 
       <div className="box">
         <h3>Character Sheet</h3>
         <Form
@@ -86,16 +95,14 @@ const Register = () => {
                 </Field>
                 <div>
                   <label>Region</label>
-                  <Field name="region" component="select">
+                  <Field name="region" component="select" validate={value => value === '' ? 'Please select' : undefined}>
                     <option value=""></option>
                     <option value="SEA">SEA</option>
                     <option value="US">US</option>
                     <option value="EU">EU</option>{' '}
                     {({ input, meta }) => (
                       <div>
-                        <label>Password</label>
-                        <input {...input} type="password" />
-                        {meta.error && meta.touched && <span style={{ color: 'red' }}>{meta.error}</span>}
+                        {!meta.touched && <span style={{ color: 'red' }}>{meta.error}</span>}
                       </div>
                     )}
                   </Field>{' '}
@@ -129,6 +136,7 @@ const Register = () => {
           )}
         />
       </div>
+      }
       <div className="auth-character-avatar">
         <div className="player">
           <div id="warrior_weapon_1" className='player_weapon'>
