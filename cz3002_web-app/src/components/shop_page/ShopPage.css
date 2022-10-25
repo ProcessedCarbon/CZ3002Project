@@ -1,5 +1,5 @@
 .shoppage_container>.background {
-    background-color: #2F283A;
+    background-color: var(--color-bg);
     background-image: url(../../assets/characterpage_scene.png);
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
@@ -87,3 +87,46 @@
         opacity: 1;
     }
 }
+
+.shop-title{
+    position: absolute;
+    right: 19vw;
+}
+
+.shop-title > .box{
+    height: 10vh;
+    width: 20vw;
+    padding: 0.5vw;
+    background-color: #241e2c;
+    border: 5px solid #241e2c;
+    border-style: inset;
+    opacity: 0;
+
+    animation: shop-title-intro 1.5s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.shop-title > .box > h1{
+    animation: shop-title-text-anim 1.5s ease-in-out infinite;
+    animation-delay: 1.5s;
+}
+
+@keyframes shop-title-intro{
+    from{
+        opacity: 0;
+        filter: blur(5px);
+        height: 0;
+    }
+    to{
+        opacity: 1;
+        height: 10vh;
+    }
+}
+
+@keyframes shop-title-text-anim{
+    50%{
+        transform: translateY(-3px) scale(1.05);
+    }
+}
+
+

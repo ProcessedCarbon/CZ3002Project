@@ -135,6 +135,11 @@ const ShopPage = () => {
   return (
     <div className="shoppage_container">
       <div className="background">
+        <div className='shop-title'>
+            <div className='box'>
+                <h1>The Shop</h1>
+            </div>
+        </div>
         <a href="profile" className="btn return-home-btn">
           <h5>Return Home</h5>
         </a>
