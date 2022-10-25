@@ -106,10 +106,10 @@ const TaskBox = () => {
         <h2>Task List</h2>
         <div className="taskbox-btns">
           <button className="btn clearall" onClick={clearAllTask}>
-            <h4>Clear All</h4>
+            <h5>Clear All</h5>
           </button>
           <button className="btn clearcompleted" onClick={clearCompletedTask}>
-            <h4>Clear Completed</h4>
+            <h5>Clear Completed</h5>
           </button>
         </div>
         <TaskForm addTask={addTask} />

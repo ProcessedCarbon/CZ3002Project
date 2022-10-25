@@ -19,9 +19,7 @@
     top: 5vh;
     width: fit-content;
     font-size: 2vw;
-}
-.battlepage-screen > .return-home-btn > h5{
-    margin: .25rem;
+    padding: 0.3vw;
 }
 
 /* BATTLE SCENE */

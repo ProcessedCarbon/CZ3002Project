@@ -1,6 +1,5 @@
 import React from 'react'
 import './Title.css'
-import PlayerAvatar from '../PlayerAvatar'
 import title from '../../assets/Title.png'
 import char from '../../assets/player_idle_sprite_sheet.png'
 import sword from '../../assets/player_sword.png'

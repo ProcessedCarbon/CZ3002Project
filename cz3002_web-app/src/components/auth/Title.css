@@ -1,4 +1,4 @@
-.titlescreen-container > .background{
+.titlescreen-container>.background {
     background-image: url(../../assets/login_page_background.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -7,14 +7,18 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    }
-.titlescreen-container >.background > .main-title{
-    max-height: 35vh;
-    max-width: 35vw;
-    transform: scale(45vh, 45vw);
-    filter: drop-shadow(5px 10px 10px rgba(0,0,0,0.5));
+}
 
-    animation-name: main-title-intro, main-title-anim ;
+.titlescreen-container>.background>.main-title {
+    max-height: 40vh;
+    max-width: 40vw;
+    transform: scale(45vh, 45vw);
+    filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.5));
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 1vw;
+
+    animation-name: main-title-intro, main-title-anim;
     animation-duration: 2s, 1.5s;
     animation-delay: 0s, 2.5s;
     animation-iteration-count: 1, infinite;
@@ -22,20 +26,39 @@
 
 }
 
-@keyframes main-title-intro{
-    from{
-        transform: translateY(-100%) scaleY(3);
+.main-title:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -42vw;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-30deg);
+    transition: 0.5s;
+}
+
+.main-title:hover:before {
+    left: 42vw;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes main-title-intro {
+    from {
+        transform: translateY(-100%);
         opacity: 0;
         filter: blur(10px);
     }
-    to{
+
+    to {
         transform: translateY(0);
     }
 }
-@keyframes main-title-anim{
-    50%{
+
+@keyframes main-title-anim {
+    50% {
         transform: translateY(-5%);
-        filter: drop-shadow(10px 15px 15px rgba(0,0,0,0.5));
+        filter: drop-shadow(10px 15px 15px rgba(0, 0, 0, 0.5));
     }
 }
 
@@ -44,10 +67,12 @@
     flex-direction: column;
     place-items: center;
 }
-.titlescreen-body  > .auth-char-avatar{
+
+.titlescreen-body>.auth-char-avatar {
     transform: scale(1.5);
 }
-.titlescreen-body >.char-text-box >.box{
+
+.titlescreen-body>.char-text-box>.box {
     min-width: fit-content;
     min-height: 70px;
     max-height: 20vh;
@@ -61,48 +86,57 @@
     border: none;
 }
 
-.char-text-box >.box > .box-content {
+.char-text-box>.box>.box-content {
     min-width: fit-content;
     min-height: fit-content;
     text-shadow: 2px 2px black;
     transition: linear;
 }
 
-.char-text-box >.box > .box-content > h5{
+.char-text-box>.box>.box-content>h5 {
     font-weight: 100;
     font-size: 3vw;
 }
-.char-text-box >.box > .box-content > h4{
+
+.char-text-box>.box>.box-content>h4 {
     font-family: var(--alt-font);
-    font-weight:700;
+    font-weight: 700;
     font-size: 3.5vw;
     margin-top: -2vh;
 }
-.titlescreen-body >.char-text-box >.box::after{
-    content: "";
-    min-height: 3vw;
-    min-width: 3vw;
-    background: var(--color-orange);
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-    z-index: -1;
-    transition: var(--transition-cubicbezier);
 
+.titlescreen-body>.char-text-box>.title-screen-btn{
+    overflow: hidden;
 }
-.titlescreen-body > .char-text-box > .title-screen-btn:not(.no-hover):hover{
+.title-screen-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -20vw;
+    width: 100%;
+    height: 100%;
+    background: var(--color-dark-purple);
+    transition: 0.8s ease-in-out;
+    z-index: 1;
+}
+
+.title-screen-btn:hover:before {
+    left: 20vw;
+    background: var(--color-orange);
+}
+.titlescreen-body>.char-text-box>.title-screen-btn:not(.no-hover):hover {
     transform: scale(1.2);
     background: var(--color-dark-purple);
     box-shadow: none;
 }
-.titlescreen-body > .char-text-box > .title-screen-btn:not(.no-hover):hover > .box-content{
-    color:var(--color-light-yellow);
+
+.titlescreen-body>.char-text-box>.title-screen-btn:not(.no-hover):hover>.box-content {
+    color: var(--color-light-yellow);
     transform: scale(1.1);
-    text-shadow:none;
+    text-shadow: none;
 }
 
-.titlescreen-body >.char-text-box > .title-screen-btn:not(.no-hover):hover::after{
+.titlescreen-body>.char-text-box>.title-screen-btn:not(.no-hover):hover::after {
     opacity: 0;
     transform: translateY(-100%);
     filter: blur(5px);
