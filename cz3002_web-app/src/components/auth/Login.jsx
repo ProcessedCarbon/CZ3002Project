@@ -4,12 +4,16 @@ import { Form, Field } from 'react-final-form';
 import AxiosInterface from '../Misc/AxiosInterface';
 import char from '../../assets/player_idle_sprite_sheet.png'
 import sword from '../../assets/player_sword.png'
+import PopUp from './Popup';
+import { useState } from 'react';
 const axiosInterface = new AxiosInterface();
 
 const Login = () => {
   function registerBtnClick(e) {
     window.location.href = 'register';
   }
+  
+  var [popupError,showError] = useState(undefined);
 
   async function loginBtnClick(values) {
     const userFields = {
@@ -23,19 +27,19 @@ const Login = () => {
       window.location.href = 'profile';
       //console.log(auth_token);
     } catch (error) {
-      if (error.message == 'Network Error')
-        alert('Backend connection error')
+      if (error.message === 'Network Error')
+        showError('Backend connection error')
       switch (error.response.data.message) {
         case 'Email does not exist':
         case 'Invalid Password':
         case '"password" length must be at least 5 characters long':
-          alert("Incorrect username or password")
+          showError("Incorrect username or password")
           break
         case '"email" must be a valid email':
-          alert("Please enter a valid email")
+          showError("Please enter a valid email")
           break
         default:
-          alert(error.response.data.message)
+          showError(error.response.data.message)
           break
       }
     }
@@ -43,6 +47,7 @@ const Login = () => {
 
   return (
     <div className='login-background'>
+      {popupError ? <PopUp toggle={() => showError(undefined)} errorMsg={popupError}/> : 
       <div className='box'>
         <h3>Hello, Adventurer</h3>
         <Form
@@ -50,7 +55,19 @@ const Login = () => {
           render={({ handleSubmit, form, submitting, pristine, values }) => (
             <form onSubmit={handleSubmit} className="authform login-form">
               <div>
-                <Field name="email" validate={(value) => (value ? undefined : 'Required')}>
+                <Field
+                  name="email"
+                  validate={(value) =>
+                    value
+                      ? value.lastIndexOf('@') > 2 &&
+                        value.lastIndexOf('@') < value.lastIndexOf('.') &&
+                        value.lastIndexOf('.') > 2 &&
+                        value.length - value.lastIndexOf('.') > 2
+                        ? undefined
+                        : 'Invalid'
+                      : 'Required'
+                  }
+                >
                   {({ input, meta }) => (
                     <div>
                       <label>Email</label>
@@ -83,6 +100,7 @@ const Login = () => {
         />
 
       </div>
+      }
       <div className="auth-character-avatar">
         {/* <PlayerAvatar /> */}
         <div className="player">
