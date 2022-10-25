@@ -39,9 +39,23 @@ const FriendBox = () => {
         setList(friend_list);
       }
     }
-    getFriendList();
+    //getFriendList();
+    const t = setInterval(getFriendList, 1000);
+    return () => {
+      clearInterval(t);
+    };
   }, [friends]);
-  function addFriend(friend) {
+
+  async function addFriend(friend) {
+    if (AUTH_TOKEN) {
+      let headers = {
+        auth_token: AUTH_TOKEN,
+      };
+      //go to DB retive all users except ownself
+      let response = await axiosInterface.getData('/home/users/getAllUsers');
+      let users_list = response.data;
+      console.log('users', users_list);
+    }
     setList([...friends, friend]);
   }
 

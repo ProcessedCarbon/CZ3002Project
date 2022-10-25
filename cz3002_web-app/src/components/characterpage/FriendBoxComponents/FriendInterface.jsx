@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './FriendInterface.css';
-
+import AxiosInterface from '../../Misc/AxiosInterface';
 
 const LOCAL_FRIEND_SYSTEM = 'TEST_FRIEND_SYSTEM';
 
@@ -9,8 +9,8 @@ const LOCAL_FRIEND_SYSTEM = 'TEST_FRIEND_SYSTEM';
 // Check if the username keyed in exist
 // need to save the image of the player and display
 
-
-
+const AUTH_TOKEN = localStorage.getItem('auth_token');
+const axiosInterface = new AxiosInterface();
 let input_value = '';
 
 function FriendInterface({ addFriend }) {
