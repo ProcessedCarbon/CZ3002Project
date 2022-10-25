@@ -40,9 +40,8 @@ const axiosInterface = new AxiosInterface();
 const charPageScreens = [
   { key: 1, screen: <TaskBox /> },
   { key: 2, screen: <FriendBox /> },
-  { key: 3, screen: <Shop /> },
-  { key: 4, screen: <InventoryBox /> },
-  { key: 5, screen: <RecommendedTaskBox /> },
+  { key: 3, screen: <InventoryBox /> },
+  { key: 4, screen: <RecommendedTaskBox /> },
 ];
 
 const CharacterPage = () => {
@@ -207,7 +206,7 @@ const CharacterPage = () => {
               3. sidebar
           */}
         <div className="bottom_btn" style={{ transform: hideLowerBtn ? 'translateY(120%)' : 'translateY(0)' }}>
-          <button onClick={() => handleChangeScreen(charPageScreens[3], true)} className="btn inventory-btn">
+          <button onClick={() => handleChangeScreen(charPageScreens[2], false)} className="btn inventory-btn">
             <img src={chestbtn} alt="" />
           </button>
           <a href="battle" className="btn battle-btn">
@@ -219,7 +218,6 @@ const CharacterPage = () => {
               className={showSideBar ? 'btn sidebar-btn no-hover' : 'btn sidebar-btn'}
               disabled={showSideBar}
               style={{
-                // bottom: showSideBar ? '-4rem' : ' -23rem',
                 transform: showSideBar ? 'translateY(-65%)' : 'translateY(5%)',
                 backgroundColor: showSideBar ? 'var(--color-darkish-blue)' : '',
                 border: showSideBar ? '0 transparent' : '',
@@ -231,7 +229,7 @@ const CharacterPage = () => {
                 <a href="login" className="btn">
                   <img src={homeicon} alt="" />
                 </a>
-                <button className="btn" onClick={() => handleChangeScreen(charPageScreens[4], false)}>
+                <button className="btn" onClick={() => handleChangeScreen(charPageScreens[3], false)}>
                   <img src={recommendedtaskicon} alt="" />
                 </button>
                 <img src={minusicon} style={{ marginTop: '14vh' }} alt="" />
