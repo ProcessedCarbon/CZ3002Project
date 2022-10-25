@@ -1,7 +1,7 @@
 .userprofile-container {
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
+    row-gap: 2vh;
     opacity: 0;
 
     animation: user-profile-intro 2s;
@@ -13,7 +13,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 0.1vw;
-    padding: .25rem;
+    padding: .25vw;
 }
 
 @keyframes user-profile-intro{
