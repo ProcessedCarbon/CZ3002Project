@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-// import './Player.css'
 import Healthbar from './Healthbar'
 import PlayerAvatar from '../PlayerAvatar';
+import './Player.css'
 
 function Player({ health, maxhealth, name, taskcomplete }) {
     const [hp, setHP] = useState(health);
@@ -14,7 +14,7 @@ function Player({ health, maxhealth, name, taskcomplete }) {
         <div className='player-container'>
             <div className='entity-container'>
                 <h5>{name}</h5>
-                <Healthbar currHealth={hp} health={maxhealth} hpSetter={hpSetter} />
+                {/* <Healthbar currHealth={hp} health={maxhealth} hpSetter={hpSetter} /> */}
                 <PlayerAvatar taskcomplete={taskcomplete}/>
             </div>
         </div>

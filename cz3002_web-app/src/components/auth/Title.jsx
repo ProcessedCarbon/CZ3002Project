@@ -1,6 +1,5 @@
 import React from 'react'
 import './Title.css'
-import PlayerAvatar from '../PlayerAvatar'
 import title from '../../assets/Title.png'
 import char from '../../assets/player_idle_sprite_sheet.png'
 import sword from '../../assets/player_sword.png'
@@ -22,7 +21,9 @@ const Title = () => {
                     </div>
                     <div className='auth-character-avatar'>
                         <div className="player">
-                            <img className="player_sword" src={sword} alt="" />
+                            <div id="warrior_weapon_1" className='player_weapon'>
+                                <img className="player_sword" src={sword} alt="" />
+                            </div>
                             <div className="player-avatar">
                                 <img className="player_spritesheet" src={char} alt="" />
                             </div>

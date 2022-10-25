@@ -48,13 +48,20 @@
 
 #dark_mage{
     width: 6vw;
-    filter:drop-shadow(0px 0px 10px var(--color-light-purple));
+    filter:drop-shadow(0px 0px 10px var(--color-light-purple)) contrast(150%);
+    animation: dark_mage_anim 2s forwards infinite;
+}
+@keyframes dark_mage_anim{
+    50%{
+        filter: drop-shadow(0px -10px 30px var(--color-light-purple)) contrast(150%);
+    }
 }
 #dark_mage > img{
     min-width: 25vw;
     padding-top: 20vh;
     animation: sprite-animation 0.8s steps(4) infinite;
 }
+
 #green_slime{
     width: 7.5vw;
 }

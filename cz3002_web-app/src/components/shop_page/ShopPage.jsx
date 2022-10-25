@@ -145,6 +145,14 @@ const ShopPage = () => {
           <h2>{'$' + playerDetails.gold}</h2>
         </div>
 
+        <div className='shop-title'>
+            <div className='box'>
+                {/* <h1>The Shop</h1> */}
+                <span className='word-1'>The</span>
+                <span className='word-2'>Shop</span>
+            </div>
+        </div>
+
         <div className="items">
           <ShopItem
             title={ShopItemList[0].title}
