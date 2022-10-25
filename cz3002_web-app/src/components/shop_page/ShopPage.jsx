@@ -135,11 +135,6 @@ const ShopPage = () => {
   return (
     <div className="shoppage_container">
       <div className="background">
-        <div className='shop-title'>
-            <div className='box'>
-                <h1>The Shop</h1>
-            </div>
-        </div>
         <a href="profile" className="btn return-home-btn">
           <h5>Return Home</h5>
         </a>
@@ -148,6 +143,14 @@ const ShopPage = () => {
         <div className="character_gold_profile">
           <h1> Gold: </h1>
           <h2>{'$' + playerDetails.gold}</h2>
+        </div>
+
+        <div className='shop-title'>
+            <div className='box'>
+                {/* <h1>The Shop</h1> */}
+                <span className='word-1'>The</span>
+                <span className='word-2'>Shop</span>
+            </div>
         </div>
 
         <div className="items">

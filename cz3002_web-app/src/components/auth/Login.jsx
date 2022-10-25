@@ -49,7 +49,24 @@ const Login = () => {
     <div className='login-background'>
       {popupError ? <PopUp toggle={() => showError(undefined)} errorMsg={popupError}/> : 
       <div className='box'>
-        <h3>Hello, Adventurer</h3>
+        <div className='login-title'>
+          {/* <h3>Hello, Adventurer</h3> */}
+          <span style={{ "--i": 1 }}>H</span>
+          <span style={{ "--i": 2 }}>e</span>
+          <span style={{ "--i": 3 }}>l</span>
+          <span style={{ "--i": 4 }}>l</span>
+          <span style={{ "--i": 5 }}>o</span>
+          <span style={{ "--i": 6 }}>,</span>
+          <span style={{ "--i": 7 }}>A</span>
+          <span style={{ "--i": 8 }}>v</span>
+          <span style={{ "--i": 9 }}>e</span>
+          <span style={{ "--i": 10 }}>n</span>
+          <span style={{ "--i": 11 }}>t</span>
+          <span style={{ "--i": 12 }}>u</span>
+          <span style={{ "--i": 13 }}>r</span>
+          <span style={{ "--i": 14 }}>e</span>
+          <span style={{ "--i": 15 }}>r</span>
+        </div>
         <Form
           onSubmit={loginBtnClick}
           render={({ handleSubmit, form, submitting, pristine, values }) => (
