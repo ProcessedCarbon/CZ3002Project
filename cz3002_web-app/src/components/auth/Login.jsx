@@ -58,14 +58,15 @@ const Login = () => {
           <span style={{ "--i": 5 }}>o</span>
           <span style={{ "--i": 6 }}>,</span>
           <span style={{ "--i": 7 }}>A</span>
-          <span style={{ "--i": 8 }}>v</span>
-          <span style={{ "--i": 9 }}>e</span>
-          <span style={{ "--i": 10 }}>n</span>
-          <span style={{ "--i": 11 }}>t</span>
-          <span style={{ "--i": 12 }}>u</span>
-          <span style={{ "--i": 13 }}>r</span>
-          <span style={{ "--i": 14 }}>e</span>
-          <span style={{ "--i": 15 }}>r</span>
+          <span style={{ "--i": 8 }}>d</span>
+          <span style={{ "--i": 9 }}>v</span>
+          <span style={{ "--i": 10 }}>e</span>
+          <span style={{ "--i": 11 }}>n</span>
+          <span style={{ "--i": 12 }}>t</span>
+          <span style={{ "--i": 13 }}>u</span>
+          <span style={{ "--i": 14 }}>r</span>
+          <span style={{ "--i": 15 }}>e</span>
+          <span style={{ "--i": 16 }}>r</span>
         </div>
         <Form
           onSubmit={loginBtnClick}
